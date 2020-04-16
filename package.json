@@ -1,6 +1,6 @@
 {
   "name": "@ubilabs/google-maps-react-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React hooks and map context provider for Google Maps",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -10,13 +10,17 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ubilabs/google-maps-react-hooks.git"
+  },
   "scripts": {
     "build": "rm -rf dist/* && microbundle -o dist/index.js --globals react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
     "dev": "rm -rf dist/* && microbundle watch -o dist/index.js --globals react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "types": "tsc --project tsconfig.json --noEmit",
     "test": "npm run lint && npm run types",
-    "postinstall": "npm run build"
+    "prepublishOnly": "npm run test && npm run build"
   },
   "keywords": [
     "React hooks",
