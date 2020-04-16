@@ -1,0 +1,43 @@
+{
+  "name": "@ubilabs/google-maps-react-hooks",
+  "version": "1.0.0",
+  "description": "React hooks and map context provider for Google Maps",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "build": "rm -rf dist/* && microbundle -o dist/index.js --globals react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
+    "dev": "rm -rf dist/* && microbundle watch -o dist/index.js --globals react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
+    "lint": "eslint './src/**/*.{ts,tsx}'",
+    "types": "tsc --project tsconfig.json --noEmit",
+    "test": "npm run lint && npm run types",
+    "postinstall": "npm run build"
+  },
+  "keywords": [
+    "React hooks",
+    "Google Maps"
+  ],
+  "peerDependencies": {
+    "react": "^16.11.0"
+  },
+  "devDependencies": {
+    "@types/googlemaps": "^3.39.2",
+    "@types/react": "^16.9.19",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "microbundle": "^0.12.0-next.8",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
+  }
+}
