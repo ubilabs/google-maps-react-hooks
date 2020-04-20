@@ -38,7 +38,7 @@ npm install @ubilabs/google-maps-react-hooks -D
 ## Usage
 
 Import the `MapProvider` and wrap it around your components.
-Make sure all components that should have access to the Mapbox map instance
+Make sure all components that should have access to the Google Maps map instance
 are nested inside of the `MapProvider`.
 
 ```jsx
