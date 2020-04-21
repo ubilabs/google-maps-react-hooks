@@ -238,13 +238,14 @@ interface DirectionsProps {
 
 #### Return value
 
-Returns the [`directionsService`](https://developers.google.com/maps/documentation/javascript/reference/directions#DirectionsService) to use directly, `findRoute` which returns a route and `findAndRenderRoute` which also renders the route on the map. When using `findAndRenderRoute`, the `renderOnMap` prop should be set to `true`.
+Returns the [`directionsService`](https://developers.google.com/maps/documentation/javascript/reference/directions#DirectionsService) to use directly, `findRoute` which returns a route and `findAndRenderRoute` which also renders the route on the map. When using `findAndRenderRoute`, the `renderOnMap` prop should be set to `true`. `renderRouteOfIndex` can be used to render a specific route of `google.maps.DirectionsResult` returned by `findRoute` or `findAndRenderRoute`.
 
 ```TypeScript
 interface DirectionsHookReturns {
   directionsService: google.maps.DirectionsService | null;
   findRoute: ((request: google.maps.DirectionsRequest) => Promise<google.maps.DirectionsResult>) | null;
   findAndRenderRoute: ((request: google.maps.DirectionsRequest) => Promise<google.maps.DirectionsResult>) | null;
+  renderRouteOfIndex: (index: number) => void;
 }
 ```
 
