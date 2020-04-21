@@ -37,9 +37,9 @@ npm install @ubilabs/google-maps-react-hooks -D
 
 ## Usage
 
-Import the `MapProvider` and wrap it around your components.
+Import the `GoogleMapProvider` and wrap it around your components.
 Make sure all components that should have access to the Google Maps map instance
-are nested inside of the `MapProvider`.
+are nested inside of the `GoogleMapProvider`.
 
 ```jsx
 import React, { useState, useCallback, forwardRef } from 'react';
@@ -61,6 +61,7 @@ function App() {
       mapContainer={mapContainer}
       options={mapOptions}
       libraries={['places']}
+      onLoad={(map) => map.setZoom(4)}
     >
       <React.StrictMode>
         <MapCanvas ref={mapRef} />
@@ -89,7 +90,31 @@ const MyComponent = () => {
 
 ## GoogleMapProvider
 
-A provider component to wrap around all components that should have access to the Google Maps map instance. ([read more](docs/google-map-provider.md))
+Component to wrap around the code where the map should be available.
+
+```jsx
+<GoogleMapProvider
+  googleMapsAPIKey="my Google Maps API key"
+  mapContainer={mapContainer}
+  options={mapOptions}
+  libraries={['places']}
+  onLoad={(map) => map.setZoom(4)}
+>
+  {children}
+</GoogleMapProvider>
+
+### Properties
+
+```TypeScript
+interface GoogleMapProviderProps {
+  children: React.ReactElement;
+  googleMapsAPIKey: string;
+  mapContainer?: HTMLElement | null;
+  options: google.maps.MapOptions;
+  libraries: string[];
+  onLoad?: (map: google.maps.Map) => void;
+}
+```
 
 ## Hooks
 

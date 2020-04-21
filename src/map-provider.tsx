@@ -8,6 +8,7 @@ export interface GoogleMapProviderProps {
   mapContainer?: HTMLElement | null;
   options: google.maps.MapOptions;
   libraries: string[];
+  onLoad?: (map: google.maps.Map) => void;
 }
 
 export interface GoogleMapContextType extends Partial<GoogleMap> {
@@ -25,7 +26,14 @@ export const GoogleMapContext = React.createContext<GoogleMapContextType>({
  * The global Google Map provider
  */
 const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
-  const {children, googleMapsAPIKey, mapContainer, options, libraries} = props;
+  const {
+    children,
+    googleMapsAPIKey,
+    mapContainer,
+    options,
+    libraries,
+    onLoad
+  } = props;
   const [loading, setLoading] = useState<boolean>(true);
   const [map, setMap] = useState<GoogleMap>();
 
@@ -38,8 +46,13 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
     const mapOptions = {
       container: mapContainer,
       googleMapsAPIKey,
-      onLoad: (): void => setLoading(false),
-      onLoadMap: (loadedMap: GoogleMap): void => setMap(loadedMap),
+      onLoadScript: (): void => setLoading(false),
+      onLoadMap: (loadedMap: GoogleMap): void => {
+        setMap(loadedMap);
+        if (typeof onLoad === 'function' && loadedMap.map) {
+          onLoad(loadedMap.map);
+        }
+      },
       config: options,
       libraries
     };

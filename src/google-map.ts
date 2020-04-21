@@ -4,7 +4,7 @@ interface GoogleMapOptions {
   container: HTMLElement;
   googleMapsAPIKey: string;
   config: google.maps.MapOptions;
-  onLoad: () => void;
+  onLoadScript: () => void;
   onLoadMap: (loadedMap: GoogleMap) => void;
   libraries?: string[];
 }
@@ -38,7 +38,7 @@ export default class GoogleMap {
       }${options.libraries && `&libraries=${options.libraries.join(',')}`}`
     );
     scriptTag.onload = (): void => {
-      options.onLoad();
+      options.onLoadScript();
       this.initMap(options);
     };
     document.getElementsByTagName('head')[0].appendChild(scriptTag);
