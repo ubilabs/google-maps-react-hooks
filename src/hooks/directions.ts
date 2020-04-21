@@ -114,6 +114,7 @@ const useDirections = (props: DirectionsProps = {}): DirectionsHookReturns => {
     [directionsService, directionsRenderer]
   );
 
+  // Renders directions route of given index
   const renderRouteOfIndex = (index: number) => {
     if (directionsRenderer) {
       directionsRenderer.setRouteIndex(index);
@@ -125,7 +126,7 @@ const useDirections = (props: DirectionsProps = {}): DirectionsHookReturns => {
     findRoute: directionsService && findRoute,
     findAndRenderRoute:
       directionsService && directionsRenderer && findAndRenderRoute,
-    renderRouteOfIndex,
+    renderRouteOfIndex
   };
 };
 
