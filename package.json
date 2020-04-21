@@ -29,7 +29,6 @@
     "react": "^16.11.0"
   },
   "devDependencies": {
-    "@types/googlemaps": "^3.39.2",
     "@types/react": "^16.9.19",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
@@ -42,5 +41,8 @@
     "microbundle": "^0.12.0-next.8",
     "prettier": "^1.19.1",
     "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "@types/googlemaps": "^3.39.3"
   }
 }
