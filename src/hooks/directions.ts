@@ -19,6 +19,7 @@ interface DirectionsHookReturns {
         request: google.maps.DirectionsRequest
       ) => Promise<google.maps.DirectionsResult>)
     | null;
+  renderRouteOfIndex: (index: number) => void;
 }
 
 /**
@@ -113,11 +114,18 @@ const useDirections = (props: DirectionsProps = {}): DirectionsHookReturns => {
     [directionsService, directionsRenderer]
   );
 
+  const renderRouteOfIndex = (index: number) => {
+    if (directionsRenderer) {
+      directionsRenderer.setRouteIndex(index);
+    }
+  };
+
   return {
     directionsService,
     findRoute: directionsService && findRoute,
     findAndRenderRoute:
-      directionsService && directionsRenderer && findAndRenderRoute
+      directionsService && directionsRenderer && findAndRenderRoute,
+    renderRouteOfIndex,
   };
 };
 
