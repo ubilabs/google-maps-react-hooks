@@ -61,7 +61,7 @@ function App() {
       mapContainer={mapContainer}
       options={mapOptions}
       libraries={['places']}
-      mapIds={['d85da84f141b8b84']}
+      mapIds={['<your-mapstyle-id>']}
       onLoad={(map) => map.setZoom(4)}
     >
       <React.StrictMode>
@@ -99,7 +99,7 @@ Component to wrap around the code where the map should be available.
   mapContainer={mapContainer}
   options={mapOptions}
   libraries={['places']}
-  mapIds={['d85da84f141b8b84']}
+  mapIds={['<your-mapstyle-id>']}
   onLoad={(map) => map.setZoom(4)}
 >
   {children}
