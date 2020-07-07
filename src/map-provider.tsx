@@ -8,6 +8,7 @@ export interface GoogleMapProviderProps {
   mapContainer?: HTMLElement | null;
   options: google.maps.MapOptions;
   libraries: string[];
+  mapIds: string[];
   onLoad?: (map: google.maps.Map) => void;
 }
 
@@ -32,6 +33,7 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
     mapContainer,
     options,
     libraries,
+    mapIds,
     onLoad
   } = props;
   const [loading, setLoading] = useState<boolean>(true);
@@ -54,7 +56,8 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
         }
       },
       config: options,
-      libraries
+      libraries,
+      mapIds
     };
 
     // Destroy old map instance
