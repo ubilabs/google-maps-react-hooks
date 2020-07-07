@@ -7,6 +7,7 @@ interface GoogleMapOptions {
   onLoadScript: () => void;
   onLoadMap: (loadedMap: GoogleMap) => void;
   libraries?: string[];
+  mapIds?: string[];
 }
 
 /**
@@ -35,7 +36,11 @@ export default class GoogleMap {
       'src',
       `https://maps.googleapis.com/maps/api/js?key=${
         options.googleMapsAPIKey
-      }${options.libraries && `&libraries=${options.libraries.join(',')}`}`
+      }${
+        options.libraries && `&libraries=${options.libraries.join(',')}`
+      }${
+        options.mapIds && `&map_ids=${options.mapIds.join(',')}`
+      }`
     );
     scriptTag.onload = (): void => {
       options.onLoadScript();
