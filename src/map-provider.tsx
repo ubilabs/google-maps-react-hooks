@@ -10,6 +10,7 @@ export interface GoogleMapProviderProps {
   libraries: string[];
   language?: string;
   region?: string;
+  mapIds: string[];
   onLoad?: (map: google.maps.Map) => void;
 }
 
@@ -36,6 +37,7 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
     libraries,
     language,
     region,
+    mapIds,
     onLoad
   } = props;
 
@@ -47,23 +49,24 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
       return;
     }
 
-  const mapOptions = {
-    container: mapContainer,
-    googleMapsAPIKey,
-    onLoadScript: (): void => setLoading(false),
-    onLoadMap: (loadedMap: GoogleMap): void => {
-      setMap(loadedMap);
-      if (typeof onLoad === 'function' && loadedMap.map) {
-        onLoad(loadedMap.map);
-      }
-    },
-    config: options,
-    libraries,
-    language,
-    region
-  };
-  // Create Google Map instance
-  new GoogleMap(mapOptions);
+    const mapOptions = {
+      container: mapContainer,
+      googleMapsAPIKey,
+      onLoadScript: (): void => setLoading(false),
+      onLoadMap: (loadedMap: GoogleMap): void => {
+        setMap(loadedMap);
+        if (typeof onLoad === 'function' && loadedMap.map) {
+          onLoad(loadedMap.map);
+        }
+      },
+      config: options,
+      libraries,
+      mapIds,
+      language,
+      region
+    };
+    // Create Google Map instance
+    new GoogleMap(mapOptions);
   });
 
   // Initializes Google Map on mount
