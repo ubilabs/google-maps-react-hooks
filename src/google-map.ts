@@ -7,6 +7,8 @@ interface GoogleMapOptions {
   onLoadScript: () => void;
   onLoadMap: (loadedMap: GoogleMap) => void;
   libraries?: string[];
+  language?: string;
+  region?: string;
 }
 
 /**
@@ -18,7 +20,7 @@ export default class GoogleMap {
 
   constructor(options: GoogleMapOptions) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    if ((window as any).google) {
+    if ((window as any).google && window.google.maps) {
       this.initMap(options);
     } else {
       this.loadGoogleScript(options);
@@ -30,12 +32,14 @@ export default class GoogleMap {
    */
   private loadGoogleScript(options: GoogleMapOptions): void {
     const scriptTag = document.createElement('script');
+    const defaultLanguage = window.navigator.language.slice(0, 2);
+    const defaultRegion = window.navigator.language.slice(3, 5);
     scriptTag.setAttribute('type', 'text/javascript');
     scriptTag.setAttribute(
       'src',
       `https://maps.googleapis.com/maps/api/js?key=${
         options.googleMapsAPIKey
-      }${options.libraries && `&libraries=${options.libraries.join(',')}`}`
+      }&language=${options.language ? options.language : defaultLanguage}&region=${options.region ? options.region : defaultRegion}${options.libraries && `&libraries=${options.libraries.join(',')}`}`
     );
     scriptTag.onload = (): void => {
       options.onLoadScript();
@@ -61,9 +65,23 @@ export default class GoogleMap {
   /**
    * Remove event listeners
    */
-  public destroy = (): void => {
+  public destroyListeners = (): void => {
     if (this.map) {
       google.maps.event.clearInstanceListeners(this.map);
+    }
+  };
+
+  /**
+   * Remove map instance
+   */
+  public destroyComplete = (): void => {
+    if (this.map) {
+      document.querySelectorAll('script[src^="https://maps.googleapis.com"]').forEach(script => {
+        script.remove();
+      });
+      if (window.google && window.google.maps) {
+        delete window.google.maps;
+      }
     }
   };
 }
