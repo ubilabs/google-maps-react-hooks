@@ -20,8 +20,7 @@ export default class GoogleMap {
   map?: google.maps.Map;
 
   constructor(options: GoogleMapOptions) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    if ((window as any).google && window.google.maps) {
+    if (window.google && window.google.maps) {
       this.initMap(options);
     } else {
       this.loadGoogleScript(options);
@@ -40,7 +39,7 @@ export default class GoogleMap {
       'src',
       `https://maps.googleapis.com/maps/api/js?key=${
         options.googleMapsAPIKey
-      }&language=${options.language ? options.language : defaultLanguage}&region=${options.region ? options.region : defaultRegion}
+      }&language=${options.language || defaultLanguage}&region=${options.region || defaultRegion}
       }${
         options.libraries && `&libraries=${options.libraries.join(',')}`
       }${
