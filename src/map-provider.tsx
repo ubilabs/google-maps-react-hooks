@@ -8,6 +8,8 @@ export interface GoogleMapProviderProps {
   mapContainer?: HTMLElement | null;
   options: google.maps.MapOptions;
   libraries: string[];
+  language?: string;
+  region?: string;
   mapIds: string[];
   onLoad?: (map: google.maps.Map) => void;
 }
@@ -33,16 +35,18 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
     mapContainer,
     options,
     libraries,
+    language,
+    region,
     mapIds,
     onLoad
   } = props;
+
   const [loading, setLoading] = useState<boolean>(true);
   const [map, setMap] = useState<GoogleMap>();
 
-  // Initializes Google Map on mount
-  useEffect(() => {
+  const createGoogleMap = (() => {
     if (!mapContainer) {
-      return (): void => {};
+      return;
     }
 
     const mapOptions = {
@@ -57,22 +61,54 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
       },
       config: options,
       libraries,
-      mapIds
+      mapIds,
+      language,
+      region
     };
-
-    // Destroy old map instance
-    if (map) {
-      map.destroy();
-    }
-
     // Create Google Map instance
     new GoogleMap(mapOptions);
+  });
 
-    // Destroy Google Map when component unmounts
-    return (): void => {
-      map && map.destroy();
+  // Initializes map on mount
+  useEffect(() => {
+    if (!mapContainer) {
+      return (): void => {};
+    }
+
+    // create new map instance
+    createGoogleMap();
+
+     // Destroy Google Map when component unmounts
+     return (): void => {
+      map && map.destroyComplete();
     };
+  }, []);
+
+  // Destroy and recreate map on mapcontainer change
+  useEffect(() => {
+    if (!map || !mapContainer) {
+      return;
+    }
+    
+    // Destroy old map instance listeners
+    map.destroyListeners();
+
+    // create new map instance
+    createGoogleMap();
   }, [mapContainer]);
+
+  // Destroy and recreate map on language or region change
+  useEffect(() => {
+    if (!map || !mapContainer) {
+      return;
+    }
+
+    // Destroy old map instance
+    map.destroyComplete();
+
+    // create new map instance
+    createGoogleMap();
+  }, [language, region]);
 
   return (
     <GoogleMapContext.Provider value={{...map, loading}}>

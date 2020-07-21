@@ -32,12 +32,12 @@ const useDirections = (props: DirectionsProps = {}): DirectionsHookReturns => {
   // Creates a Directions Service instance
   const directionsService = useMemo<google.maps.DirectionsService | null>(() => {
     // Wait for map to be initialized
-    if (loading) {
+    if (!map || loading) {
       return null;
     }
 
     return new google.maps.DirectionsService();
-  }, [loading]);
+  }, [map, loading]);
 
   // Creates a Directions Renderer instance
   const directionsRenderer = useMemo<google.maps.DirectionsRenderer | null>(() => {
