@@ -69,44 +69,45 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
     new GoogleMap(mapOptions);
   });
 
-  // Initializes Google Map on mount
+  // Initializes map on mount
   useEffect(() => {
     if (!mapContainer) {
       return (): void => {};
     }
 
-    // Destroy old map instance listeners
-    if (map) {
-      map.destroyListeners();
-    }
-
-    // Create Google Map
+    // create new map instance
     createGoogleMap();
 
-    // Destroy Google Map when component unmounts
-    return (): void => {
-      map && map.destroyListeners();
+     // Destroy Google Map when component unmounts
+     return (): void => {
+      map && map.destroyComplete();
     };
+  }, []);
+
+  // Destroy and recreate map on mapcontainer change
+  useEffect(() => {
+    if (!map || !mapContainer) {
+      return;
+    }
+    
+    // Destroy old map instance listeners
+    map.destroyListeners();
+
+    // create new map instance
+    createGoogleMap();
   }, [mapContainer]);
 
-  // Initializes Google Map on language change
+  // Destroy and recreate map on language or region change
   useEffect(() => {
-  if (!mapContainer) {
-    return (): void => {};
-  }
+    if (!map || !mapContainer) {
+      return;
+    }
 
-  // Destroy old map instance
-  if (map) {
+    // Destroy old map instance
     map.destroyComplete();
-  }
 
-  // Create Google Map
-  createGoogleMap();
-
-  // Destroy Google Map when component unmounts
-  return (): void => {
-    map && map.destroyComplete();
-  };
+    // create new map instance
+    createGoogleMap();
   }, [language, region]);
 
   return (
