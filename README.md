@@ -62,7 +62,7 @@ function App() {
       options={mapOptions}
       libraries={['places']}
       mapIds={['<your-mapstyle-id>']}
-      language={'DE'}
+      language={'de'}
       region={'DE'}
       onLoad={(map) => map.setZoom(4)}
     >
@@ -102,7 +102,7 @@ Component to wrap around the code where the map should be available.
   options={mapOptions}
   libraries={['places']}
   mapIds={['<your-mapstyle-id>']}
-  language={'DE'}
+  language={'de'}
   region={'DE'}
   onLoad={(map) => map.setZoom(4)}
 >
