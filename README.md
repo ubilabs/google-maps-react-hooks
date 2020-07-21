@@ -62,6 +62,8 @@ function App() {
       options={mapOptions}
       libraries={['places']}
       mapIds={['<your-mapstyle-id>']}
+      language={'DE'}
+      region={'DE'}
       onLoad={(map) => map.setZoom(4)}
     >
       <React.StrictMode>
@@ -100,6 +102,8 @@ Component to wrap around the code where the map should be available.
   options={mapOptions}
   libraries={['places']}
   mapIds={['<your-mapstyle-id>']}
+  language={'DE'}
+  region={'DE'}
   onLoad={(map) => map.setZoom(4)}
 >
   {children}
@@ -115,6 +119,8 @@ interface GoogleMapProviderProps {
   options: google.maps.MapOptions;
   libraries: string[];
   mapIds: string[];
+  language: string;
+  region: string;
   onLoad?: (map: google.maps.Map) => void;
 }
 ```
