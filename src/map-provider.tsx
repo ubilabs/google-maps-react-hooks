@@ -44,7 +44,7 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
   const [map, setMap] = useState<GoogleMap>();
 
-  const createGoogleMap = (() => {
+  const createGoogleMap = () => {
     if (!mapContainer) {
       return;
     }
@@ -67,7 +67,7 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
     };
     // Create Google Map instance
     new GoogleMap(mapOptions);
-  });
+  };
 
   // Initializes map on mount
   useEffect(() => {
@@ -78,8 +78,8 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
     // create new map instance
     createGoogleMap();
 
-     // Destroy Google Map when component unmounts
-     return (): void => {
+    // Destroy Google Map when component unmounts
+    return (): void => {
       map && map.destroyComplete();
     };
   }, []);
@@ -89,7 +89,7 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
     if (!map || !mapContainer) {
       return;
     }
-    
+
     // Destroy old map instance listeners
     map.destroyListeners();
 
