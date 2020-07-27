@@ -41,9 +41,9 @@ export default class GoogleMap {
         options.googleMapsAPIKey
       }&language=${options.language || defaultLanguage}&region=${options.region || defaultRegion}
       }${
-        options.libraries && `&libraries=${options.libraries.join(',')}`
+        options.libraries ? `&libraries=${options.libraries.join(',')}` : ''
       }${
-        options.mapIds && `&map_ids=${options.mapIds.join(',')}`
+        options.mapIds ? `&map_ids=${options.mapIds.join(',')}` : ''
       }`
     );
     scriptTag.onload = (): void => {
