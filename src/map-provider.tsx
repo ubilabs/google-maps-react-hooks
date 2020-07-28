@@ -7,7 +7,7 @@ export interface GoogleMapProviderProps {
   googleMapsAPIKey: string;
   mapContainer?: HTMLElement | null;
   options: google.maps.MapOptions;
-  libraries: string[];
+  libraries?: string[];
   language?: string;
   region?: string;
   mapIds?: string[];

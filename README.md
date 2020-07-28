@@ -108,6 +108,7 @@ Component to wrap around the code where the map should be available.
 >
   {children}
 </GoogleMapProvider>
+```
 
 ### Properties
 
@@ -117,10 +118,10 @@ interface GoogleMapProviderProps {
   googleMapsAPIKey: string;
   mapContainer?: HTMLElement | null;
   options: google.maps.MapOptions;
-  libraries: string[];
-  mapIds: string[];
-  language: string;
-  region: string;
+  libraries?: string[];
+  language?: string;
+  region?: string;
+  mapIds?: string[];
   onLoad?: (map: google.maps.Map) => void;
 }
 ```
