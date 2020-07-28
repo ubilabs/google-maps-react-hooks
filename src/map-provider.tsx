@@ -89,7 +89,7 @@ const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
 
   // Destroy and recreate map on language or region change
   useEffect(() => {
-    if (!map || !mapContainer) {
+    if (!map) {
       return;
     }
 
