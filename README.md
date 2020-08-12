@@ -38,8 +38,9 @@ npm install @ubilabs/google-maps-react-hooks -D
 ## Usage
 
 Import the `GoogleMapProvider` and wrap it around your components.
-Make sure all components that should have access to the Google Maps map instance
-are nested inside of the `GoogleMapProvider`.
+Make sure all components that should have access to the Google Maps map instance are nested inside the `GoogleMapProvider`.
+
+If you still can't see a map on your page, make sure that your `<MapCanvas>` component has a `height` CSS property. By default it will have a `height: 0`.
 
 ```jsx
 import React, { useState, useCallback, forwardRef } from 'react';
@@ -60,10 +61,6 @@ function App() {
       googleMapsAPIKey="my Google Maps API key"
       mapContainer={mapContainer}
       options={mapOptions}
-      libraries={['places']}
-      mapIds={['<your-mapstyle-id>']}
-      language={'de'}
-      region={'DE'}
       onLoad={(map) => map.setZoom(4)}
     >
       <React.StrictMode>
@@ -100,10 +97,6 @@ Component to wrap around the code where the map should be available.
   googleMapsAPIKey="my Google Maps API key"
   mapContainer={mapContainer}
   options={mapOptions}
-  libraries={['places']}
-  mapIds={['<your-mapstyle-id>']}
-  language={'de'}
-  region={'DE'}
   onLoad={(map) => map.setZoom(4)}
 >
   {children}
@@ -115,13 +108,29 @@ Component to wrap around the code where the map should be available.
 ```TypeScript
 interface GoogleMapProviderProps {
   children: React.ReactElement;
+
+  // The Google Maps API Key
   googleMapsAPIKey: string;
+
+  // A reference to the component that displays the map
   mapContainer?: HTMLElement | null;
+
+  // The Google Maps MapOptions, see: https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions
   options: google.maps.MapOptions;
+
+  // Additional Google Maps libraries to load ('drawing', 'geometry', 'places' or 'visualization'), see: https://developers.google.com/maps/documentation/javascript/libraries
   libraries?: string[];
+
+  // By default Google Maps will use the preferred language from the browser setting. This is the property to set it manually, see: https://developers.google.com/maps/documentation/javascript/localization
   language?: string;
+
+  // By default Google Maps will use the preferred region from the browser setting. This is the property to set it manually, see: https://developers.google.com/maps/documentation/javascript/localization
   region?: string;
+
+  // Use this parameter for cloud-based map styling (in beta), see: https://developers.google.com/maps/documentation/javascript/cloud-based-map-styling
   mapIds?: string[];
+
+  // A callback function that is called, when the map is loaded.
   onLoad?: (map: google.maps.Map) => void;
 }
 ```
@@ -315,7 +324,7 @@ Returns the [`PlacesService`](google.maps.places.PlacesService) class to use dir
 google.maps.places.PlacesService
 ```
 
-## Publish
+## Publish (only for maintainers)
 
 To publish new versions to the Github package registry, follow [this guide here](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages).
 
