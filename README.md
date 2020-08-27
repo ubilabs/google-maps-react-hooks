@@ -23,14 +23,6 @@ You need to have React [16.8.0](https://reactjs.org/blog/2019/02/06/react-v16.8.
 
 ## Installation
 
-This package is hosted in the private [Github package registry](https://github.com/orgs/ubilabs/packages). To use this, include a `.npmrc` file in your project with the following content:
-
-```
-registry=https://npm.pkg.github.com/ubilabs
-```
-
-npm will then use Github as a proxy to install packages. Now let’s add the package to our project:
-
 ```sh
 npm install @ubilabs/google-maps-react-hooks -D
 ```
