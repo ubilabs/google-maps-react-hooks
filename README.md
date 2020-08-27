@@ -318,10 +318,4 @@ google.maps.places.PlacesService
 
 ## Publish (only for maintainers)
 
-To publish new versions to the Github package registry, follow [this guide here](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages).
-
-Basically, do this:
-
-* create a personal token for Github
-* create `~/.npmrc` with this content: `//npm.pkg.github.com/:_authToken=TOKEN`
-* login with this command: `npm login --registry=https://npm.pkg.github.com`
+`npm publish --access public`
