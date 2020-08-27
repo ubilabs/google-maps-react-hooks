@@ -1,4 +1,4 @@
-import {} from 'googlemaps';
+import 'googlemaps';
 
 interface GoogleMapOptions {
   container: HTMLElement;
