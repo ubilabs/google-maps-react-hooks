@@ -27,6 +27,7 @@
     "react": "^16.11.0"
   },
   "devDependencies": {
+    "@types/googlemaps": "^3.39.13",
     "@types/react": "^16.9.48",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
@@ -40,9 +41,7 @@
     "prettier": "^1.19.1",
     "typescript": "^3.9.7"
   },
-  "dependencies": {
-    "@types/googlemaps": "^3.39.13"
-  },
+  "dependencies": {},
   "bugs": {
     "url": "https://github.com/ubilabs/google-maps-react-hooks/issues"
   },

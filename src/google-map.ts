@@ -1,4 +1,5 @@
-import 'googlemaps';
+// eslint-disable-next-line
+/// <reference types="@types/googlemaps" />
 
 interface GoogleMapOptions {
   container: HTMLElement;
