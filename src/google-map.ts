@@ -40,8 +40,7 @@ export default class GoogleMap {
       'src',
       `https://maps.googleapis.com/maps/api/js?key=${
         options.googleMapsAPIKey
-      }&language=${options.language || defaultLanguage}&region=${options.region || defaultRegion}
-      }${
+      }&language=${options.language || defaultLanguage}&region=${options.region || defaultRegion}${
         options.libraries ? `&libraries=${options.libraries.join(',')}` : ''
       }${
         options.mapIds ? `&map_ids=${options.mapIds.join(',')}` : ''
