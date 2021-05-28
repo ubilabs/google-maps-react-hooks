@@ -1,11 +1,6 @@
 {
   "plugins": ["react", "import", "react-hooks", "@typescript-eslint"],
-  "extends": [
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["prettier", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "env": {
     "node": true,
@@ -156,14 +151,8 @@
     "no-undef": 2,
     "no-undef-init": 2,
     "no-undefined": 0,
-    "no-unused-vars": [
-      2,
-      {
-        "vars": "all",
-        "args": "after-used"
-      }
-    ],
-    "no-use-before-define": [2, "nofunc"],
+    "no-unused-vars": 0,
+    "no-use-before-define": 0,
     "callback-return": 2,
     "handle-callback-err": 1,
     "no-mixed-requires": 0,
@@ -327,7 +316,10 @@
     "import/no-duplicates": 2,
     "react-hooks/rules-of-hooks": 2,
     "react-hooks/exhaustive-deps": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/no-empty-function": 0
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-use-before-define": ["error"]
   }
 }
