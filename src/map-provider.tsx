@@ -28,7 +28,7 @@ export const GoogleMapContext = React.createContext<GoogleMapContextType>({
 /**
  * The global Google Map provider
  */
-const GoogleMapProvider = (props: GoogleMapProviderProps): JSX.Element => {
+const GoogleMapProvider = (props: GoogleMapProviderProps): React.ReactNode => {
   const {
     children,
     googleMapsAPIKey,

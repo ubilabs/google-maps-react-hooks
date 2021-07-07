@@ -85,6 +85,7 @@ export default class GoogleMap {
         script.remove();
       });
       if (window.google && window.google.maps) {
+        // @ts-ignore: The operand of a 'delete' operator must be optional.
         delete window.google.maps;
       }
     }
