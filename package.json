@@ -18,7 +18,10 @@
     "types": "tsc --project tsconfig.json --noEmit",
     "test": "npm run lint && npm run types",
     "prepublishOnly": "npm run test && npm run build",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "preversion": "npm run test",
+    "version": "npm run changelog && git checkout -b chore/release-${npm_package_version} && git add .",
+    "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify"
   },
   "keywords": [
     "React hooks",
