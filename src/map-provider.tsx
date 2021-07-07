@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react';
 import GoogleMap from './google-map';
 
 export interface GoogleMapProviderProps {
-  children: React.ReactElement;
   googleMapsAPIKey: string;
   mapContainer?: HTMLElement | null;
   options: google.maps.MapOptions;
@@ -28,7 +27,9 @@ export const GoogleMapContext = React.createContext<GoogleMapContextType>({
 /**
  * The global Google Map provider
  */
-const GoogleMapProvider = (props: GoogleMapProviderProps): React.ReactNode => {
+const GoogleMapProvider: React.FunctionComponent<GoogleMapProviderProps> = (
+  props
+) => {
   const {
     children,
     googleMapsAPIKey,
