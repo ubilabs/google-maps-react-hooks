@@ -122,6 +122,9 @@ interface GoogleMapProviderProps {
   // Use this parameter for cloud-based map styling (in beta), see: https://developers.google.com/maps/documentation/javascript/cloud-based-map-styling
   mapIds?: string[];
 
+  // Use this parameter to specify an version, see: https://developers.google.com/maps/documentation/javascript/versions
+  version?: string;
+
   // A callback function that is called, when the map is loaded.
   onLoad?: (map: google.maps.Map) => void;
 }

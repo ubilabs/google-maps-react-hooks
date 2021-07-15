@@ -11,6 +11,7 @@ interface GoogleMapOptions {
   language?: string;
   region?: string;
   mapIds?: string[];
+  version?: string;
 }
 
 /**
@@ -35,19 +36,30 @@ export default class GoogleMap {
     const scriptTag = document.createElement('script');
     const defaultLanguage = window.navigator.language.slice(0, 2);
     const defaultRegion = window.navigator.language.slice(3, 5);
+
+    const {
+      libraries,
+      mapIds,
+      version,
+      language,
+      region,
+      googleMapsAPIKey,
+      onLoadScript
+    } = options;
+
     scriptTag.setAttribute('type', 'text/javascript');
     scriptTag.setAttribute(
       'src',
-      `https://maps.googleapis.com/maps/api/js?key=${
-        options.googleMapsAPIKey
-      }&language=${options.language || defaultLanguage}&region=${options.region || defaultRegion}${
-        options.libraries ? `&libraries=${options.libraries.join(',')}` : ''
-      }${
-        options.mapIds ? `&map_ids=${options.mapIds.join(',')}` : ''
+      `https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&language=${
+        language || defaultLanguage
+      }&region=${region || defaultRegion}${
+        libraries ? `&libraries=${libraries.join(',')}` : ''
+      }${mapIds ? `&map_ids=${mapIds.join(',')}` : ''}${
+        version ? `&v=${version}` : ''
       }`
     );
     scriptTag.onload = (): void => {
-      options.onLoadScript();
+      onLoadScript();
       this.initMap(options);
     };
     document.getElementsByTagName('head')[0].appendChild(scriptTag);
@@ -81,9 +93,11 @@ export default class GoogleMap {
    */
   public destroyComplete = (): void => {
     if (this.map) {
-      document.querySelectorAll('script[src^="https://maps.googleapis.com"]').forEach(script => {
-        script.remove();
-      });
+      document
+        .querySelectorAll('script[src^="https://maps.googleapis.com"]')
+        .forEach((script) => {
+          script.remove();
+        });
       if (window.google && window.google.maps) {
         // @ts-ignore: The operand of a 'delete' operator must be optional.
         delete window.google.maps;
