@@ -10,6 +10,7 @@ export interface GoogleMapProviderProps {
   language?: string;
   region?: string;
   mapIds?: string[];
+  version?: string;
   onLoad?: (map: google.maps.Map) => void;
 }
 
@@ -39,6 +40,7 @@ const GoogleMapProvider: React.FunctionComponent<GoogleMapProviderProps> = (
     language,
     region,
     mapIds,
+    version,
     onLoad
   } = props;
 
@@ -64,7 +66,8 @@ const GoogleMapProvider: React.FunctionComponent<GoogleMapProviderProps> = (
       libraries,
       mapIds,
       language,
-      region
+      region,
+      version
     };
     // Create Google Map instance
     new GoogleMap(mapOptions);
