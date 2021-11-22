@@ -1,4 +1,4 @@
-# [1.5.0](https://github.com/ubilabs/google-maps-react-hooks/compare/v1.4.7...v1.5.0) (2021-07-16)
+## [1.5.1](https://github.com/ubilabs/google-maps-react-hooks/compare/v1.4.7...v1.5.1) (2021-11-22)
 
 
 
