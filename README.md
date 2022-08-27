@@ -38,9 +38,17 @@ If you still can't see a map on your page, make sure that your `<MapCanvas>` com
 import React, { useState, useCallback, forwardRef } from 'react';
 import { GoogleMapProvider } from '@ubilabs/google-maps-react-hooks';
 
-const MapCanvas = React.forwardRef((props, ref) => (
-  <div ref={ref} />
+const MapCanvas = forwardRef((props, ref) => (
+  <div ref={ref} style={{ height: "100vh" }} />
 ));
+
+const mapOptions = {
+  zoom: 4,
+  center: {
+    lat: 40,
+    lng: -88,
+  },
+};
 
 function App() {
   const [mapContainer, setMapContainer] = useState(null);
