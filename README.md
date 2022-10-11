@@ -119,9 +119,6 @@ interface GoogleMapProviderProps {
   // By default Google Maps will use the preferred region from the browser setting. This is the property to set it manually, see: https://developers.google.com/maps/documentation/javascript/localization
   region?: string;
 
-  // Use this parameter for cloud-based map styling (in beta), see: https://developers.google.com/maps/documentation/javascript/cloud-based-map-styling
-  mapIds?: string[];
-
   // Use this parameter to specify a version, see: https://developers.google.com/maps/documentation/javascript/versions
   version?: string;
 
