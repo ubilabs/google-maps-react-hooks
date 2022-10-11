@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, PropsWithChildren} from 'react';
 
 import GoogleMap from './google-map';
 
@@ -28,7 +28,7 @@ export const GoogleMapContext = React.createContext<GoogleMapContextType>({
 /**
  * The global Google Map provider
  */
-const GoogleMapProvider: React.FunctionComponent<GoogleMapProviderProps> = (
+const GoogleMapProvider: React.FunctionComponent<PropsWithChildren<GoogleMapProviderProps>> = (
   props
 ) => {
   const {
