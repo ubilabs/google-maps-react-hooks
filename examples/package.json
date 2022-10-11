@@ -1,0 +1,32 @@
+{
+  "name": "basic-google-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A sample Google Map setup with the MapProvider component.",
+  "main": "index.js",
+  "scripts": {
+    "clean-examples": "rm -rf public .parcel-cache",
+    "start:map": "PARCEL_AUTOINSTALL=false parcel serve ./basic-google-map/index.html --dist-dir public --port 1234",
+    "start:map-markers": "PARCEL_AUTOINSTALL=false parcel serve ./google-map-with-markers/index.html --dist-dir public --port 1234"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ubilabs/google-maps-react-hooks": "^1.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/googlemaps": "^3.43.3",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "parcel": "^2.7.0",
+    "postcss": "^8.4.17",
+    "postcss-custom-media": "^8.0.2",
+    "postcss-modules": "^5.0.0",
+    "postcss-preset-env": "^7.8.2",
+    "process": "^0.11.10",
+    "typescript": "^4.8.4",
+    "typescript-plugin-css-modules": "^3.4.0"
+  }
+}
