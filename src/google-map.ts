@@ -4,7 +4,7 @@
 interface GoogleMapOptions {
   container: HTMLElement;
   googleMapsAPIKey: string;
-  config: google.maps.MapOptions;
+  config?: google.maps.MapOptions;
   onLoadScript: () => void;
   onLoadMap: (loadedMap: GoogleMap) => void;
   libraries?: string[];
