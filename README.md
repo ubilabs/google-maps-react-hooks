@@ -108,7 +108,7 @@ interface GoogleMapProviderProps {
   mapContainer?: HTMLElement | null;
 
   // The Google Maps MapOptions, see: https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions
-  options: google.maps.MapOptions;
+  options?: google.maps.MapOptions;
 
   // Additional Google Maps libraries to load ('drawing', 'geometry', 'places' or 'visualization'), see: https://developers.google.com/maps/documentation/javascript/libraries
   libraries?: string[];
