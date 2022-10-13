@@ -125,6 +125,9 @@ interface GoogleMapProviderProps {
   // Use this parameter to specify a version, see: https://developers.google.com/maps/documentation/javascript/versions
   version?: string;
 
+  // Use this parameter to set auth_referrer_policy=origin when an URL on the same origin uses the API Key, to limit the amount of data sent when authorizing requests, see "auth_referrer_policy": https://developers.google.com/maps/documentation/javascript/url-params  
+  authReferrerPolicy?: string;
+
   // A callback function that is called, when the map is loaded.
   onLoad?: (map: google.maps.Map) => void;
 }
