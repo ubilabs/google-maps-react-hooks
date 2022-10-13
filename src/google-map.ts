@@ -58,7 +58,9 @@ export default class GoogleMap {
         libraries ? `&libraries=${libraries.join(',')}` : ''
       }${mapIds ? `&map_ids=${mapIds.join(',')}` : ''}${
         version ? `&v=${version}` : ''
-      }&auth_referrer_policy=${authReferrerPolicy ? authReferrerPolicy : ''}`
+      }${
+        authReferrerPolicy ? `&auth_referrer_policy=${authReferrerPolicy}` : ''
+      }`
     );
     scriptTag.onload = (): void => {
       onLoadScript();
