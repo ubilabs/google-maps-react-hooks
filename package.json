@@ -14,7 +14,7 @@
   "scripts": {
     "build": "rm -rf dist/* && microbundle -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
     "dev": "rm -rf dist/* && microbundle watch -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
-    "lint": "eslint './src/**/*.{ts,tsx}'",
+    "lint": "eslint './{src,examples}/**/*.{ts,tsx}'",
     "types": "tsc --project tsconfig.json --noEmit",
     "test": "npm run lint && npm run types",
     "prepublishOnly": "npm run test && npm run build",
@@ -22,8 +22,9 @@
     "preversion": "npm run test",
     "version": "npm run changelog && git checkout -b chore/release-${npm_package_version} && git add .",
     "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify",
-    "start:sample-map": "cd examples && npm run clean-examples && npm i && npm run start:map",
-    "start:map-with-markers": "cd examples && npm run clean-examples && npm i && npm run start:map-markers"
+    "postinstall": "npm install --prefix examples",
+    "start:sample-map": "cd examples && npm run clean-examples && npm run start:map",
+    "start:map-with-markers": "cd examples && npm run clean-examples && npm run start:map-markers"
   },
   "keywords": [
     "React hooks",
