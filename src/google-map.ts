@@ -11,6 +11,7 @@ interface GoogleMapOptions {
   language?: string;
   region?: string;
   version?: string;
+  authReferrerPolicy?: string;
 }
 
 /**
@@ -42,7 +43,8 @@ export default class GoogleMap {
       language,
       region,
       googleMapsAPIKey,
-      onLoadScript
+      onLoadScript,
+      authReferrerPolicy
     } = options;
 
     scriptTag.setAttribute('type', 'text/javascript');
@@ -54,6 +56,8 @@ export default class GoogleMap {
         libraries ? `&libraries=${libraries.join(',')}` : ''
       }${
         version ? `&v=${version}` : ''
+      }${
+        authReferrerPolicy ? `&auth_referrer_policy=${authReferrerPolicy}` : ''
       }`
     );
     scriptTag.onload = (): void => {

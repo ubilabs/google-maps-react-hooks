@@ -11,6 +11,7 @@ export interface GoogleMapProviderProps {
   region?: string;
   version?: string;
   onLoad?: (map: google.maps.Map) => void;
+  authReferrerPolicy?: string;
 }
 
 export interface GoogleMapContextType extends Partial<GoogleMap> {
@@ -39,7 +40,8 @@ const GoogleMapProvider: React.FunctionComponent<PropsWithChildren<GoogleMapProv
     language,
     region,
     version,
-    onLoad
+    onLoad,
+    authReferrerPolicy
   } = props;
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -64,7 +66,8 @@ const GoogleMapProvider: React.FunctionComponent<PropsWithChildren<GoogleMapProv
       libraries,
       language,
       region,
-      version
+      version,
+      authReferrerPolicy
     };
     // Create Google Map instance
     new GoogleMap(mapOptions);
