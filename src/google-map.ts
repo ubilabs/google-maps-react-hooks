@@ -10,7 +10,6 @@ interface GoogleMapOptions {
   libraries?: string[];
   language?: string;
   region?: string;
-  mapIds?: string[];
   version?: string;
 }
 
@@ -39,7 +38,6 @@ export default class GoogleMap {
 
     const {
       libraries,
-      mapIds,
       version,
       language,
       region,
@@ -54,7 +52,7 @@ export default class GoogleMap {
         language || defaultLanguage
       }&region=${region || defaultRegion}${
         libraries ? `&libraries=${libraries.join(',')}` : ''
-      }${mapIds ? `&map_ids=${mapIds.join(',')}` : ''}${
+      }${
         version ? `&v=${version}` : ''
       }`
     );

@@ -9,7 +9,6 @@ export interface GoogleMapProviderProps {
   libraries?: string[];
   language?: string;
   region?: string;
-  mapIds?: string[];
   version?: string;
   onLoad?: (map: google.maps.Map) => void;
 }
@@ -39,7 +38,6 @@ const GoogleMapProvider: React.FunctionComponent<PropsWithChildren<GoogleMapProv
     libraries,
     language,
     region,
-    mapIds,
     version,
     onLoad
   } = props;
@@ -64,7 +62,6 @@ const GoogleMapProvider: React.FunctionComponent<PropsWithChildren<GoogleMapProv
       },
       config: options,
       libraries,
-      mapIds,
       language,
       region,
       version
