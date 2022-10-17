@@ -58,7 +58,7 @@ const MapMarkers: VoidFunctionComponent = (): null => {
     if (map) {
       const initialBounds = new google.maps.LatLngBounds();
 
-      const museumMarkers: Array<google.maps.Marker> = museums.map((museum) => {
+      const museumMarkers: Array<google.maps.Marker> = museums.map(museum => {
         const {position, name} = museum;
 
         const markerOptions: google.maps.MarkerOptions = {

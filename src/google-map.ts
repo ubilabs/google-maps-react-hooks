@@ -54,9 +54,7 @@ export default class GoogleMap {
         language || defaultLanguage
       }&region=${region || defaultRegion}${
         libraries ? `&libraries=${libraries.join(',')}` : ''
-      }${
-        version ? `&v=${version}` : ''
-      }${
+      }${version ? `&v=${version}` : ''}${
         authReferrerPolicy ? `&auth_referrer_policy=${authReferrerPolicy}` : ''
       }`
     );
@@ -97,7 +95,7 @@ export default class GoogleMap {
     if (this.map) {
       document
         .querySelectorAll('script[src^="https://maps.googleapis.com"]')
-        .forEach((script) => {
+        .forEach(script => {
           script.remove();
         });
       if (window.google && window.google.maps) {
