@@ -23,7 +23,8 @@
     "version": "npm run changelog && git checkout -b chore/release-${npm_package_version} && git add .",
     "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify",
     "start:sample-map": "cd examples && npm run clean-examples && npm i && npm run start:map",
-    "start:map-with-markers": "cd examples && npm run clean-examples && npm i && npm run start:map-markers"
+    "start:map-with-markers": "cd examples && npm run clean-examples && npm i && npm run start:map-markers",
+    "start:autocomplete-example": "cd examples && npm run clean-examples && npm i && npm run start:autocomplete"
   },
   "keywords": [
     "React hooks",
