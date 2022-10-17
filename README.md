@@ -125,7 +125,7 @@ See: [Use API Key](https://developers.google.com/maps/documentation/embed/get-ap
 
 __mapContainer__ (_optional property_)
 
-A reference to the component that displays the map. 
+A reference to the HTML element that displays the map.
 Without the mapContainer provided, no visual map will be displayed.
 
 ```Typescript
