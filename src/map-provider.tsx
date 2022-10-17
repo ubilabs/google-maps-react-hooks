@@ -5,7 +5,7 @@ import GoogleMap from './google-map';
 export interface GoogleMapProviderProps {
   googleMapsAPIKey: string;
   mapContainer?: HTMLElement | null;
-  options: google.maps.MapOptions;
+  options?: google.maps.MapOptions;
   libraries?: string[];
   language?: string;
   region?: string;
