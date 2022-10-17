@@ -1,10 +1,10 @@
 {
   "name": "@ubilabs/google-maps-react-hooks",
-  "version": "1.5.1",
+  "version": "1.5.3",
   "description": "React hooks and map context provider for Google Maps",
   "source": "src/index.ts",
   "main": "dist/index.umd.js",
-  "module": "dist/index.modern.js",
+  "module": "dist/index.modern.mjs",
   "types": "dist/index.d.ts",
   "homepage": "https://github.com/ubilabs/google-maps-react-hooks",
   "repository": {
@@ -21,7 +21,9 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "preversion": "npm run test",
     "version": "npm run changelog && git checkout -b chore/release-${npm_package_version} && git add .",
-    "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify"
+    "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify",
+    "start:sample-map": "cd examples && npm run clean-examples && npm i && npm run start:map",
+    "start:map-with-markers": "cd examples && npm run clean-examples && npm i && npm run start:map-markers"
   },
   "keywords": [
     "React hooks",

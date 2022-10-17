@@ -1,4 +1,9 @@
-## [1.5.1](https://github.com/ubilabs/google-maps-react-hooks/compare/v1.4.7...v1.5.1) (2021-11-22)
+## [1.5.3](https://github.com/ubilabs/google-maps-react-hooks/compare/v1.4.7...v1.5.3) (2022-10-17)
+
+
+### Bug Fixes
+
+* **package:** adjust module ([#56](https://github.com/ubilabs/google-maps-react-hooks/issues/56)) ([106311e](https://github.com/ubilabs/google-maps-react-hooks/commit/106311e1d3160fc2639338a1191c9a78872d413c))
 
 
 

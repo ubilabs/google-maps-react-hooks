@@ -1,4 +1,5 @@
 # Google Maps React Hooks
+[![npm version](https://img.shields.io/npm/v/@ubilabs/google-maps-react-hooks)](https://www.npmjs.com/package/@ubilabs/google-maps-react-hooks) [![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ubilabs/google-maps-react-hooks/blob/develop/LICENSE)
 
 ## Description
 
@@ -108,6 +109,7 @@ interface GoogleMapProviderProps {
   language?: string;
   region?: string;
   version?: string;
+  authReferrerPolicy?: string;
   onLoad?: (map: google.maps.Map) => void;
 }
 ```
@@ -255,6 +257,18 @@ See: [Versions](https://developers.google.com/maps/documentation/javascript/vers
 
 - - - -
 
+__authReferrerPolicy__ (_optional property_)
+
+Use this parameter to set auth_referrer_policy=origin when an URL on the same origin uses the API Key, to limit the amount of data sent when authorizing requests.
+
+```Typescript
+authReferrerPolicy?: string;
+```
+
+See: [auth_referrer_policy](https://developers.google.com/maps/documentation/javascript/url-params)
+
+- - - -
+
 __onLoad__ (_optional property_)
 
 A callback function that is called, when the map is loaded.
@@ -273,18 +287,6 @@ _Example:_
   ...
 </GoogleMapProvider>
 ```
-
-- - - -
-
-__authReferrerPolicy__ (_optional property_)
-
-Use this parameter to set auth_referrer_policy=origin when an URL on the same origin uses the API Key, to limit the amount of data sent when authorizing requests.
-
-```Typescript
-authReferrerPolicy?: string;
-```
-
-See: [auth_referrer_policy](https://developers.google.com/maps/documentation/javascript/url-params)
 
 - - - -
 
