@@ -1,4 +1,5 @@
 # Google Maps React Hooks
+[![npm version](https://img.shields.io/npm/v/@ubilabs/google-maps-react-hooks)](https://www.npmjs.com/package/@ubilabs/google-maps-react-hooks) [![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ubilabs/google-maps-react-hooks/blob/develop/LICENSE)
 
 ## Description
 
