@@ -9,7 +9,6 @@
     "start:map": "PARCEL_AUTOINSTALL=false parcel serve ./basic-google-map/index.html --dist-dir public --port 1234",
     "start:map-markers": "PARCEL_AUTOINSTALL=false parcel serve ./google-map-with-markers/index.html --dist-dir public --port 1234"
   },
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "@ubilabs/google-maps-react-hooks": "^1.5.1",
