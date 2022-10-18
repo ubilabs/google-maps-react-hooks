@@ -5,7 +5,7 @@ import useGoogleMap from './map-instance';
 /**
  * Hook to get Elevation Service instance
  */
-const useElevation = (): google.maps.ElevationService | null => {
+const useElevationService = (): google.maps.ElevationService | null => {
   const {map} = useGoogleMap();
 
   // Creates a Elevation Service instance
@@ -22,4 +22,4 @@ const useElevation = (): google.maps.ElevationService | null => {
   return elevationService;
 };
 
-export default useElevation;
+export default useElevationService;
