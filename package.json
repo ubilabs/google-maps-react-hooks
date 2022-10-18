@@ -25,7 +25,8 @@
     "start:sample-map": "cd examples && npm run clean-examples && npm i && npm run start:map",
     "start:map-with-markers": "cd examples && npm run clean-examples && npm i && npm run start:map-markers",
     "start:geocoding-example": "cd examples && npm run clean-examples && npm i && npm run start:geocoding",
-    "start:places-example": "cd examples && npm run clean-examples && npm run start:places"
+    "start:places-example": "cd examples && npm run clean-examples && npm run start:places",
+    "start:autocomplete-example": "cd examples && npm run clean-examples && npm run start:autocomplete"
   },
   "keywords": [
     "React hooks",
