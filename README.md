@@ -479,6 +479,39 @@ Returns the [`PlacesService`](google.maps.places.PlacesService) class to use dir
 google.maps.places.PlacesService
 ```
 
+### useElevationService
+
+React hook to use the [Elevation Service](https://developers.google.com/maps/documentation/javascript/elevation) in any component.
+
+#### Usage
+
+```jsx
+import React from 'react';
+import {useElevationService} from '@ubilabs/google-maps-react-hooks';
+
+const MyComponent = () => {
+  const elevator = useElevationService();
+
+  elevator?.getElevationForLocations(
+    {locations: [location]},
+    (results: google.maps.ElevationResult[]) => {
+      // Do something with results
+    }
+  );
+
+  return (...);
+};
+```
+
+#### Return value
+
+Returns the [`ElevationService`](google.maps.places.ElevationService) class to use directly.
+
+```TypeScript
+google.maps.places.ElevationService
+```
+
+
 ## Publish (only for maintainers)
 
 `npm publish --access public`
