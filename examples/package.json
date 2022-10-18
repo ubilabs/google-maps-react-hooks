@@ -8,8 +8,9 @@
     "clean-examples": "rm -rf public .parcel-cache",
     "start:map": "PARCEL_AUTOINSTALL=false parcel serve ./basic-google-map/index.html --dist-dir public --port 1234",
     "start:map-markers": "PARCEL_AUTOINSTALL=false parcel serve ./google-map-with-markers/index.html --dist-dir public --port 1234",
-    "start:autocomplete": "PARCEL_AUTOINSTALL=false parcel serve ./places-autocomplete/index.html --dist-dir public --port 1234",
-    "start:geocoding": "PARCEL_AUTOINSTALL=false parcel serve ./geocoding/index.html --dist-dir public --port 1234"
+    "start:geocoding": "PARCEL_AUTOINSTALL=false parcel serve ./geocoding/index.html --dist-dir public --port 1234",
+    "start:places": "PARCEL_AUTOINSTALL=false parcel serve ./places/index.html --dist-dir public --port 1234",
+    "start:autocomplete": "PARCEL_AUTOINSTALL=false parcel serve ./places-autocomplete/index.html --dist-dir public --port 1234"
   },
   "license": "MIT",
   "dependencies": {
