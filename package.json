@@ -24,7 +24,7 @@
     "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify",
     "start:sample-map": "cd examples && npm run clean-examples && npm i && npm run start:map",
     "start:map-with-markers": "cd examples && npm run clean-examples && npm i && npm run start:map-markers",
-    "start:autocomplete-example": "cd examples && npm run clean-examples && npm i && npm run start:autocomplete",
+    "start:autocomplete-example": "cd examples && npm run clean-examples && npm run start:autocomplete",
     "start:geocoding-example": "cd examples && npm run clean-examples && npm i && npm run start:geocoding"
   },
   "keywords": [
