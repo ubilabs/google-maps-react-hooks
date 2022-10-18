@@ -6,7 +6,15 @@ This is an example setup of a **Map with a Places Autocomplete Search** to show 
 
 To run this project, clone the Google Maps React Hooks repository locally.
 
-At the root of the repository, run:
+First go to the root of the repository and run:
+
+```shell
+npm install
+````
+
+once to install all dependencies.
+
+Then start this example locally with
 
 ```shell
 npm run start:autocomplete-example
