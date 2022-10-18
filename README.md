@@ -479,6 +479,38 @@ Returns the [`PlacesService`](google.maps.places.PlacesService) class to use dir
 google.maps.places.PlacesService
 ```
 
+### useMaxZoomService
+
+React hook to use the [Maximum Zoom Imagery Service](https://developers.google.com/maps/documentation/javascript/maxzoom) in any component.
+
+#### Usage
+
+```jsx
+import React from 'react';
+import {useMaxZoomService} from '@ubilabs/google-maps-react-hooks';
+
+const MyComponent = () => {
+  const maxZoomService = useMaxZoomService();
+
+  maxZoomService.getMaxZoomAtLatLng(
+    LatLng,
+    (result: google.maps.MaxZoomResult) => {
+      // Do something with result
+    }
+  );
+
+  return (...);
+};
+```
+
+#### Return value
+
+Returns the [`MaxZoomService`](google.maps.places.MaxZoomService) class to use directly.
+
+```TypeScript
+google.maps.places.MaxZoomService
+```
+
 ## Publish (only for maintainers)
 
 `npm publish --access public`
