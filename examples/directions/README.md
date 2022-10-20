@@ -1,23 +1,26 @@
 # Basic Google Maps Setup Example
 
-This is an example setup to show the usage of the **useGeocoder hook** with the Google Maps React Hooks library.
+This is an example setup to show the usage of the **useDirections hook with findAndRenderRoute** with the Google Maps React Hooks library.
 
 ## Instructions
 
 To run this project, clone the Google Maps React Hooks repository locally.
 
-First go to the root of the repository and run
+Go to the root of the repository and run
+
 
 ```shell
 npm install
 ```
 
+
 once to install all dependencies.
 
 Then start this example locally with
 
+
 ```shell
-npm run start:geocoding-example
+npm run start:directions-example
 ```
 
 **NOTE**:
@@ -29,6 +32,6 @@ An example can be found in `.env.example`.
 
 ## Output
 
-The project will start at [localhost:1234](http://localhost:1234) and show a Google Map where the user can click on the map and the coordinates will be reversed geocoded into a human readable address.
+The project will start at [localhost:1234](http://localhost:1234) and show a Google Map with a route from Berlin to Munich, retrieved from directions.
 
-![image](https://user-images.githubusercontent.com/39244966/196205574-b0c318a8-1e55-4c52-a18f-43fc13d2d903.png)
+![image](https://user-images.githubusercontent.com/39244966/196410364-de14d9a0-5ecf-430d-846e-bc04e405b889.png)
