@@ -485,19 +485,22 @@ React hook to use the [Elevation Service](https://developers.google.com/maps/doc
 
 #### Usage
 
-```jsx
-import React from 'react';
+```tsx
+import React, {useEffect} from 'react';
 import {useElevationService} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
   const elevator = useElevationService();
+  const location = /** google.maps.LatLng */;
 
-  elevator?.getElevationForLocations(
-    {locations: [location]},
-    (results: google.maps.ElevationResult[]) => {
-      // Do something with results
-    }
-  );
+  useEffect(() => {
+    elevator?.getElevationForLocations(
+      {locations: [location]},
+      (results: google.maps.ElevationResult[]) => {
+        // Do something with results
+      }
+    );
+  }, [location]);
 
   return (...);
 };
