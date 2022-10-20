@@ -6,7 +6,15 @@ This is an example setup to show a **basic Google Map** with the Google Maps Rea
 
 To run this project, clone the Google Maps React Hooks repository locally.
 
-At the root of the repository, run:
+First go to the root of the repository and run
+
+```shell
+npm install
+```
+
+once to install all dependencies.
+
+Then start this example locally with
 
 ```shell
 npm run start:sample-map

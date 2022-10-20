@@ -16,6 +16,7 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
   - [useDirections](#usedirections)
   - [useGeocoder](#usegeocoder)
   - [usePlacesService](#useplacesservice)
+  - [useDistanceMatrix](#usedistancematrix)
 - [Publish](#publish)
 
 ## Requirements
@@ -479,6 +480,33 @@ Returns the [`PlacesService`](google.maps.places.PlacesService) class to use dir
 google.maps.places.PlacesService
 ```
 
+### useDistanceMatrix
+
+React hook to use the [Google Maps Distance Matrix Service](https://developers.google.com/maps/documentation/javascript/distancematrix) in any component.
+
+#### Usage
+
+```tsx
+import React from 'react';
+import { useDistanceMatrix } from '@ubilabs/google-maps-react-hooks';
+
+const MyComponent = () => {
+  const service = useDistanceMatrix();
+
+  service.getDistanceMatrix(request, response => {
+    // Do something with the response
+  }
+
+  return (...);
+};
+```
+
+Returns the [`DistanceMatrixService`](google.maps.DistanceMatrixService) class to use directly.
+
+```TypeScript
+google.maps.DistanceMatrixService
+```
+
 ### useElevationService
 
 React hook to use the [Elevation Service](https://developers.google.com/maps/documentation/javascript/elevation) in any component.
@@ -501,9 +529,6 @@ const MyComponent = () => {
       }
     );
   }, [location]);
-
-  return (...);
-};
 ```
 
 #### Return value
