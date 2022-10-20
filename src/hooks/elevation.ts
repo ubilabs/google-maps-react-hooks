@@ -8,7 +8,7 @@ import useGoogleMap from './map-instance';
 const useElevationService = (): google.maps.ElevationService | null => {
   const {map} = useGoogleMap();
 
-  // Creates a Elevation Service instance
+  // Creates an Elevation Service instance
   const elevationService =
     useMemo<google.maps.ElevationService | null>(() => {
       // Wait for map to be initialized
