@@ -501,10 +501,47 @@ const MyComponent = () => {
 };
 ```
 
+#### Return value
+
 Returns the [`DistanceMatrixService`](google.maps.DistanceMatrixService) class to use directly.
 
 ```TypeScript
 google.maps.DistanceMatrixService
+```
+
+### useMaxZoomService
+
+React hook to use the [Maximum Zoom Imagery Service](https://developers.google.com/maps/documentation/javascript/maxzoom) in any component.
+
+#### Usage
+
+```tsx
+import React, {useEffect} from 'react';
+import {useMaxZoomService} from '@ubilabs/google-maps-react-hooks';
+
+const MyComponent = () => {
+  const maxZoomService = useMaxZoomService();
+  const location = /** google.maps.LatLng */;
+
+  useEffect(() => {
+    maxZoomService?.getMaxZoomAtLatLng(
+      location,
+      (result: google.maps.MaxZoomResult) => {
+        // Do something with result
+      }
+    );
+  }, [location]);
+
+  return (...);
+};
+```
+
+#### Return value
+
+Returns the [`MaxZoomService`](google.maps.places.MaxZoomService) class to use directly.
+
+```TypeScript
+google.maps.places.MaxZoomService
 ```
 
 ### useElevationService
@@ -529,6 +566,9 @@ const MyComponent = () => {
       }
     );
   }, [location]);
+
+  return (...);
+};
 ```
 
 #### Return value
@@ -538,7 +578,6 @@ Returns the [`ElevationService`](google.maps.places.ElevationService) class to u
 ```TypeScript
 google.maps.places.ElevationService
 ```
-
 
 ## Publish (only for maintainers)
 
