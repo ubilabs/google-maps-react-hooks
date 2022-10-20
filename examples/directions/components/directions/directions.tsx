@@ -21,6 +21,7 @@ const DirectionsExample = () => {
     }
 
     // Form Request to pass to findAndRenderRoute
+    // https://developers.google.com/maps/documentation/javascript/directions#DirectionsRequests
     const request = {
       travelMode: google.maps.TravelMode.DRIVING,
       origin: 'Berlin',
