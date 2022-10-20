@@ -485,19 +485,22 @@ React hook to use the [Maximum Zoom Imagery Service](https://developers.google.c
 
 #### Usage
 
-```jsx
-import React from 'react';
+```tsx
+import React, {useEffect} from 'react';
 import {useMaxZoomService} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
   const maxZoomService = useMaxZoomService();
+  const location = /** google.maps.LatLng */;
 
-  maxZoomService.getMaxZoomAtLatLng(
-    LatLng,
-    (result: google.maps.MaxZoomResult) => {
-      // Do something with result
-    }
-  );
+  useEffect(() => {
+    maxZoomService?.getMaxZoomAtLatLng(
+      location,
+      (result: google.maps.MaxZoomResult) => {
+        // Do something with result
+      }
+    );
+  }, [location]);
 
   return (...);
 };
