@@ -1,9 +1,31 @@
-## [1.5.3](https://github.com/ubilabs/google-maps-react-hooks/compare/v1.4.7...v1.5.3) (2022-10-17)
+# [1.6.0](https://github.com/ubilabs/google-maps-react-hooks/compare/v1.4.7...v1.6.0) (2022-10-20)
 
 
 ### Bug Fixes
 
+* **google-map:** use right condition for authReferrerPolicy parameter ([098d215](https://github.com/ubilabs/google-maps-react-hooks/commit/098d215ceb547af41e346eaf1c7752b43cf94e87))
 * **package:** adjust module ([#56](https://github.com/ubilabs/google-maps-react-hooks/issues/56)) ([106311e](https://github.com/ubilabs/google-maps-react-hooks/commit/106311e1d3160fc2639338a1191c9a78872d413c))
+
+
+### Features
+
+* **elevation:** update hook name ([caf6445](https://github.com/ubilabs/google-maps-react-hooks/commit/caf6445765845d6ba9f5fbdae01c748013a71265))
+* **examples:** add autocomplete places search example ([4362c83](https://github.com/ubilabs/google-maps-react-hooks/commit/4362c831b20e428d6733afca0e720838035ffa51))
+* **examples:** add basic google map example ([467e213](https://github.com/ubilabs/google-maps-react-hooks/commit/467e2137a8c6d90da6173ddd8e5d20b218039b76))
+* **examples:** add geocoding example ([bd724a4](https://github.com/ubilabs/google-maps-react-hooks/commit/bd724a4a5d628c806783a118d15f94d6e40c8392))
+* **examples:** add google map with markers example ([ca420eb](https://github.com/ubilabs/google-maps-react-hooks/commit/ca420eb7176551c7535921775da3aff4ecdfad36))
+* **examples:** add places example ([2a71d50](https://github.com/ubilabs/google-maps-react-hooks/commit/2a71d5087a0f6e288c672a701181f0b6e52794d9))
+* **examples:** example for useDirections hook ([5cc6ed8](https://github.com/ubilabs/google-maps-react-hooks/commit/5cc6ed88b37ff618c1f438e49542fbb591d5adce))
+* **hooks:** add elevation hook ([2c2fe2c](https://github.com/ubilabs/google-maps-react-hooks/commit/2c2fe2cf4448fa138b435a317b1438e3f9757d1f))
+* **hooks:** add max zoom hook ([e1b3a7e](https://github.com/ubilabs/google-maps-react-hooks/commit/e1b3a7eeca5ef548b525062773e732339af9f2a5))
+* **hooks:** add new hook for distance matrix service ([798a2a7](https://github.com/ubilabs/google-maps-react-hooks/commit/798a2a7a117e12abd042b90f0afe0f3d5833c3d7))
+* **map-provider:** add authReferrerPolicy to the map provider props ([a0a5142](https://github.com/ubilabs/google-maps-react-hooks/commit/a0a51426a472f34995317050d206575d5d7e0fed))
+* **readme:** add distance matrix ([3b7751f](https://github.com/ubilabs/google-maps-react-hooks/commit/3b7751faae13aa911ccdce4e17975ac093a7b972))
+* **README:** add npm and license shields ([30ef219](https://github.com/ubilabs/google-maps-react-hooks/commit/30ef219637d629301e5cfdf459c5e6e8c226e612))
+* **README:** add useElevationService hook to readme ([5a7efc7](https://github.com/ubilabs/google-maps-react-hooks/commit/5a7efc774caf5b492bcb3363f4cf4b01b0674054))
+* **readme:** update properties with optional options ([de90170](https://github.com/ubilabs/google-maps-react-hooks/commit/de90170ba48fa2a6960c6acaed3662b344a6e228))
+* **README:** update readme with authReferrerPolicy ([0a2caf3](https://github.com/ubilabs/google-maps-react-hooks/commit/0a2caf312c53bcbe20319fd4f2c81f001bf20d73))
+* **README:** update readme with useMAxZoomService hook ([3b61309](https://github.com/ubilabs/google-maps-react-hooks/commit/3b613094a6b970f38eb0f2c08e4f2dbcbc871f6c))
 
 
 
