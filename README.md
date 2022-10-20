@@ -486,7 +486,7 @@ React hook to use the [Google Maps Distance Matrix Service](https://developers.g
 
 #### Usage
 
-```jsx
+```tsx
 import React from 'react';
 import { useDistanceMatrix } from '@ubilabs/google-maps-react-hooks';
 
@@ -501,13 +501,44 @@ const MyComponent = () => {
 };
 ```
 
-#### Return value
-
 Returns the [`DistanceMatrixService`](google.maps.DistanceMatrixService) class to use directly.
 
 ```TypeScript
 google.maps.DistanceMatrixService
 ```
+
+### useElevationService
+
+React hook to use the [Elevation Service](https://developers.google.com/maps/documentation/javascript/elevation) in any component.
+
+#### Usage
+
+```tsx
+import React, {useEffect} from 'react';
+import {useElevationService} from '@ubilabs/google-maps-react-hooks';
+
+const MyComponent = () => {
+  const elevator = useElevationService();
+  const location = /** google.maps.LatLng */;
+
+  useEffect(() => {
+    elevator?.getElevationForLocations(
+      {locations: [location]},
+      (results: google.maps.ElevationResult[]) => {
+        // Do something with results
+      }
+    );
+  }, [location]);
+```
+
+#### Return value
+
+Returns the [`ElevationService`](google.maps.places.ElevationService) class to use directly.
+
+```TypeScript
+google.maps.places.ElevationService
+```
+
 
 ## Publish (only for maintainers)
 
