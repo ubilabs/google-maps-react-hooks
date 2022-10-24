@@ -1,4 +1,4 @@
-# Basic Google Maps Setup Example
+# `usePlacesService` Hook Setup Example
 
 This is an example setup to show a **Google Map with place** using the usePlacesService hook with the Google Maps React Hooks library.
 
