@@ -12,9 +12,10 @@
     "url": "git://github.com/ubilabs/google-maps-react-hooks.git"
   },
   "scripts": {
-    "build": "rm -rf dist/* && microbundle -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
-    "dev": "rm -rf dist/* && microbundle watch -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
-    "start": "npm run barrel:watch && npm run dev",
+    "build": "npm run barrel && npm run microbundle:build",
+    "start": "npm run barrel:watch && npm run mircobundle:dev",
+    "microbundle:build": "rm -rf dist/* && microbundle -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
+    "microbundle:dev": "rm -rf dist/* && microbundle watch -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
     "lint": "eslint './{src,examples}/**/*.{ts,tsx}'",
     "types": "tsc --project tsconfig.json --noEmit",
     "test": "npm run lint && npm run types",
