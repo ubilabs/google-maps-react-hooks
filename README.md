@@ -10,6 +10,7 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
 - [Installation](#installation)
 - [Usage](#usage)
 - [GoogleMapProvider](#googlemapprovider)
+  - [Properties](#properties)
 - [Hooks](#hooks)
   - [useGoogleMap](#usegooglemap)
   - [useAutocomplete](#useautocomplete)
