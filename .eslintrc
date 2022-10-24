@@ -1,5 +1,5 @@
 {
-  "plugins": ["react", "import", "react-hooks", "@typescript-eslint"],
+  "plugins": ["react", "import", "react-hooks", "@typescript-eslint", "codegen"],
   "extends": ["prettier", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "env": {
@@ -320,6 +320,7 @@
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/no-unused-vars": ["error"],
-    "@typescript-eslint/no-use-before-define": ["error"]
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "codegen/codegen": "error"
   }
 }
