@@ -31,21 +31,14 @@ const DistanceMatrix = () => {
 
     // Distance Matrix request
     // https://developers.google.com/maps/documentation/distance-matrix/distance-matrix#required-parameters
-    const origin = 'Invalides';
-    const destination1 = 'Palais Garnier';
-    const destination2 = {lat: 48.87486838960709, lng: 2.293475122446004}; // Arc de Triomphe
-    const destination3 = {lat: 48.85680070130583, lng: 2.2917585087353705}; // Eiffel Tower
-    const destination4 = 'Louvre Museum';
-    const destination5 = {lat: 48.846182892343855, lng: 2.3604230571607023}; // Jardin de Plantes
-
     const request = {
-      origins: [origin],
+      origins: ['Invalides'],
       destinations: [
-        destination1,
-        destination2,
-        destination3,
-        destination4,
-        destination5
+        'Palais Garnier',
+        {lat: 48.87486838960709, lng: 2.293475122446004}, // Arc de Triomphe
+        {lat: 48.85680070130583, lng: 2.2917585087353705}, // Eiffel Tower
+        'Louvre Museum',
+        {lat: 48.846182892343855, lng: 2.3604230571607023} // Jardin de Plantes
       ],
       travelMode: google.maps.TravelMode.DRIVING,
       unitSystem: google.maps.UnitSystem.METRIC,
