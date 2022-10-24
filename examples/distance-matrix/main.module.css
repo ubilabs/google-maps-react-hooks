@@ -1,0 +1,9 @@
+html,
+body,
+:global(#app),
+:global(#container) {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
