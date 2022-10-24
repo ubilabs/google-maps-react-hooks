@@ -1,0 +1,34 @@
+{
+  "name": "basic-google-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A sample Google Map setup with the MapProvider component.",
+  "main": "index.js",
+  "scripts": {
+    "clean-examples": "rm -rf public .parcel-cache",
+    "start:map": "PARCEL_AUTOINSTALL=false parcel serve ./basic-google-map/index.html --dist-dir public --port 1234",
+    "start:map-markers": "PARCEL_AUTOINSTALL=false parcel serve ./google-map-with-markers/index.html --dist-dir public --port 1234",
+    "start:geocoding": "PARCEL_AUTOINSTALL=false parcel serve ./geocoding/index.html --dist-dir public --port 1234",
+    "start:places": "PARCEL_AUTOINSTALL=false parcel serve ./places/index.html --dist-dir public --port 1234",
+    "start:autocomplete": "PARCEL_AUTOINSTALL=false parcel serve ./places-autocomplete/index.html --dist-dir public --port 1234",
+    "start:directions": "PARCEL_AUTOINSTALL=false parcel serve ./directions/index.html --dist-dir public --port 1234"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@ubilabs/google-maps-react-hooks": "^1.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/googlemaps": "^3.43.3",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "parcel": "^2.7.0",
+    "postcss": "^8.4.18",
+    "postcss-custom-media": "^8.0.2",
+    "postcss-modules": "^5.0.0",
+    "process": "^0.11.10",
+    "typescript": "^4.8.4",
+    "typescript-plugin-css-modules": "^3.4.0"
+  }
+}

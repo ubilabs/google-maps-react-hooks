@@ -4,14 +4,14 @@
 interface GoogleMapOptions {
   container: HTMLElement;
   googleMapsAPIKey: string;
-  config: google.maps.MapOptions;
+  config?: google.maps.MapOptions;
   onLoadScript: () => void;
   onLoadMap: (loadedMap: GoogleMap) => void;
   libraries?: string[];
   language?: string;
   region?: string;
-  mapIds?: string[];
   version?: string;
+  authReferrerPolicy?: string;
 }
 
 /**
@@ -39,12 +39,12 @@ export default class GoogleMap {
 
     const {
       libraries,
-      mapIds,
       version,
       language,
       region,
       googleMapsAPIKey,
-      onLoadScript
+      onLoadScript,
+      authReferrerPolicy
     } = options;
 
     scriptTag.setAttribute('type', 'text/javascript');
@@ -54,8 +54,8 @@ export default class GoogleMap {
         language || defaultLanguage
       }&region=${region || defaultRegion}${
         libraries ? `&libraries=${libraries.join(',')}` : ''
-      }${mapIds ? `&map_ids=${mapIds.join(',')}` : ''}${
-        version ? `&v=${version}` : ''
+      }${version ? `&v=${version}` : ''}${
+        authReferrerPolicy ? `&auth_referrer_policy=${authReferrerPolicy}` : ''
       }`
     );
     scriptTag.onload = (): void => {
@@ -95,7 +95,7 @@ export default class GoogleMap {
     if (this.map) {
       document
         .querySelectorAll('script[src^="https://maps.googleapis.com"]')
-        .forEach((script) => {
+        .forEach(script => {
           script.remove();
         });
       if (window.google && window.google.maps) {

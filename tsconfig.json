@@ -10,6 +10,7 @@
     "jsx": "react",
     "esModuleInterop": true,
     "typeRoots": ["./src/types"],
+    "types": ["node"],
     "moduleResolution": "node"
   },
   "exclude": ["node_modules", "dist"]

@@ -5,13 +5,13 @@ import GoogleMap from './google-map';
 export interface GoogleMapProviderProps {
   googleMapsAPIKey: string;
   mapContainer?: HTMLElement | null;
-  options: google.maps.MapOptions;
+  options?: google.maps.MapOptions;
   libraries?: string[];
   language?: string;
   region?: string;
-  mapIds?: string[];
   version?: string;
   onLoad?: (map: google.maps.Map) => void;
+  authReferrerPolicy?: string;
 }
 
 export interface GoogleMapContextType extends Partial<GoogleMap> {
@@ -28,9 +28,9 @@ export const GoogleMapContext = React.createContext<GoogleMapContextType>({
 /**
  * The global Google Map provider
  */
-const GoogleMapProvider: React.FunctionComponent<PropsWithChildren<GoogleMapProviderProps>> = (
-  props
-) => {
+const GoogleMapProvider: React.FunctionComponent<
+  PropsWithChildren<GoogleMapProviderProps>
+> = props => {
   const {
     children,
     googleMapsAPIKey,
@@ -39,9 +39,9 @@ const GoogleMapProvider: React.FunctionComponent<PropsWithChildren<GoogleMapProv
     libraries,
     language,
     region,
-    mapIds,
     version,
-    onLoad
+    onLoad,
+    authReferrerPolicy
   } = props;
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -64,10 +64,10 @@ const GoogleMapProvider: React.FunctionComponent<PropsWithChildren<GoogleMapProv
       },
       config: options,
       libraries,
-      mapIds,
       language,
       region,
-      version
+      version,
+      authReferrerPolicy
     };
     // Create Google Map instance
     new GoogleMap(mapOptions);

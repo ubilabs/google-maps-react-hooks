@@ -30,27 +30,29 @@ const useDirections = (props: DirectionsProps = {}): DirectionsHookReturns => {
   const {map, loading} = useGoogleMap();
 
   // Creates a Directions Service instance
-  const directionsService = useMemo<google.maps.DirectionsService | null>(() => {
-    // Wait for map to be initialized
-    if (!map || loading) {
-      return null;
-    }
+  const directionsService =
+    useMemo<google.maps.DirectionsService | null>(() => {
+      // Wait for map to be initialized
+      if (!map || loading) {
+        return null;
+      }
 
-    return new google.maps.DirectionsService();
-  }, [map, loading]);
+      return new google.maps.DirectionsService();
+    }, [map, loading]);
 
   // Creates a Directions Renderer instance
-  const directionsRenderer = useMemo<google.maps.DirectionsRenderer | null>(() => {
-    // Wait for map to be initialized
-    if (!map || !renderOnMap) {
-      return null;
-    }
+  const directionsRenderer =
+    useMemo<google.maps.DirectionsRenderer | null>(() => {
+      // Wait for map to be initialized
+      if (!map || !renderOnMap) {
+        return null;
+      }
 
-    const renderer = new google.maps.DirectionsRenderer(renderOptions);
-    renderer.setMap(map);
+      const renderer = new google.maps.DirectionsRenderer(renderOptions);
+      renderer.setMap(map);
 
-    return renderer;
-  }, [map, renderOnMap]);
+      return renderer;
+    }, [map, renderOnMap]);
 
   // Updates the directions renderer options
   useEffect(() => {

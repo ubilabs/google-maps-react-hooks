@@ -1,4 +1,5 @@
 # Google Maps React Hooks
+[![npm version](https://img.shields.io/npm/v/@ubilabs/google-maps-react-hooks)](https://www.npmjs.com/package/@ubilabs/google-maps-react-hooks) [![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ubilabs/google-maps-react-hooks/blob/develop/LICENSE)
 
 ## Description
 
@@ -15,6 +16,7 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
   - [useDirections](#usedirections)
   - [useGeocoder](#usegeocoder)
   - [usePlacesService](#useplacesservice)
+  - [useDistanceMatrix](#usedistancematrix)
 - [Publish](#publish)
 
 ## Requirements
@@ -97,38 +99,197 @@ Component to wrap around the code where the map should be available.
 
 ### Properties
 
+Properties that can be passed to the `GoogleMapsProvider` that are either the container to hold the map instance or [Maps JavaScript API URL Parameters](https://developers.google.com/maps/documentation/javascript/url-params).
+
 ```TypeScript
 interface GoogleMapProviderProps {
-  children: React.ReactElement;
-
-  // The Google Maps API Key
   googleMapsAPIKey: string;
-
-  // A reference to the component that displays the map
   mapContainer?: HTMLElement | null;
-
-  // The Google Maps MapOptions, see: https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions
-  options: google.maps.MapOptions;
-
-  // Additional Google Maps libraries to load ('drawing', 'geometry', 'places' or 'visualization'), see: https://developers.google.com/maps/documentation/javascript/libraries
+  options?: google.maps.MapOptions;
   libraries?: string[];
-
-  // By default Google Maps will use the preferred language from the browser setting. This is the property to set it manually, see: https://developers.google.com/maps/documentation/javascript/localization
   language?: string;
-
-  // By default Google Maps will use the preferred region from the browser setting. This is the property to set it manually, see: https://developers.google.com/maps/documentation/javascript/localization
   region?: string;
-
-  // Use this parameter for cloud-based map styling (in beta), see: https://developers.google.com/maps/documentation/javascript/cloud-based-map-styling
-  mapIds?: string[];
-
-  // Use this parameter to specify a version, see: https://developers.google.com/maps/documentation/javascript/versions
   version?: string;
-
-  // A callback function that is called, when the map is loaded.
+  authReferrerPolicy?: string;
   onLoad?: (map: google.maps.Map) => void;
 }
 ```
+- - - -
+__googleMapsAPIKey__ (_compulsary property_)
+
+  The Google Maps JavaScript API Key.
+  ```Typescript
+  googleMapsAPIKey: string;
+  ```
+
+See: [Use API Key](https://developers.google.com/maps/documentation/embed/get-api-key)
+
+- - - -
+
+__mapContainer__ (_optional property_)
+
+A reference to the HTML element that displays the map.
+Without the mapContainer provided, no visual map will be displayed.
+
+```Typescript
+mapContainer?: HTMLElement | null;
+```
+
+_Example:_
+
+The mapContainer will be passed to the `mapProvider` and `mapCanvas component` in the following way:
+
+```TypeScript
+function App() {
+  const [mapContainer, setMapContainer] = useState(null);
+  
+  const mapRef = useCallback((node) => {
+    node && setMapContainer(node);
+  }, []);
+
+  return (
+    <GoogleMapProvider
+      googleMapsAPIKey="my Google Maps API key"
+      mapContainer={mapContainer}
+    >
+      <React.StrictMode>
+        <MapCanvas ref={mapRef} />
+      </React.StrictMode>
+    </GoogleMapProvider>
+  );
+}
+```
+
+See: [Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
+
+- - - -
+
+__options__ (_optional property_)
+
+The Google Maps MapOptions.
+
+```Typescript
+options?: google.maps.MapOptions;
+```
+
+_Example:_
+
+```Typescript
+const mapOptions = {
+  center: {lat: 53.5582447, lng: 9.647645},
+  zoom: 6,
+  disableDefaultUI: true,
+};
+```
+
+See: [MapOptions](https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions)
+
+**NOTE**: If the `mapOptions` are not provided here, the map will not be displayed until they are set.
+
+_Example:_ 
+
+MapOptions can be set later in another component in the following way:
+
+```Typescript
+import {useGoogleMap} from '@ubilabs/google-maps-react-hooks';
+
+const mapOptions = {
+  center: {lat: 53.5582447, lng: 9.647645},
+  zoom: 6,
+  disableDefaultUI: true,
+  zoomControl: true,
+  zoomControlOptions: {
+    position: 3 // Right top
+  }
+};
+
+const {map} = useGoogleMap();
+
+map?.setOptions(mapOptions);
+```
+
+- - - -
+
+__libraries__ (_optional property_)
+
+Additional Google Maps libraries to load ('drawing', 'geometry', 'places' or 'visualization').
+
+```Typescript
+libraries?: string[];
+```
+
+See: [Libraries](https://developers.google.com/maps/documentation/javascript/libraries)
+
+- - - -
+
+__languages__ (_optional property_)
+
+By default Google Maps will use the preferred region from the browser setting. This is the property to set it manually.
+
+```Typescript
+language?: string;
+```
+
+See: [Localization](https://developers.google.com/maps/documentation/javascript/localization)
+
+- - - -
+
+__region__ (_optional property_)
+
+By default Google Maps will use the preferred region from the browser setting. This is the property to set it manually.
+
+```Typescript
+region?: string;
+```
+
+See: [Localization](https://developers.google.com/maps/documentation/javascript/localization)
+
+- - - -
+
+__version__ (_optional property_)
+
+Use this parameter to specify a version.
+
+```Typescript
+version?: string;
+```
+
+See: [Versions](https://developers.google.com/maps/documentation/javascript/versions)
+
+- - - -
+
+__authReferrerPolicy__ (_optional property_)
+
+Use this parameter to set auth_referrer_policy=origin when an URL on the same origin uses the API Key, to limit the amount of data sent when authorizing requests.
+
+```Typescript
+authReferrerPolicy?: string;
+```
+
+See: [auth_referrer_policy](https://developers.google.com/maps/documentation/javascript/url-params)
+
+- - - -
+
+__onLoad__ (_optional property_)
+
+A callback function that is called, when the map is loaded.
+
+```Typescript
+onLoad?: (map: google.maps.Map) => void;
+```
+
+_Example:_
+
+```Typescript
+<GoogleMapProvider
+  googleMapsAPIKey="my Google Maps API key"
+  onLoad={(map) => map.setZoom(4)}
+>
+  ...
+</GoogleMapProvider>
+```
+
+- - - -
 
 ## Hooks
 
@@ -317,6 +478,105 @@ Returns the [`PlacesService`](google.maps.places.PlacesService) class to use dir
 
 ```TypeScript
 google.maps.places.PlacesService
+```
+
+### useDistanceMatrix
+
+React hook to use the [Google Maps Distance Matrix Service](https://developers.google.com/maps/documentation/javascript/distancematrix) in any component.
+
+#### Usage
+
+```tsx
+import React from 'react';
+import { useDistanceMatrix } from '@ubilabs/google-maps-react-hooks';
+
+const MyComponent = () => {
+  const service = useDistanceMatrix();
+
+  service.getDistanceMatrix(request, response => {
+    // Do something with the response
+  }
+
+  return (...);
+};
+```
+
+#### Return value
+
+Returns the [`DistanceMatrixService`](google.maps.DistanceMatrixService) class to use directly.
+
+```TypeScript
+google.maps.DistanceMatrixService
+```
+
+### useMaxZoomService
+
+React hook to use the [Maximum Zoom Imagery Service](https://developers.google.com/maps/documentation/javascript/maxzoom) in any component.
+
+#### Usage
+
+```tsx
+import React, {useEffect} from 'react';
+import {useMaxZoomService} from '@ubilabs/google-maps-react-hooks';
+
+const MyComponent = () => {
+  const maxZoomService = useMaxZoomService();
+  const location = /** google.maps.LatLng */;
+
+  useEffect(() => {
+    maxZoomService?.getMaxZoomAtLatLng(
+      location,
+      (result: google.maps.MaxZoomResult) => {
+        // Do something with result
+      }
+    );
+  }, [location]);
+
+  return (...);
+};
+```
+
+#### Return value
+
+Returns the [`MaxZoomService`](google.maps.places.MaxZoomService) class to use directly.
+
+```TypeScript
+google.maps.places.MaxZoomService
+```
+
+### useElevationService
+
+React hook to use the [Elevation Service](https://developers.google.com/maps/documentation/javascript/elevation) in any component.
+
+#### Usage
+
+```tsx
+import React, {useEffect} from 'react';
+import {useElevationService} from '@ubilabs/google-maps-react-hooks';
+
+const MyComponent = () => {
+  const elevator = useElevationService();
+  const location = /** google.maps.LatLng */;
+
+  useEffect(() => {
+    elevator?.getElevationForLocations(
+      {locations: [location]},
+      (results: google.maps.ElevationResult[]) => {
+        // Do something with results
+      }
+    );
+  }, [location]);
+
+  return (...);
+};
+```
+
+#### Return value
+
+Returns the [`ElevationService`](google.maps.places.ElevationService) class to use directly.
+
+```TypeScript
+google.maps.places.ElevationService
 ```
 
 ## Publish (only for maintainers)

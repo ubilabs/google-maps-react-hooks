@@ -1,6 +1,6 @@
 {
   "name": "@ubilabs/google-maps-react-hooks",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "description": "React hooks and map context provider for Google Maps",
   "source": "src/index.ts",
   "main": "dist/index.umd.js",
@@ -14,14 +14,21 @@
   "scripts": {
     "build": "rm -rf dist/* && microbundle -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
     "dev": "rm -rf dist/* && microbundle watch -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
-    "lint": "eslint './src/**/*.{ts,tsx}'",
+    "lint": "eslint './{src,examples}/**/*.{ts,tsx}'",
     "types": "tsc --project tsconfig.json --noEmit",
     "test": "npm run lint && npm run types",
     "prepublishOnly": "npm run test && npm run build",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "preversion": "npm run test",
     "version": "npm run changelog && git checkout -b chore/release-${npm_package_version} && git add .",
-    "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify"
+    "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify",
+    "postinstall": "npm install --prefix examples",
+    "start:sample-map": "cd examples && npm run clean-examples && npm run start:map",
+    "start:map-with-markers": "cd examples && npm run clean-examples && npm run start:map-markers",
+    "start:geocoding-example": "cd examples && npm run clean-examples && npm run start:geocoding",
+    "start:places-example": "cd examples && npm run clean-examples && npm run start:places",
+    "start:autocomplete-example": "cd examples && npm run clean-examples && npm run start:autocomplete",
+    "start:directions-example": "cd examples && npm run clean-examples && npm run start:directions"
   },
   "keywords": [
     "React hooks",
@@ -50,5 +57,5 @@
     "url": "https://github.com/ubilabs/google-maps-react-hooks/issues"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

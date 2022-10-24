@@ -19,10 +19,8 @@ const useAutocomplete = (
   const placeChangedHandler = useRef(onPlaceChanged);
   const {map} = useGoogleMap();
 
-  const [
-    autocomplete,
-    setAutocomplete
-  ] = useState<google.maps.places.Autocomplete | null>(null);
+  const [autocomplete, setAutocomplete] =
+    useState<google.maps.places.Autocomplete | null>(null);
 
   // Initializes the Google Maps Places Autocomplete
   useEffect(() => {
