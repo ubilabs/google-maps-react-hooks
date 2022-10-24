@@ -1,4 +1,4 @@
-# Basic Google Maps Setup Example
+# `useAutocomplete` Hook Setup Example
 
 This is an example setup of a **Map with a Places Autocomplete Search** to show the usage of the **useAutocomplete hook** with the Google Maps React Hooks library.
 

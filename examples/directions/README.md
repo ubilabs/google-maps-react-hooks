@@ -1,4 +1,4 @@
-# Basic Google Maps Setup Example
+# `useDirections` Hook Setup Example
 
 This is an example setup to show the usage of the **useDirections hook with findAndRenderRoute** with the Google Maps React Hooks library.
 
