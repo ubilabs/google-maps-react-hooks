@@ -2,7 +2,7 @@ import {useState, useRef, useEffect} from 'react';
 
 import {useGoogleMap} from './map-instance';
 
-interface AutocompleteProps {
+export interface AutocompleteProps {
   inputField: HTMLInputElement | null;
   options?: google.maps.places.AutocompleteOptions;
   onPlaceChanged: (place: google.maps.places.PlaceResult) => void;

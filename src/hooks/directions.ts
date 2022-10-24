@@ -2,7 +2,7 @@ import {useMemo, useEffect, useCallback} from 'react';
 
 import {useGoogleMap} from './map-instance';
 
-interface DirectionsProps {
+export interface DirectionsProps {
   renderOnMap?: boolean;
   renderOptions?: google.maps.DirectionsRendererOptions;
 }
