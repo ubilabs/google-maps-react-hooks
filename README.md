@@ -17,6 +17,8 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
   - [useGeocoder](#usegeocoder)
   - [usePlacesService](#useplacesservice)
   - [useDistanceMatrix](#usedistancematrix)
+  - [useMaxZoomService](#usemaxzoomservice)
+  - [useElevationService](#useelevationservice)
 - [Publish](#publish)
 
 ## Requirements
