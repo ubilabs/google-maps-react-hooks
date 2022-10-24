@@ -5,4 +5,5 @@ export {default as useAutocomplete} from './hooks/autocomplete';
 export {default as useDirections} from './hooks/directions';
 export {default as useGeocoder} from './hooks/geocoder';
 export {default as useDistanceMatrix} from './hooks/distance-matrix';
-
+export {default as useMaxZoomService} from './hooks/max-zoom';
+export {default as useElevationService} from './hooks/elevation';
