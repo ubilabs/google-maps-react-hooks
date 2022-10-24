@@ -1,11 +1,11 @@
 import {useMemo} from 'react';
 
-import useGoogleMap from './map-instance';
+import {useGoogleMap} from './map-instance';
 
 /**
  * Hook to get Google Maps Geocoder instance
  */
-const useGeocoder = (): google.maps.Geocoder | null => {
+export const useGeocoder = (): google.maps.Geocoder | null => {
   const {map} = useGoogleMap();
 
   // Creates a Geocoder instance
@@ -20,5 +20,3 @@ const useGeocoder = (): google.maps.Geocoder | null => {
 
   return geocoder;
 };
-
-export default useGeocoder;

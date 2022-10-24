@@ -1,11 +1,11 @@
 import {useMemo} from 'react';
 
-import useGoogleMap from './map-instance';
+import {useGoogleMap} from './map-instance';
 
 /**
  * Hook to get Distance Matrix Service instance
  */
-const useDistanceMatrix =
+export const useDistanceMatrix =
   (): google.maps.DistanceMatrixService | null => {
     const {map} = useGoogleMap();
 
@@ -26,5 +26,3 @@ const useDistanceMatrix =
 
     return distanceMatrixService;
   };
-
-export default useDistanceMatrix;

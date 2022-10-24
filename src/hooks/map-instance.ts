@@ -5,6 +5,5 @@ import {GoogleMapContext, GoogleMapContextType} from '../map-provider';
 /**
  * Hook to get global map instance
  */
-const useGoogleMap = (): GoogleMapContextType => useContext(GoogleMapContext);
-
-export default useGoogleMap;
+export const useGoogleMap = (): GoogleMapContextType =>
+  useContext(GoogleMapContext);
