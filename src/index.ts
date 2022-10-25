@@ -1,8 +1,10 @@
-export {default as GoogleMapProvider} from './map-provider';
-export {default as useGoogleMap} from './hooks/map-instance';
-export {default as usePlacesService} from './hooks/places';
-export {default as useAutocomplete} from './hooks/autocomplete';
-export {default as useDirections} from './hooks/directions';
-export {default as useGeocoder} from './hooks/geocoder';
-export {default as useDistanceMatrix} from './hooks/distance-matrix';
-
+// codegen:start {preset: barrel, include: ./hooks/*.ts}
+export * from './hooks/autocomplete';
+export * from './hooks/directions';
+export * from './hooks/distance-matrix';
+export * from './hooks/elevation';
+export * from './hooks/geocoder';
+export * from './hooks/map-instance';
+export * from './hooks/max-zoom';
+export * from './hooks/places';
+// codegen:end

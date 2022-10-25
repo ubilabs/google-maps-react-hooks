@@ -1,8 +1,8 @@
 import {useState, useRef, useEffect} from 'react';
 
-import useGoogleMap from './map-instance';
+import {useGoogleMap} from './map-instance';
 
-interface AutocompleteProps {
+export interface AutocompleteProps {
   inputField: HTMLInputElement | null;
   options?: google.maps.places.AutocompleteOptions;
   onPlaceChanged: (place: google.maps.places.PlaceResult) => void;
@@ -12,7 +12,7 @@ interface AutocompleteProps {
  * Hook to get a Google Maps Places Autocomplete instance
  * monitoring an input field
  */
-const useAutocomplete = (
+export const useAutocomplete = (
   props: AutocompleteProps
 ): google.maps.places.Autocomplete | null => {
   const {inputField, options, onPlaceChanged} = props;
@@ -57,5 +57,3 @@ const useAutocomplete = (
 
   return autocomplete;
 };
-
-export default useAutocomplete;

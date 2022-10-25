@@ -1,11 +1,11 @@
 import {useMemo} from 'react';
 
-import useGoogleMap from './map-instance';
+import {useGoogleMap} from './map-instance';
 
 /**
  * Hook to get Google Maps Places Service instance
  */
-const usePlacesService = (): google.maps.places.PlacesService | null => {
+export const usePlacesService = (): google.maps.places.PlacesService | null => {
   const {map} = useGoogleMap();
 
   // Creates a Places Service instance
@@ -26,5 +26,3 @@ const usePlacesService = (): google.maps.places.PlacesService | null => {
 
   return placesService;
 };
-
-export default usePlacesService;

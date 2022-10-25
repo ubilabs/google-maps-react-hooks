@@ -1,8 +1,8 @@
 import {useMemo, useEffect, useCallback} from 'react';
 
-import useGoogleMap from './map-instance';
+import {useGoogleMap} from './map-instance';
 
-interface DirectionsProps {
+export interface DirectionsProps {
   renderOnMap?: boolean;
   renderOptions?: google.maps.DirectionsRendererOptions;
 }
@@ -25,7 +25,9 @@ interface DirectionsHookReturns {
 /**
  * Hook to get Google Maps Places Directions Service instance
  */
-const useDirections = (props: DirectionsProps = {}): DirectionsHookReturns => {
+export const useDirections = (
+  props: DirectionsProps = {}
+): DirectionsHookReturns => {
   const {renderOnMap, renderOptions} = props;
   const {map, loading} = useGoogleMap();
 
@@ -131,5 +133,3 @@ const useDirections = (props: DirectionsProps = {}): DirectionsHookReturns => {
     renderRouteOfIndex
   };
 };
-
-export default useDirections;
