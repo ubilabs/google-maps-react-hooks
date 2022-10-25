@@ -33,7 +33,8 @@
     "start:places-example": "cd examples && npm run clean-examples && npm run start:places",
     "start:autocomplete-example": "cd examples && npm run clean-examples && npm run start:autocomplete",
     "start:directions-example": "cd examples && npm run clean-examples && npm run start:directions",
-    "start:distance-matrix-example": "cd examples && npm run clean-examples && npm run start:distance-matrix"
+    "start:distance-matrix-example": "cd examples && npm run clean-examples && npm run start:distance-matrix",
+    "start:elevation-example": "cd examples && npm run clean-examples && npm run start:elevation"
   },
   "keywords": [
     "React hooks",
