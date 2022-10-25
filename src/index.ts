@@ -7,5 +7,6 @@ export * from './hooks/geocoder';
 export * from './hooks/map-instance';
 export * from './hooks/max-zoom';
 export * from './hooks/places';
+export * from './hooks/street-view-panorama';
 export * from './map-provider';
 // codegen:end
