@@ -1,5 +1,5 @@
 {
-  "name": "basic-google-map",
+  "name": "@ubilabs/google-maps-react-hooks-examples",
   "version": "1.0.0",
   "private": true,
   "description": "A sample Google Map setup with the MapProvider component.",
@@ -16,9 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ubilabs/google-maps-react-hooks": "^1.6.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@ubilabs/google-maps-react-hooks": "file:.."
   },
   "devDependencies": {
     "@types/googlemaps": "^3.43.3",
