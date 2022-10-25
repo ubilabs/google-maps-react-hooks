@@ -1,4 +1,4 @@
-# Basic Google Maps Setup Example
+# Google Maps With Markers Setup Example
 
 This is an example setup to show a **Google Map with markers** with the Google Maps React Hooks library.
 

@@ -1,8 +1,9 @@
-# `useAutocomplete` Hook Setup Example
+#  `useDistanceMatrix` Hook Setup Example
 
-This is an example setup of a **Map with a Places Autocomplete Search** to show the usage of the **useAutocomplete hook** with the Google Maps React Hooks library.
+This is an example setup to show the usage of the **useDistanceMatrix hook** with the Google Maps React Hooks library.
 
-## Instructions
+
+##Instructions
 
 To run this project, clone the Google Maps React Hooks repository locally.
 
@@ -10,14 +11,14 @@ First go to the root of the repository and run:
 
 ```shell
 npm install
-````
+```
 
 once to install all dependencies.
 
 Then start this example locally with
 
 ```shell
-npm run start:autocomplete-example
+npm run start:distance-matrix-example
 ```
 
 **NOTE**:
@@ -29,8 +30,6 @@ An example can be found in `.env.example`.
 
 ## Output
 
-The project will start at [localhost:1234](http://localhost:1234) and show a map with an input field and an autocomplete functionality.
+The project will start at [localhost:1234](http://localhost:1234) and show Google Map with a origin and different destinations. A side panel will show the different durations and distances to the destinations.
 
-![image](https://user-images.githubusercontent.com/39244966/196221028-34d47ae1-b612-4886-bd51-f736ffb77197.png)
-
-![image](https://user-images.githubusercontent.com/39244966/196220079-22405c58-c364-48bf-b70c-dc828e4bd635.png)
+![image](https://user-images.githubusercontent.com/39244966/197476221-68f06a3c-f76d-40b5-ab81-f9dbd8d4fbe5.png)

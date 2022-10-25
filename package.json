@@ -1,6 +1,6 @@
 {
   "name": "@ubilabs/google-maps-react-hooks",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "React hooks and map context provider for Google Maps",
   "source": "src/index.ts",
   "main": "dist/index.umd.js",
@@ -12,8 +12,10 @@
     "url": "git://github.com/ubilabs/google-maps-react-hooks.git"
   },
   "scripts": {
-    "build": "rm -rf dist/* && microbundle -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
-    "dev": "rm -rf dist/* && microbundle watch -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
+    "build": "npm run barrel && npm run microbundle:build",
+    "start": "npm run barrel:watch && npm run mircobundle:dev",
+    "microbundle:build": "rm -rf dist/* && microbundle -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
+    "microbundle:dev": "rm -rf dist/* && microbundle watch -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
     "lint": "eslint './{src,examples}/**/*.{ts,tsx}'",
     "types": "tsc --project tsconfig.json --noEmit",
     "test": "npm run lint && npm run types",
@@ -22,13 +24,16 @@
     "preversion": "npm run test",
     "version": "npm run changelog && git checkout -b chore/release-${npm_package_version} && git add .",
     "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify",
+    "barrel": "eslint --fix src/index.ts",
+    "barrel:watch": "nodemon --delay 1 -e ts,tsx --watch src/hooks -x 'npm run barrel --silent || exit 1'",
     "postinstall": "npm install --prefix examples",
     "start:sample-map": "cd examples && npm run clean-examples && npm run start:map",
     "start:map-with-markers": "cd examples && npm run clean-examples && npm run start:map-markers",
     "start:geocoding-example": "cd examples && npm run clean-examples && npm run start:geocoding",
     "start:places-example": "cd examples && npm run clean-examples && npm run start:places",
     "start:autocomplete-example": "cd examples && npm run clean-examples && npm run start:autocomplete",
-    "start:directions-example": "cd examples && npm run clean-examples && npm run start:directions"
+    "start:directions-example": "cd examples && npm run clean-examples && npm run start:directions",
+    "start:distance-matrix-example": "cd examples && npm run clean-examples && npm run start:distance-matrix"
   },
   "keywords": [
     "React hooks",
@@ -45,11 +50,13 @@
     "conventional-changelog-cli": "^2.1.1",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-codegen": "^0.16.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "microbundle": "^0.15.1",
+    "nodemon": "^2.0.20",
     "prettier": "^2.3.2",
     "typescript": "^4.3.5"
   },
