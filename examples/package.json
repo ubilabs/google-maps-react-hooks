@@ -12,11 +12,12 @@
     "start:places": "PARCEL_AUTOINSTALL=false parcel serve ./places/index.html --dist-dir public --port 1234",
     "start:autocomplete": "PARCEL_AUTOINSTALL=false parcel serve ./places-autocomplete/index.html --dist-dir public --port 1234",
     "start:directions": "PARCEL_AUTOINSTALL=false parcel serve ./directions/index.html --dist-dir public --port 1234",
-    "start:distance-matrix": "PARCEL_AUTOINSTALL=false parcel serve ./distance-matrix/index.html --dist-dir public --port 1234"
+    "start:distance-matrix": "PARCEL_AUTOINSTALL=false parcel serve ./distance-matrix/index.html --dist-dir public --port 1234",
+    "start:max-zoom": "PARCEL_AUTOINSTALL=false parcel serve ./max-zoom-service/index.html --dist-dir public --port 1234"
   },
   "license": "MIT",
   "dependencies": {
-    "@ubilabs/google-maps-react-hooks": "^1.6.0",
+    "@ubilabs/google-maps-react-hooks": "^1.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
