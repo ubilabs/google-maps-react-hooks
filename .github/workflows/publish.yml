@@ -42,12 +42,11 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      # Node auth token is needed for private GitHub registry
       - name: Install dependencies
         run: npm install
       - name: Run tests
         run: npm run test
       - name: Publish
-        run: npm publish --access public
+        run: npm publish -w library --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_BOT_ACCESS_TOKEN }}
