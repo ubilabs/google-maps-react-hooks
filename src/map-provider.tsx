@@ -28,7 +28,7 @@ export const GoogleMapContext = React.createContext<GoogleMapContextType>({
 /**
  * The global Google Map provider
  */
-const GoogleMapProvider: React.FunctionComponent<
+export const GoogleMapProvider: React.FunctionComponent<
   PropsWithChildren<GoogleMapProviderProps>
 > = props => {
   const {
@@ -110,5 +110,3 @@ const GoogleMapProvider: React.FunctionComponent<
     </GoogleMapContext.Provider>
   );
 };
-
-export default GoogleMapProvider;
