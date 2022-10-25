@@ -1,3 +1,12 @@
+## [1.6.2](https://github.com/ubilabs/google-maps-react-hooks/compare/v1.6.1...v1.6.2) (2022-10-25)
+
+
+### Bug Fixes
+
+* **index:** export map provider component ([8f2874e](https://github.com/ubilabs/google-maps-react-hooks/commit/8f2874efe890a508a0da750597d34a5b89627c72))
+
+
+
 ## [1.6.1](https://github.com/ubilabs/google-maps-react-hooks/compare/v1.6.0...v1.6.1) (2022-10-25)
 
 
