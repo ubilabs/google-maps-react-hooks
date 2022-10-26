@@ -9,10 +9,10 @@
     "test": "npm run lint && npm run types",
     "clean-examples": "rm -rf public .parcel-cache",
     "start:map": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./basic-google-map/index.html --dist-dir public --port 1234",
-    "start:map-markers": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./google-map-with-markers/index.html --dist-dir public --port 1234",
+    "start:map-with-markers": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./google-map-with-markers/index.html --dist-dir public --port 1234",
     "start:geocoding": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./geocoding/index.html --dist-dir public --port 1234",
     "start:places": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./places/index.html --dist-dir public --port 1234",
-    "start:autocomplete": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./places-autocomplete/index.html --dist-dir public --port 1234",
+    "start:places-autocomplete": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./places-autocomplete/index.html --dist-dir public --port 1234",
     "start:directions": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./directions/index.html --dist-dir public --port 1234",
     "start:distance-matrix": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./distance-matrix/index.html --dist-dir public --port 1234"
   },
