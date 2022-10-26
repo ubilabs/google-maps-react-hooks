@@ -17,7 +17,7 @@ once to install all dependencies.
 Then start this example locally with
 
 ```shell
-npm run start:autocomplete-example
+npm run start:places-autocomplete-example
 ```
 
 **NOTE**:

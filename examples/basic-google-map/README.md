@@ -17,7 +17,7 @@ once to install all dependencies.
 Then start this example locally with
 
 ```shell
-npm run start:sample-map
+npm run start:map-example
 ```
 
 **NOTE**:

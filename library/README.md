@@ -1,5 +1,5 @@
 # Google Maps React Hooks
-[![npm version](https://img.shields.io/npm/v/@ubilabs/google-maps-react-hooks)](https://www.npmjs.com/package/@ubilabs/google-maps-react-hooks) [![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ubilabs/google-maps-react-hooks/blob/develop/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/ubilabs/google-maps-react-hooks/blob/develop/LICENSE)
 
 ## Description
 
@@ -20,7 +20,14 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
   - [useDistanceMatrix](#usedistancematrix)
   - [useMaxZoomService](#usemaxzoomservice)
   - [useElevationService](#useelevationservice)
-- [Publish](#publish)
+- [Examples](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples)
+  - [Basic Google Map](https://github.com/ubilabs/google-maps-react-hooks/blob/main/examples/basic-google-map)
+  - [Google Map with Markers](https://github.com/ubilabs/google-maps-react-hooks/blob/main/examples/google-map-with-markers)
+  - [Places Autocomplete](https://github.com/ubilabs/google-maps-react-hooks/blob/main/examples/places-autocomplete)
+  - [Directions Service](https://github.com/ubilabs/google-maps-react-hooks/blob/main/examples/directions)
+  - [Geocoding Service](https://github.com/ubilabs/google-maps-react-hooks/blob/main/examples/geocoding)
+  - [Places Library](https://github.com/ubilabs/google-maps-react-hooks/blob/main/examples/places)
+  - [Distance Matrix Service](https://github.com/ubilabs/google-maps-react-hooks/blob/main/examples/distance-matrix)
 
 ## Requirements
 
@@ -582,6 +589,7 @@ Returns the [`ElevationService`](google.maps.places.ElevationService) class to u
 google.maps.places.ElevationService
 ```
 
-## Publish (only for maintainers)
+## Examples
 
-`npm publish --access public`
+Explore our [examples directory on GitHub](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples) for full implementation examples.
+
