@@ -1,6 +1,5 @@
 {
   "name": "@ubilabs/google-maps-react-hooks-library-and-examples",
-  "version": "1.6.2",
   "description": "React hooks and map context provider for Google Maps",
   "homepage": "https://github.com/ubilabs/google-maps-react-hooks",
   "repository": {
@@ -10,9 +9,6 @@
   "scripts": {
     "test": "npm run test -ws",
     "postinstall": "npm run build -w library",
-    "preversion": "npm run test",
-    "version": "npm run changelog -w library && git checkout -b chore/release-${npm_package_version} && git add .",
-    "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify",
     "start:library": "npm start -w library",
     "start:map-example": "npm run start:map -w examples",
     "start:map-with-markers-example": "npm run start:map-with-markers -w examples",
@@ -20,7 +16,8 @@
     "start:places-example": "npm run start:places -w examples",
     "start:places-autocomplete-example": "npm run start:places-autocomplete -w examples",
     "start:directions-example": "npm run start:directions -w examples",
-    "start:distance-matrix-example": "npm run start:distance-matrix -w examples"
+    "start:distance-matrix-example": "npm run start:distance-matrix -w examples",
+    "preversion": "echo \"To create a new library version run 'npm version -w library' in the repository root.\""
   },
   "keywords": [
     "React hooks",

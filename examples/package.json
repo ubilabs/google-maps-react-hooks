@@ -1,6 +1,5 @@
 {
   "name": "@ubilabs/google-maps-react-hooks-examples",
-  "version": "1.6.2",
   "description": "A sample Google Map setup with the MapProvider component.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +13,8 @@
     "start:places": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./places/index.html --dist-dir public --port 1234",
     "start:places-autocomplete": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./places-autocomplete/index.html --dist-dir public --port 1234",
     "start:directions": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./directions/index.html --dist-dir public --port 1234",
-    "start:distance-matrix": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./distance-matrix/index.html --dist-dir public --port 1234"
+    "start:distance-matrix": "npm run clean-examples && PARCEL_AUTOINSTALL=false parcel serve ./distance-matrix/index.html --dist-dir public --port 1234",
+    "preversion": "echo \"To create a new library version run 'npm version -w library' in the repository root.\""
   },
   "license": "MIT",
   "dependencies": {
