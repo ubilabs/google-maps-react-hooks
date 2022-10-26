@@ -7,7 +7,7 @@
     "url": "git://github.com/ubilabs/google-maps-react-hooks.git"
   },
   "scripts": {
-    "test": "npm run test -ws",
+    "test": "npm run test -ws --if-present",
     "start:library": "npm start -w library",
     "start:example": "./start-example.sh",
     "start:map-example": "EXAMPLE=map run-p start:library start:example",
