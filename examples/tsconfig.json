@@ -1,10 +1,4 @@
 {
   "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@ubilabs/google-maps-react-hooks": ["./library"]
-    }
-  },
   "exclude": ["public"]
 }

@@ -24,5 +24,7 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install dependencies
         run: npm install
+      - name: Build library for examples
+        run: npm run build -w library
       - name: Run tests
         run: npm run test

@@ -8,15 +8,15 @@
   },
   "scripts": {
     "test": "npm run test -ws",
-    "postinstall": "npm run build -w library",
     "start:library": "npm start -w library",
-    "start:map-example": "npm run start:map -w examples",
-    "start:map-with-markers-example": "npm run start:map-with-markers -w examples",
-    "start:geocoding-example": "npm run start:geocoding -w examples",
-    "start:places-example": "npm run start:places -w examples",
-    "start:places-autocomplete-example": "npm run start:places-autocomplete -w examples",
-    "start:directions-example": "npm run start:directions -w examples",
-    "start:distance-matrix-example": "npm run start:distance-matrix -w examples",
+    "start:example": "./start-example.sh",
+    "start:map-example": "EXAMPLE=map run-p start:library start:example",
+    "start:map-with-markers-example": "EXAMPLE=map-with-markers run-p start:library start:example",
+    "start:geocoding-example": "EXAMPLE=geocoding run-p start:library start:example",
+    "start:places-example": "EXAMPLE=places run-p start:library start:example",
+    "start:places-autocomplete-example": "EXAMPLE=places-autocomplete run-p start:library start:example",
+    "start:directions-example": "EXAMPLE=directions run-p start:library start:example",
+    "start:distance-matrix-example": "EXAMPLE=distance-matrix run-p start:library start:example",
     "preversion": "echo \"To create a new library version run 'npm version -w library' in the repository root.\""
   },
   "keywords": [
@@ -30,5 +30,8 @@
   "workspaces": [
     "examples",
     "library"
-  ]
+  ],
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
 }
