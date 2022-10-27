@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import {
   useDistanceMatrixService,
-  useGeocoder,
+  useGeocodingService,
   useGoogleMap
 } from '@ubilabs/google-maps-react-hooks';
 
@@ -12,7 +12,7 @@ import styles from './distance-matrix.module.css';
 
 const DistanceMatrixService = () => {
   const {map} = useGoogleMap();
-  const geocoder = useGeocoder();
+  const geocoder = useGeocodingService();
 
   // Get the service from the useDistanceMatrix hook
   const service = useDistanceMatrixService();
