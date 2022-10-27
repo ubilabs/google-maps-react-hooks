@@ -1,6 +1,6 @@
-#  `useDistanceMatrix` Hook Setup Example
+#  `useDistanceMatrixService` Hook Setup Example
 
-This is an example setup to show the usage of the **useDistanceMatrix hook** with the Google Maps React Hooks library.
+This is an example setup to show the usage of the **useDistanceMatrixService hook** with the Google Maps React Hooks library.
 
 ## Instructions
 
@@ -17,7 +17,7 @@ once to install all dependencies.
 Then start this example locally with
 
 ```shell
-npm run start:distance-matrix-example
+npm run start:distance-matrix-service-example
 ```
 
 **NOTE**:

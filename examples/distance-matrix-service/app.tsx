@@ -2,7 +2,7 @@ import React, {FunctionComponent, useState, useCallback} from 'react';
 import {GoogleMapProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
-import DistanceMatrix from './components/distance-matrix/distance-matrix';
+import DistanceMatrixService from './components/distance-matrix-service/distance-matrix-service';
 
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
@@ -34,7 +34,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
         libraries={['places']}>
         <div id="container">
           <MapCanvas ref={mapRef} />
-          <DistanceMatrix />
+          <DistanceMatrixService />
         </div>
       </GoogleMapProvider>
     </React.StrictMode>

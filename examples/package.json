@@ -14,7 +14,7 @@
     "start:places-service": "EXAMPLE_ENTRY=./places-service/index.html npm run start:example",
     "start:places-autocomplete": "EXAMPLE_ENTRY=./places-autocomplete/index.html npm run start:example",
     "start:directions-service": "EXAMPLE_ENTRY=./directions-service/index.html npm run start:example",
-    "start:distance-matrix": "EXAMPLE_ENTRY=./distance-matrix/index.html npm run start:example",
+    "start:distance-matrix-service": "EXAMPLE_ENTRY=./distance-matrix-service/index.html npm run start:example",
     "start:elevation": "EXAMPLE_ENTRY=./elevation/index.html npm run start:example",
     "preversion": "echo \"To create a new library version run 'npm version -w library' in the repository root.\""
   },
