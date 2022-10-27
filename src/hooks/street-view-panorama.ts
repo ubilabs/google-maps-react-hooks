@@ -47,7 +47,8 @@ export const useStreetViewPanorama = (
           newPanorama.setPosition(position);
         }
 
-        if (zoom) {
+        // eslint-disable-next-line no-eq-null
+        if (zoom != null) {
           newPanorama.setZoom(zoom);
         }
 
