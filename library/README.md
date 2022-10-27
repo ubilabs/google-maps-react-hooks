@@ -67,7 +67,7 @@ function App() {
     <GoogleMapProvider
       googleMapsAPIKey="YOUR API KEY HERE"
       mapContainer={mapContainer}
-      options={mapOptions}>
+      mapOptions={mapOptions}>
       <React.StrictMode>
         <div ref={ref} style={{height: '100%'}} />
       </React.StrictMode>

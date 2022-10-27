@@ -16,7 +16,7 @@ Properties that can be passed to the `GoogleMapsProvider` that are either the co
 interface GoogleMapProviderProps {
   googleMapsAPIKey: string;
   mapContainer?: HTMLElement | null;
-  options?: google.maps.MapOptions;
+  mapOptions?: google.maps.MapOptions;
   libraries?: string[];
   language?: string;
   region?: string;
@@ -77,12 +77,12 @@ See: [Maps JavaScript API](https://developers.google.com/maps/documentation/java
 
 - - - -
 
-__options__ (_optional property_)
+__mapOptions__ (_optional property_)
 
 The Google Maps MapOptions.
 
 ```Typescript
-options?: google.maps.MapOptions;
+mapOptions?: google.maps.MapOptions;
 ```
 
 _Example:_

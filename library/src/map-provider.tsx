@@ -5,7 +5,7 @@ import GoogleMap from './google-map';
 export interface GoogleMapProviderProps {
   googleMapsAPIKey: string;
   mapContainer?: HTMLElement | null;
-  options?: google.maps.MapOptions;
+  mapOptions?: google.maps.MapOptions;
   libraries?: string[];
   language?: string;
   region?: string;
@@ -35,7 +35,7 @@ export const GoogleMapProvider: React.FunctionComponent<
     children,
     googleMapsAPIKey,
     mapContainer,
-    options,
+    mapOptions,
     libraries,
     language,
     region,
@@ -52,7 +52,7 @@ export const GoogleMapProvider: React.FunctionComponent<
       return;
     }
 
-    const mapOptions = {
+    const options = {
       container: mapContainer,
       googleMapsAPIKey,
       onLoadScript: (): void => setLoading(false),
@@ -62,7 +62,7 @@ export const GoogleMapProvider: React.FunctionComponent<
           onLoad(loadedMap.map);
         }
       },
-      config: options,
+      config: mapOptions,
       libraries,
       language,
       region,
@@ -71,7 +71,7 @@ export const GoogleMapProvider: React.FunctionComponent<
     };
 
     // Load Google Maps script and create Google Map instance
-    new GoogleMap(mapOptions);
+    new GoogleMap(options);
   };
 
   // Handle creation of a Google Maps map instance
