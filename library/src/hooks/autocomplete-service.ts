@@ -3,12 +3,12 @@ import {useMemo} from 'react';
 import {useGoogleMap} from './map-instance';
 
 /**
- * Hook to get Google Maps Places Service instance
+ * Hook to get Google Maps Autocomplete Service instance
  */
 export const useAutocompleteService = (): google.maps.places.AutocompleteService | null => {
   const {map} = useGoogleMap();
 
-  // Creates a Places Service instance
+  // Creates an Autocomplete Service instance
   const autocompleteService = useMemo<google.maps.places.AutocompleteService | null>(() => {
     // Wait for map to be initialized
     if (!map) {
