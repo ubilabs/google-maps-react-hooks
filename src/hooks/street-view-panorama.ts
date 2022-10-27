@@ -51,8 +51,6 @@ export const useStreetViewPanorama = (
           newPanorama.setZoom(zoom);
         }
 
-        newPanorama.setVisible(true);
-
         setPanorama(newPanorama);
       } else {
         const newPanorama = new google.maps.StreetViewPanorama(divElement, {
