@@ -17,6 +17,7 @@
     "start:places-autocomplete-example": "EXAMPLE=places-autocomplete run-p start:library start:example",
     "start:directions-example": "EXAMPLE=directions run-p start:library start:example",
     "start:distance-matrix-example": "EXAMPLE=distance-matrix run-p start:library start:example",
+    "start:max-zoom-service-example": "EXAMPLE=max-zoom run-p start:library start:example",
     "start:elevation-example": "EXAMPLE=elevation run-p start:library start:example",
     "preversion": "echo \"To create a new library version run 'npm version -w library' in the repository root.\""
   },
