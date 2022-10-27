@@ -1,6 +1,6 @@
 {
   "name": "@ubilabs/google-maps-react-hooks-examples",
-  "description": "Some sample Google Map setups with the @ubilabs/google-maps-react-hooks library",
+  "description": "Sample Google Map setups with the @ubilabs/google-maps-react-hooks library",
   "main": "index.js",
   "scripts": {
     "lint": "eslint './**/*.{ts,tsx}'",
