@@ -33,6 +33,15 @@ export default class GoogleMap {
    * Loads the google maps script
    */
   private loadGoogleScript(options: GoogleMapOptions): void {
+    // Check if script tag was already added
+    if (
+      document.querySelector(
+        'script[src^="https://maps.googleapis.com/api/js"]'
+      )
+    ) {
+      return;
+    }
+
     const scriptTag = document.createElement('script');
     const defaultLanguage = window.navigator.language.slice(0, 2);
     const defaultRegion = window.navigator.language.slice(3, 5);
