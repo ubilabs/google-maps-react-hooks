@@ -1,4 +1,4 @@
-# `useDistanceMatrix` Hook
+# `useDistanceMatrixService` Hook
 
 React hook to use the [Google Maps Distance Matrix Service](https://developers.google.com/maps/documentation/javascript/distancematrix) in any component.
 
@@ -6,10 +6,10 @@ React hook to use the [Google Maps Distance Matrix Service](https://developers.g
 
 ```tsx
 import React from 'react';
-import {useDistanceMatrix} from '@ubilabs/google-maps-react-hooks';
+import {useDistanceMatrixService} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
-  const service = useDistanceMatrix();
+  const service = useDistanceMatrixService();
 
   service.getDistanceMatrix(request, response => {
     // Do something with the response
