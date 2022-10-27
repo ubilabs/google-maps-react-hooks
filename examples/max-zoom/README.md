@@ -17,7 +17,7 @@ once to install all dependencies.
 Then start this example locally with
 
 ```shell
-npm run start:max-zoom-example
+npm run start:max-zoom-service-example
 ```
 
 **NOTE**:
