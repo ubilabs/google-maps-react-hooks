@@ -1,11 +1,11 @@
 import {useEffect, useState} from 'react';
-import {useGeocoder, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
+import {useGeocodingService, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
-const GeocoderExample = () => {
+const GeocodingService = () => {
   const {map} = useGoogleMap();
 
   // Get the geocoder from the useGeocoder hook
-  const geocoder = useGeocoder();
+  const geocoder = useGeocodingService();
 
   const initialPosition = {lat: 51.08998021141488, lng: 10.627828045134935};
 
@@ -68,7 +68,7 @@ const GeocoderExample = () => {
           } else {
             // eslint-disable-next-line no-console
             console.log(
-              `Geocode was not successful for the following reason: ${status}`
+              `Geocoding was not successful for the following reason: ${status}`
             );
           }
         }
@@ -84,4 +84,4 @@ const GeocoderExample = () => {
   return null;
 };
 
-export default GeocoderExample;
+export default GeocodingService;

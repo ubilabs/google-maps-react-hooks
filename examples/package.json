@@ -10,7 +10,7 @@
     "start:example": "npm run clean-examples && cross-env $(cat .env) PARCEL_AUTOINSTALL=false parcel serve $EXAMPLE_ENTRY --dist-dir public --port 1234 --no-cache",
     "start:map": "EXAMPLE_ENTRY=./basic-google-map/index.html npm run start:example",
     "start:map-with-markers": "EXAMPLE_ENTRY=./google-map-with-markers/index.html npm run start:example",
-    "start:geocoding": "EXAMPLE_ENTRY=./geocoding/index.html npm run start:example",
+    "start:geocoding-service": "EXAMPLE_ENTRY=./geocoding-service/index.html npm run start:example",
     "start:places-service": "EXAMPLE_ENTRY=./places-service/index.html npm run start:example",
     "start:places-autocomplete": "EXAMPLE_ENTRY=./places-autocomplete/index.html npm run start:example",
     "start:directions-service": "EXAMPLE_ENTRY=./directions-service/index.html npm run start:example",

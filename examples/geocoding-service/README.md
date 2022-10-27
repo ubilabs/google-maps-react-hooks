@@ -1,6 +1,6 @@
-# `useGeocoder` Hook Setup Example
+# `useGeocodingService` Hook Setup Example
 
-This is an example setup to show the usage of the **useGeocoder hook** with the Google Maps React Hooks library.
+This is an example setup to show the usage of the **useGeocodingService hook** with the Google Maps React Hooks library.
 
 ## Instructions
 
@@ -17,7 +17,7 @@ once to install all dependencies.
 Then start this example locally with
 
 ```shell
-npm run start:geocoding-example
+npm run start:geocoding-service-example
 ```
 
 **NOTE**:
