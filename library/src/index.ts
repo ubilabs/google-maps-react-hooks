@@ -1,4 +1,5 @@
 // codegen:start {preset: barrel, include: ./**/*, exclude: [./index.ts, ./types/*, ./google-map.ts]}
+export * from './hooks/autocomplete-service';
 export * from './hooks/autocomplete';
 export * from './hooks/directions';
 export * from './hooks/distance-matrix';
