@@ -32,7 +32,7 @@ const Elevation = () => {
       infoWindow.setPosition(mapsMouseEvent.latLng);
 
       // Retrieve elevation info from elevator
-      elevator?.getElevationForLocations(
+      elevator.getElevationForLocations(
         {locations: [mapsMouseEvent.latLng]},
         (results: google.maps.ElevationResult[]) => {
           // eslint-disable-next-line no-console
@@ -53,7 +53,7 @@ const Elevation = () => {
         infoWindow.close();
       }
     };
-  }, [map]);
+  }, [map, elevator]);
 
   return null;
 };
