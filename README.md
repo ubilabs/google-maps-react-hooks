@@ -15,6 +15,8 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
   - [Geocoding Service](./examples/geocoding)
   - [Places Library](./examples/places)
   - [Distance Matrix Service](./examples/distance-matrix)
+  - [Maximum Zoom Imagery Service](./examples/max-zoom)
+  - [Elevation Service](./examples/elevation)
 - [Development](#development-only-for-maintainers)
   - [Library](#library)
   - [Examples](#examples)
