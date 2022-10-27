@@ -11,7 +11,7 @@ const Elevation = () => {
 
   useEffect(() => {
     if (!map) {
-      return;
+      return () => {};
     }
 
     // Create a new InfoWindow
@@ -24,9 +24,8 @@ const Elevation = () => {
     map.setCenter(initialPosition);
 
     if (!infoWindow) {
-      return;
+      return () => {};
     }
-
     infoWindow.open(map);
 
     // Click on the map and open an infowindow with the elevation.
@@ -48,6 +47,14 @@ const Elevation = () => {
         }
       );
     });
+
+    // Clean up infoWindow
+    return () => {
+      if (map) {
+        google.maps.event.clearListeners(map, 'click');
+        infoWindow.close();
+      }
+    };
   }, [map]);
 
   return null;
