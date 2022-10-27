@@ -17,7 +17,7 @@ export const useAutocomplete = (
 ): google.maps.places.Autocomplete | null => {
   const {inputField, options, onPlaceChanged} = props;
   const placeChangedHandler = useRef(onPlaceChanged);
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   const [autocomplete, setAutocomplete] =
     useState<google.maps.places.Autocomplete | null>(null);

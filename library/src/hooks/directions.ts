@@ -29,18 +29,18 @@ export const useDirections = (
   props: DirectionsProps = {}
 ): DirectionsHookReturns => {
   const {renderOnMap, renderOptions} = props;
-  const {map, loading} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Creates a Directions Service instance
   const directionsService =
     useMemo<google.maps.DirectionsService | null>(() => {
       // Wait for map to be initialized
-      if (!map || loading) {
+      if (!map) {
         return null;
       }
 
       return new google.maps.DirectionsService();
-    }, [map, loading]);
+    }, [map]);
 
   // Creates a Directions Renderer instance
   const directionsRenderer =

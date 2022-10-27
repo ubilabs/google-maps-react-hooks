@@ -6,7 +6,7 @@ import {useGoogleMap} from './map-instance';
  * Hook to get Google Maps Geocoder instance
  */
 export const useGeocoder = (): google.maps.Geocoder | null => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Creates a Geocoder instance
   const geocoder = useMemo<google.maps.Geocoder | null>(() => {

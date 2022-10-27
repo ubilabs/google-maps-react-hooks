@@ -50,7 +50,7 @@ const museums: MuseumData[] = [
  */
 const MapMarkers: VoidFunctionComponent = (): null => {
   // Get the global map instance with the useGoogleMap hook
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   const [, setMarkers] = useState<Array<google.maps.Marker>>([]);
 

@@ -142,7 +142,7 @@
     "wrap-iife": [2, "inside"],
     "yoda": [2, "never"],
     "strict": [0, "never"],
-    "init-declarations": [1, "always"],
+    "init-declarations": [0, "never"],
     "no-catch-shadow": 2,
     "no-delete-var": 2,
     "no-label-var": 2,

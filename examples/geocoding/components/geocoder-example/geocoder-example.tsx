@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {useGeocoder, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
 const GeocoderExample = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Get the geocoder from the useGeocoder hook
   const geocoder = useGeocoder();

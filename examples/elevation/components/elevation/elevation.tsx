@@ -5,7 +5,7 @@ import {
 } from '@ubilabs/google-maps-react-hooks';
 
 const Elevation = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
   // Get the elevator from the useElevationService hook
   const elevator = useElevationService();
 

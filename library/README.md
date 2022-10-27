@@ -85,7 +85,7 @@ import React from 'react';
 import {useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Do something with the Google Maps map instance
 

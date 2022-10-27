@@ -7,7 +7,7 @@ import {useGoogleMap} from './map-instance';
  */
 export const useDistanceMatrix =
   (): google.maps.DistanceMatrixService | null => {
-    const {map} = useGoogleMap();
+    const map = useGoogleMap();
 
     // Creates a Distance Matrix Service instance
     const distanceMatrixService =

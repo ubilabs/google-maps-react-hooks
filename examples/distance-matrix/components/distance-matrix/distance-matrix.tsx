@@ -11,7 +11,7 @@ import {getOriginMarkerIcon} from '../../libs/marker-icon-helpers';
 import styles from './distance-matrix.module.css';
 
 const DistanceMatrix = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
   const geocoder = useGeocoder();
 
   // Get the service from the useDistanceMatrix hook

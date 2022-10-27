@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import {useDirections, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
 const DirectionsExample = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   const directionsOptions = {
     renderOnMap: true,

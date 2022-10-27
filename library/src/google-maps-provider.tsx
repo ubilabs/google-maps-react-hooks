@@ -1,29 +1,28 @@
 import React, {useState, useEffect, PropsWithChildren} from 'react';
 
-import GoogleMap from './google-map';
-
-export interface GoogleMapsProviderProps {
-  googleMapsAPIKey: string;
-  mapContainer?: HTMLElement | null;
-  mapOptions?: google.maps.MapOptions;
+// https://developers.google.com/maps/documentation/javascript/url-params
+export interface GoogleMapsAPIUrlParameters {
   libraries?: string[];
   language?: string;
   region?: string;
   version?: string;
-  onLoad?: (map: google.maps.Map) => void;
   authReferrerPolicy?: string;
 }
 
-export interface GoogleMapContextType extends Partial<GoogleMap> {
-  loading: boolean;
+export interface GoogleMapsProviderProps extends GoogleMapsAPIUrlParameters {
+  googleMapsAPIKey: string;
+  mapContainer?: HTMLElement | null;
+  mapOptions?: google.maps.MapOptions;
+  onLoadScript?: () => void;
+  onLoadMap?: (map: google.maps.Map) => void;
 }
 
 /**
- * The map context
+ * The Google Maps map context
  */
-export const GoogleMapContext = React.createContext<GoogleMapContextType>({
-  loading: true
-});
+export const GoogleMapsMapContext = React.createContext<
+  google.maps.Map | undefined
+>(undefined);
 
 /**
  * The global Google Maps provider
@@ -40,66 +39,101 @@ export const GoogleMapsProvider: React.FunctionComponent<
     language,
     region,
     version,
-    onLoad,
-    authReferrerPolicy
+    authReferrerPolicy,
+    onLoadScript,
+    onLoadMap
   } = props;
 
-  const [loading, setLoading] = useState<boolean>(true);
-  const [map, setMap] = useState<GoogleMap>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [map, setMap] = useState<google.maps.Map>();
 
-  const createGoogleMap = () => {
-    if (!mapContainer) {
-      return;
+  // Load Google Maps API
+  useEffect(() => {
+    if (google?.maps) {
+      setIsLoading(false);
+      return () => {};
     }
 
-    const options = {
-      container: mapContainer,
-      googleMapsAPIKey,
-      onLoadScript: (): void => setLoading(false),
-      onLoadMap: (loadedMap: GoogleMap): void => {
-        setMap(loadedMap);
-        if (typeof onLoad === 'function' && loadedMap.map) {
-          onLoad(loadedMap.map);
-        }
-      },
-      config: mapOptions,
-      libraries,
-      language,
-      region,
-      version,
-      authReferrerPolicy
+    const scriptTag = document.createElement('script');
+    const defaultLanguage = navigator.language.slice(0, 2);
+    const defaultRegion = navigator.language.slice(3, 5);
+
+    /* eslint-disable camelcase */
+    const params = new URLSearchParams({
+      key: googleMapsAPIKey,
+      language: language || defaultLanguage,
+      region: region || defaultRegion,
+      ...(libraries?.length && {libraries: libraries.join(',')}),
+      ...(version && {version}),
+      ...(authReferrerPolicy && {auth_referrer_policy: authReferrerPolicy})
+    });
+    /* eslint-enable camelcase */
+
+    scriptTag.type = 'text/javascript';
+    scriptTag.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
+    scriptTag.onload = (): void => {
+      setIsLoading(false);
+      onLoadScript && onLoadScript();
     };
+    document.getElementsByTagName('head')[0].appendChild(scriptTag);
 
-    // Load Google Maps script and create Google Map instance
-    new GoogleMap(options);
-  };
+    // Remove all loaded Google Maps scripts
+    return () => {
+      document
+        .querySelectorAll('script[src^="https://maps.googleapis.com"]')
+        .forEach(script => {
+          script.remove();
+        });
 
-  // Handle creation of a Google Maps map instance
-  // Recreate map on `mapContainer`, `language` or `region` change
+      if (google?.maps) {
+        // @ts-ignore: The operand of a 'delete' operator must be optional.
+        delete google.maps;
+      }
+    };
+  }, [
+    googleMapsAPIKey,
+    JSON.stringify(libraries),
+    language,
+    region,
+    version,
+    authReferrerPolicy
+  ]);
+
+  // Handle Google Maps map instance
   useEffect(() => {
-    createGoogleMap();
-  }, [mapContainer, language, region]);
+    let newMap: google.maps.Map | undefined;
 
-  // Destroy old map instance listeners on `mapContainer` change
-  useEffect(
-    () => () => {
-      map?.destroyListeners();
-    },
-    [mapContainer]
-  );
+    if (!isLoading && mapContainer) {
+      newMap = new google.maps.Map(mapContainer, mapOptions);
 
-  // Destroy old map instance and remove loaded Google Maps scripts
-  // on `language` or `region` change and when component unmounts
-  useEffect(
-    () => () => {
-      map?.destroyComplete();
-    },
-    [language, region]
-  );
+      google.maps.event.addListenerOnce(newMap, 'idle', () => {
+        if (onLoadMap && newMap) {
+          onLoadMap(newMap);
+        }
+      });
+
+      setMap(newMap);
+    }
+
+    return () => {
+      if (newMap && google?.maps) {
+        google.maps.event.clearInstanceListeners(newMap);
+      }
+    };
+  }, [
+    isLoading,
+    mapContainer,
+    googleMapsAPIKey,
+    JSON.stringify(libraries),
+    language,
+    region,
+    version,
+    authReferrerPolicy
+  ]);
 
   return (
-    <GoogleMapContext.Provider value={{...map, loading}}>
+    <GoogleMapsMapContext.Provider value={map}>
       {children}
-    </GoogleMapContext.Provider>
+    </GoogleMapsMapContext.Provider>
   );
 };

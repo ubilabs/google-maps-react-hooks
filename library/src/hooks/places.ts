@@ -6,7 +6,7 @@ import {useGoogleMap} from './map-instance';
  * Hook to get Google Maps Places Service instance
  */
 export const usePlacesService = (): google.maps.places.PlacesService | null => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Creates a Places Service instance
   const placesService = useMemo<google.maps.places.PlacesService | null>(() => {

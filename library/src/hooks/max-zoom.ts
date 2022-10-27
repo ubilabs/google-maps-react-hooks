@@ -6,7 +6,7 @@ import {useGoogleMap} from './map-instance';
  * Hook to get Max Zoom Service instance
  */
 export const useMaxZoomService = (): google.maps.MaxZoomService | null => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Creates a Max Zoom Service instance
   const maxZoomService = useMemo<google.maps.MaxZoomService | null>(() => {

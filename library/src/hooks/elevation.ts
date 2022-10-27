@@ -6,7 +6,7 @@ import {useGoogleMap} from './map-instance';
  * Hook to get Elevation Service instance
  */
 export const useElevationService = (): google.maps.ElevationService | null => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Creates an Elevation Service instance
   const elevationService = useMemo<google.maps.ElevationService | null>(() => {
