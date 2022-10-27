@@ -2,7 +2,7 @@ import React, {FunctionComponent, useState, useCallback} from 'react';
 import {GoogleMapProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
-import MaxZoomService from './components/max-zoom-service/max-zoom';
+import MaxZoomService from './components/max-zoom-service/max-zoom-service';
 
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
