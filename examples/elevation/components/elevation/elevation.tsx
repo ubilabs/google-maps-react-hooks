@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {
   useElevationService,
   useGoogleMap
@@ -9,26 +9,21 @@ const Elevation = () => {
   // Get the elevator from the useElevationService hook
   const elevator = useElevationService();
 
-  const [infoWindow, setInfoWindow] = useState<google.maps.InfoWindow | null>(
-    null
-  );
-
   useEffect(() => {
     if (!map) {
       return;
     }
 
+    // Create a new InfoWindow
+    const initialPosition = {lat: 51.08998021141488, lng: 10.627828045134935};
+    const infoWindow = new google.maps.InfoWindow({
+      content: 'Click somewhere on the map to see the elevation',
+      position: initialPosition
+    });
+
+    map.setCenter(initialPosition);
+
     if (!infoWindow) {
-      // Create a new InfoWindow
-      const initialPosition = {lat: 51.08998021141488, lng: 10.627828045134935};
-      const infowindow = new google.maps.InfoWindow({
-        content: 'Click somewhere on the map to see the elevation',
-        position: initialPosition
-      });
-
-      setInfoWindow(infowindow);
-      map.setCenter(initialPosition);
-
       return;
     }
 
@@ -53,7 +48,7 @@ const Elevation = () => {
         }
       );
     });
-  }, [map, infoWindow]);
+  }, [map]);
 
   return null;
 };
