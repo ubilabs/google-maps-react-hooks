@@ -8,7 +8,7 @@ When initializing the `<GoogleMapProvider>`, include the places library like thi
 
 ```jsx
 import React from 'react';
-import { usePlacesService } from '@ubilabs/google-maps-react-hooks';
+import {usePlacesService} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
   const placesServie = usePlacesService();

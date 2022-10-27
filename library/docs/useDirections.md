@@ -6,10 +6,11 @@ React hook to use the [Google Maps Directions Service](https://developers.google
 
 ```jsx
 import React from 'react';
-import { useDirections } from '@ubilabs/google-maps-react-hooks';
+import {useDirections} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
-  const { directionsService, findAndRenderRoute, setRouteIndex } = useDirections(directionsOptions);
+  const {directionsService, findAndRenderRoute, setRouteIndex} =
+    useDirections(directionsOptions);
 
   // Do something with the directions
 

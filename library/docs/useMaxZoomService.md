@@ -5,8 +5,8 @@ React hook to use the [Maximum Zoom Imagery Service](https://developers.google.c
 ## Usage
 
 ```tsx
-import React, { useEffect } from 'react';
-import { useMaxZoomService } from '@ubilabs/google-maps-react-hooks';
+import React, {useEffect} from 'react';
+import {useMaxZoomService} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
   const maxZoomService = useMaxZoomService();

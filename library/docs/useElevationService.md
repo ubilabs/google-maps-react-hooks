@@ -5,8 +5,8 @@ React hook to use the [Elevation Service](https://developers.google.com/maps/doc
 ## Usage
 
 ```tsx
-import React, { useEffect } from 'react';
-import { useElevationService } from '@ubilabs/google-maps-react-hooks';
+import React, {useEffect} from 'react';
+import {useElevationService} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
   const elevator = useElevationService();

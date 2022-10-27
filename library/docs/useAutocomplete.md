@@ -7,14 +7,14 @@ React hook to use the [Google Maps Places Autocomplete Service](https://develope
 When initializing the `<GoogleMapProvider>`, include the places library like this: `libraries={['places']}`.
 
 ```jsx
-import React, { useRef, useState } from 'react';
-import { useAutocomplete } from '@ubilabs/google-maps-react-hooks';
+import React, {useRef, useState} from 'react';
+import {useAutocomplete} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
   const inputRef = useRef(null);
   const [inputValue, setInputValue] = useState('');
 
-  const onPlaceChanged = (place) => {
+  const onPlaceChanged = place => {
     if (place) {
       setInputValue(place.formatted_address || place.name);
     }
@@ -28,15 +28,13 @@ const MyComponent = () => {
     onPlaceChanged
   });
 
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     setInputValue(event.target.value);
   };
 
-  return <input
-    ref={inputRef}
-    value={inputValue}
-    onChange={handleInputChange}
-  />
+  return (
+    <input ref={inputRef} value={inputValue} onChange={handleInputChange} />
+  );
 };
 ```
 

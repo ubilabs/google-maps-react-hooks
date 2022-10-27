@@ -3,12 +3,7 @@
 The `GoogleMapProvider` is a component to wrap around the code where the map should be available.
 
 ```jsx
-<GoogleMapProvider
-  googleMapsAPIKey="YOUR API KEY HERE"
-  mapContainer={mapContainer}
-  options={mapOptions}
-  onLoad={(map) => map.setZoom(4)}
->
+<GoogleMapProvider googleMapsAPIKey="YOUR API KEY HERE">
   {children}
 </GoogleMapProvider>
 ```
@@ -46,7 +41,8 @@ See: [Use API Key](https://developers.google.com/maps/documentation/embed/get-ap
 __mapContainer__ (_optional property_)
 
 A reference to the HTML element that displays the map.
-Without the mapContainer provided, no visual map will be displayed.
+Usually we do this by adding a `div` element.
+Without the `mapContainer` provided, no visual map will be displayed.
 
 ```Typescript
 mapContainer?: HTMLElement | null;
@@ -54,23 +50,21 @@ mapContainer?: HTMLElement | null;
 
 _Example:_
 
-The mapContainer will be passed to the `mapProvider` and `mapCanvas component` in the following way:
+The `mapContainer` will be passed to the `GoogleMapProvider` in the following way:
 
 ```TypeScript
 function App() {
   const [mapContainer, setMapContainer] = useState(null);
-  
-  const mapRef = useCallback((node) => {
+  const mapRef = useCallback(node => {
     node && setMapContainer(node);
   }, []);
 
   return (
     <GoogleMapProvider
       googleMapsAPIKey="YOUR API KEY HERE"
-      mapContainer={mapContainer}
-    >
+      mapContainer={mapContainer}>
       <React.StrictMode>
-        <MapCanvas ref={mapRef} />
+        <div ref={mapRef} style={{height: '100%'}} />
       </React.StrictMode>
     </GoogleMapProvider>
   );
@@ -78,6 +72,8 @@ function App() {
 ```
 
 See: [Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
+
+**NOTE**: Make sure to give your element a height (by default divs usually have no height), otherwise you won't see the map displayed.
 
 - - - -
 
@@ -94,18 +90,17 @@ _Example:_
 ```Typescript
 const mapOptions = {
   center: {lat: 53.5582447, lng: 9.647645},
-  zoom: 6,
-  disableDefaultUI: true,
+  zoom: 6
 };
 ```
 
 See: [MapOptions](https://developers.google.com/maps/documentation/javascript/reference/map#MapOptions)
 
-**NOTE**: If the `mapOptions` are not provided here, the map will not be displayed until they are set.
+**NOTE**: If the `center` and `zoom` options are not provided here, the map will not be displayed until they are set with `map.setCenter(latLng)` and `map.setZoom(zoom)`.
 
 _Example:_ 
 
-MapOptions can be set later in another component in the following way:
+MapOptions can also be set or changed later in another component in the following way:
 
 ```Typescript
 import {useGoogleMap} from '@ubilabs/google-maps-react-hooks';
@@ -139,9 +134,9 @@ See: [Libraries](https://developers.google.com/maps/documentation/javascript/lib
 
 - - - -
 
-__languages__ (_optional property_)
+__language__ (_optional property_)
 
-By default Google Maps will use the preferred region from the browser setting. This is the property to set it manually.
+By default Google Maps will use the preferred language from the browser setting. This is the property to set it manually.
 
 ```Typescript
 language?: string;
@@ -165,7 +160,7 @@ See: [Localization](https://developers.google.com/maps/documentation/javascript/
 
 __version__ (_optional property_)
 
-Use this parameter to specify a version.
+Use this parameter to specify a Google Maps JavaScript API version.
 
 ```Typescript
 version?: string;
@@ -200,8 +195,7 @@ _Example:_
 ```Typescript
 <GoogleMapProvider
   googleMapsAPIKey="YOUR API KEY HERE"
-  onLoad={(map) => map.setZoom(4)}
->
+  onLoad={(map) => map.setZoom(4)}>
   ...
 </GoogleMapProvider>
 ```
