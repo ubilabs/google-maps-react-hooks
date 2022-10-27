@@ -32,8 +32,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
         mapContainer={mapContainer}
         options={mapOptions}
         // Add the places library
-        libraries={['places']}
-      >
+        libraries={['places']}>
         <div id="container">
           <MapCanvas ref={mapRef} />
           <PlacesSearch />

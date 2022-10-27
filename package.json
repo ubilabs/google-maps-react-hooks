@@ -1,69 +1,37 @@
 {
-  "name": "@ubilabs/google-maps-react-hooks",
-  "version": "1.6.2",
+  "name": "@ubilabs/google-maps-react-hooks-library-and-examples",
   "description": "React hooks and map context provider for Google Maps",
-  "source": "src/index.ts",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.modern.mjs",
-  "types": "dist/index.d.ts",
   "homepage": "https://github.com/ubilabs/google-maps-react-hooks",
   "repository": {
     "type": "git",
     "url": "git://github.com/ubilabs/google-maps-react-hooks.git"
   },
   "scripts": {
-    "build": "npm run barrel && npm run microbundle:build",
-    "start": "npm run barrel:watch && npm run mircobundle:dev",
-    "microbundle:build": "rm -rf dist/* && microbundle -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
-    "microbundle:dev": "rm -rf dist/* && microbundle watch -o dist/index.js -f modern,umd --external react=React --sourcemap false --jsx React.createElement --no-compress --tsconfig ./tsconfig.json",
-    "lint": "eslint './{src,examples}/**/*.{ts,tsx}'",
-    "types": "tsc --project tsconfig.json --noEmit",
-    "test": "npm run lint && npm run types",
-    "prepublishOnly": "npm run test && npm run build",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "preversion": "npm run test",
-    "version": "npm run changelog && git checkout -b chore/release-${npm_package_version} && git add .",
-    "postversion": "git push -u origin chore/release-${npm_package_version} && git push --tags --no-verify",
-    "barrel": "eslint --fix src/index.ts",
-    "barrel:watch": "nodemon --delay 1 -e ts,tsx --watch src/hooks -x 'npm run barrel --silent || exit 1'",
-    "postinstall": "npm install --prefix examples",
-    "start:sample-map": "cd examples && npm run clean-examples && npm run start:map",
-    "start:map-with-markers": "cd examples && npm run clean-examples && npm run start:map-markers",
-    "start:geocoding-example": "cd examples && npm run clean-examples && npm run start:geocoding",
-    "start:places-example": "cd examples && npm run clean-examples && npm run start:places",
-    "start:autocomplete-example": "cd examples && npm run clean-examples && npm run start:autocomplete",
-    "start:directions-example": "cd examples && npm run clean-examples && npm run start:directions",
-    "start:distance-matrix-example": "cd examples && npm run clean-examples && npm run start:distance-matrix",
-    "start:max-zoom-example": "cd examples && npm run clean-examples && npm run start:max-zoom"
+    "test": "npm run test -ws --if-present",
+    "start:library": "npm start -w library",
+    "start:example": "./start-example.sh",
+    "start:map-example": "EXAMPLE=map run-p start:library start:example",
+    "start:map-with-markers-example": "EXAMPLE=map-with-markers run-p start:library start:example",
+    "start:geocoding-example": "EXAMPLE=geocoding run-p start:library start:example",
+    "start:places-example": "EXAMPLE=places run-p start:library start:example",
+    "start:places-autocomplete-example": "EXAMPLE=places-autocomplete run-p start:library start:example",
+    "start:directions-example": "EXAMPLE=directions run-p start:library start:example",
+    "start:distance-matrix-example": "EXAMPLE=distance-matrix run-p start:library start:example",
+    "preversion": "echo \"To create a new library version run 'npm version -w library' in the repository root.\""
   },
   "keywords": [
     "React hooks",
     "Google Maps"
   ],
-  "peerDependencies": {
-    "react": ">=16.18.0"
-  },
-  "devDependencies": {
-    "@types/googlemaps": "^3.43.3",
-    "@types/react": "^18.0.21",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
-    "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^8.25.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-codegen": "^0.16.1",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "microbundle": "^0.15.1",
-    "nodemon": "^2.0.20",
-    "prettier": "^2.3.2",
-    "typescript": "^4.3.5"
-  },
   "bugs": {
     "url": "https://github.com/ubilabs/google-maps-react-hooks/issues"
   },
-  "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "workspaces": [
+    "examples",
+    "library"
+  ],
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
 }
