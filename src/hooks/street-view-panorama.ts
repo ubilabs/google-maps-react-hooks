@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import {useMemo, useState} from 'react';
 
 import {useGoogleMap} from './map-instance';
@@ -34,7 +35,13 @@ export const useStreetViewPanorama = (
       if (!divElement) {
         const newPanorama = map.getStreetView();
 
-        newPanorama.setPov({heading, pitch});
+        if (heading && pitch) {
+          newPanorama.setPov({heading, pitch});
+        }
+
+        if (position) {
+          newPanorama.setPosition(position);
+        }
 
         if (position) {
           newPanorama.setPosition(position);
