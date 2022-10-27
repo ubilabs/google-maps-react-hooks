@@ -32,8 +32,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
       <GoogleMapProvider
         googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
         mapContainer={mapContainer}
-        options={mapOptions}
-      >
+        options={mapOptions}>
         <div id="container">
           <MapCanvas ref={mapRef} />
         </div>

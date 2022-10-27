@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "strict": true,
-    "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "ES2015",
@@ -9,9 +8,8 @@
     "lib": ["es2015", "dom"],
     "jsx": "react",
     "esModuleInterop": true,
-    "typeRoots": ["./src/types"],
     "types": ["node"],
-    "moduleResolution": "node"
+    "moduleResolution": "node",
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules"]
 }
