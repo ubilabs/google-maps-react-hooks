@@ -69,40 +69,33 @@ export const GoogleMapProvider: React.FunctionComponent<
       version,
       authReferrerPolicy
     };
-    // Create Google Map instance
+
+    // Load Google Maps script and create Google Map instance
     new GoogleMap(mapOptions);
   };
 
-  // Destroy Google Map when component unmounts
-  useEffect(() => map && map.destroyComplete(), []);
-
-  // Destroy and recreate map on mapcontainer change
+  // Handle creation of a Google Maps map instance
+  // Recreate map on `mapContainer`, `language` or `region` change
   useEffect(() => {
-    if (!mapContainer) {
-      return;
-    }
-
-    if (map) {
-      // Destroy old map instance listeners
-      map.destroyListeners();
-    }
-
-    // create new map instance
     createGoogleMap();
-  }, [mapContainer]);
+  }, [mapContainer, language, region]);
 
-  // Destroy and recreate map on language or region change
-  useEffect(() => {
-    if (!map) {
-      return;
-    }
+  // Destroy old map instance listeners on `mapContainer` change
+  useEffect(
+    () => () => {
+      map?.destroyListeners();
+    },
+    [mapContainer]
+  );
 
-    // Destroy old map instance
-    map.destroyComplete();
-
-    // create new map instance
-    createGoogleMap();
-  }, [language, region]);
+  // Destroy old map instance and remove loaded Google Maps scripts
+  // on `language` or `region` change and when component unmounts
+  useEffect(
+    () => () => {
+      map?.destroyComplete();
+    },
+    [language, region]
+  );
 
   return (
     <GoogleMapContext.Provider value={{...map, loading}}>

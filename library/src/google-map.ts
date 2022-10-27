@@ -1,6 +1,8 @@
 // eslint-disable-next-line
 /// <reference types="@types/googlemaps" />
 
+const GOOGLE_MAPS_SCRIPT_ID = 'google-maps-script';
+
 interface GoogleMapOptions {
   container: HTMLElement;
   googleMapsAPIKey: string;
@@ -30,9 +32,14 @@ export default class GoogleMap {
   }
 
   /**
-   * Loads the google maps script
+   * Loads the Google Maps script
    */
   private loadGoogleScript(options: GoogleMapOptions): void {
+    // Check if script tag was already added
+    if (document.getElementById(GOOGLE_MAPS_SCRIPT_ID)) {
+      return;
+    }
+
     const scriptTag = document.createElement('script');
     const defaultLanguage = window.navigator.language.slice(0, 2);
     const defaultRegion = window.navigator.language.slice(3, 5);
@@ -47,17 +54,20 @@ export default class GoogleMap {
       authReferrerPolicy
     } = options;
 
-    scriptTag.setAttribute('type', 'text/javascript');
-    scriptTag.setAttribute(
-      'src',
-      `https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&language=${
-        language || defaultLanguage
-      }&region=${region || defaultRegion}${
-        libraries ? `&libraries=${libraries.join(',')}` : ''
-      }${version ? `&v=${version}` : ''}${
-        authReferrerPolicy ? `&auth_referrer_policy=${authReferrerPolicy}` : ''
-      }`
-    );
+    /* eslint-disable camelcase */
+    const params = new URLSearchParams({
+      key: googleMapsAPIKey,
+      language: language || defaultLanguage,
+      region: region || defaultRegion,
+      ...(libraries?.length && {libraries: libraries.join(',')}),
+      ...(version && {version}),
+      ...(authReferrerPolicy && {auth_referrer_policy: authReferrerPolicy})
+    });
+    /* eslint-enable camelcase */
+
+    scriptTag.type = 'text/javascript';
+    scriptTag.id = GOOGLE_MAPS_SCRIPT_ID;
+    scriptTag.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
     scriptTag.onload = (): void => {
       onLoadScript();
       this.initMap(options);
@@ -66,7 +76,7 @@ export default class GoogleMap {
   }
 
   /**
-   * Initialize the google map
+   * Initialize the Google Maps map instance
    */
   private initMap(options: GoogleMapOptions): void {
     const {container, config} = options;
@@ -89,7 +99,7 @@ export default class GoogleMap {
   };
 
   /**
-   * Remove map instance
+   * Remove map instance and loaded scripts
    */
   public destroyComplete = (): void => {
     if (this.map) {
