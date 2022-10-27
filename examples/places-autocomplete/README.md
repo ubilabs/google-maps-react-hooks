@@ -23,7 +23,9 @@ npm run start:places-autocomplete-example
 **NOTE**:
 To see the examples it is needed to add an `.env` file with a [Google Maps API key](https://developers.google.com/maps/documentation/embed/get-api-key#:~:text=Go%20to%20the%20Google%20Maps%20Platform%20%3E%20Credentials%20page.&text=On%20the%20Credentials%20page%2C%20click,Click%20Close.) in the following format:
 
-`GOOGLE_MAPS_API_KEY="<YOUR API KEY HERE>"`
+```
+GOOGLE_MAPS_API_KEY="<YOUR API KEY HERE>"
+```
 
 An example can be found in `.env.example`.
 
