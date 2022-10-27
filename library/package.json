@@ -32,7 +32,7 @@
     "Google Maps"
   ],
   "peerDependencies": {
-    "react": ">=16.18.0"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@types/googlemaps": "^3.43.3",

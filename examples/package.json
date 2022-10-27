@@ -1,6 +1,6 @@
 {
   "name": "@ubilabs/google-maps-react-hooks-examples",
-  "description": "A sample Google Map setup with the MapProvider component.",
+  "description": "Sample Google Map setups with the @ubilabs/google-maps-react-hooks library",
   "main": "index.js",
   "scripts": {
     "lint": "eslint './**/*.{ts,tsx}'",
@@ -16,6 +16,7 @@
     "start:directions": "EXAMPLE_ENTRY=./directions/index.html npm run start:example",
     "start:distance-matrix": "EXAMPLE_ENTRY=./distance-matrix/index.html npm run start:example",
     "start:max-zoom": "EXAMPLE_ENTRY=./max-zoom/index.html npm run start:example",
+    "start:elevation": "EXAMPLE_ENTRY=./elevation/index.html npm run start:example",
     "preversion": "echo \"To create a new library version run 'npm version -w library' in the repository root.\""
   },
   "license": "MIT",
