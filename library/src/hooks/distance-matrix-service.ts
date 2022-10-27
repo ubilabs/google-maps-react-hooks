@@ -5,7 +5,7 @@ import {GoogleMapsContext} from '../google-maps-provider';
 /**
  * Hook to get Distance Matrix Service instance
  */
-export const useDistanceMatrix =
+export const useDistanceMatrixService =
   (): google.maps.DistanceMatrixService | null => {
     const {googleMapsAPIIsLoaded} = useContext(GoogleMapsContext);
 
