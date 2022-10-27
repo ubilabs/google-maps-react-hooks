@@ -1,6 +1,6 @@
 // Example from: https://developers.google.com/maps/documentation/javascript/examples/maxzoom-simple
 
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {
   useMaxZoomService,
   useGoogleMap
@@ -12,31 +12,20 @@ const MaxZoomService = () => {
   // Get max zoom service from hook
   const maxZoomService = useMaxZoomService();
 
-  const [infoWindow, setInfoWindow] = useState<google.maps.InfoWindow | null>(
-    null
-  );
-
   useEffect(() => {
     if (!map || !maxZoomService) {
-      return;
+      return () => {};
     }
 
     // Create new infoWindow
+    const initialPosition = {lat: 51.08998021141488, lng: 10.627828045134935};
+    const infoWindow = new google.maps.InfoWindow({
+      content:
+        'Click somewhere on the map to see the max zoom at the position for map type imagery.',
+      position: initialPosition
+    });
 
-    if (!infoWindow) {
-      // Create an initial InfoWindow
-      const initialPosition = {lat: 51.08998021141488, lng: 10.627828045134935};
-      const initialInfoWindow = new google.maps.InfoWindow({
-        content:
-          'Click somewhere on the map to see the max zoom at the position for map type imagery.',
-        position: initialPosition
-      });
-
-      setInfoWindow(initialInfoWindow);
-      map.setCenter(initialPosition);
-
-      return;
-    }
+    map.setCenter(initialPosition);
 
     infoWindow.open(map);
 
@@ -60,7 +49,15 @@ const MaxZoomService = () => {
     };
 
     map.addListener('click', showMaxZoomLevel);
-  }, [map, infoWindow]);
+
+    // Clean up infoWindow
+    return () => {
+      if (map) {
+        google.maps.event.clearListeners(map, 'click');
+        infoWindow.close();
+      }
+    };
+  }, [map]);
 
   return null;
 };
