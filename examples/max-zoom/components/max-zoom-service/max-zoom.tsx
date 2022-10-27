@@ -57,7 +57,7 @@ const MaxZoomService = () => {
         infoWindow.close();
       }
     };
-  }, [map]);
+  }, [map, maxZoomService]);
 
   return null;
 };
