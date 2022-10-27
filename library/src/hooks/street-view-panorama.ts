@@ -1,5 +1,5 @@
 /* eslint-disable complexity */
-import {useMemo, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import {useGoogleMap} from './map-instance';
 
@@ -21,52 +21,55 @@ export const useStreetViewPanorama = (
   // Get map instance
   const {map} = useGoogleMap();
 
-  const [panorama, setPanorama] =
+  const [streetViewPanorama, setStreetViewPanorama] =
     useState<google.maps.StreetViewPanorama | null>(null);
 
   // Creates a Street View instance
-  const streetViewPanorama =
-    useMemo<google.maps.StreetViewPanorama | null>(() => {
-      // Wait for Google Maps API to be initialized
-      if (!map) {
-        return null;
+  useEffect(() => {
+    // Wait for Google Maps API to be initialized
+    if (!map) {
+      return (): void => {};
+    }
+
+    // If not div element is passed, initialize a map with street view
+    if (!divElement) {
+      const newPanorama = map.getStreetView();
+
+      if (pov) {
+        newPanorama.setPov(pov);
       }
 
-      if (!divElement) {
-        const newPanorama = map.getStreetView();
-
-        if (pov) {
-          newPanorama.setPov(pov);
-        }
-
-        if (position) {
-          newPanorama.setPosition(position);
-        }
-
-        // eslint-disable-next-line no-eq-null
-        if (zoom != null) {
-          newPanorama.setZoom(zoom);
-        }
-
-        setPanorama(newPanorama);
-      } else {
-        const newPanorama = new google.maps.StreetViewPanorama(divElement, {
-          position,
-          pov,
-          zoom
-        });
-
-        if (position) {
-          map.setCenter(position);
-        }
-
-        map.setStreetView(newPanorama);
-
-        setPanorama(newPanorama);
+      if (position) {
+        newPanorama.setPosition(position);
       }
 
-      return panorama;
-    }, [map, divElement]);
+      // eslint-disable-next-line no-eq-null
+      if (zoom != null) {
+        newPanorama.setZoom(zoom);
+      }
+
+      setStreetViewPanorama(newPanorama);
+    } else {
+      // If a div element is passed, initialize street view in the element
+      const newPanorama = new google.maps.StreetViewPanorama(divElement, {
+        position,
+        pov,
+        zoom
+      });
+
+      if (position) {
+        map.setCenter(position);
+      }
+
+      map.setStreetView(newPanorama);
+
+      setStreetViewPanorama(newPanorama);
+    }
+
+    return (): void => {
+      map.setStreetView(null);
+    };
+  }, [map, divElement]);
 
   return streetViewPanorama;
 };
