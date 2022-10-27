@@ -10,7 +10,7 @@ const Elevation = () => {
   const elevator = useElevationService();
 
   useEffect(() => {
-    if (!map) {
+    if (!map || !elevator) {
       return () => {};
     }
 
