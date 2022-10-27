@@ -4,8 +4,8 @@ Here you can find some implementation examples for the [Google Maps React Hooks 
 
 - [Basic Google Map](./basic-google-map)
 - [Google Map with Markers](./google-map-with-markers)
-- [Directions Service](./directions)
-- [Distance Matrix Service](./distance-matrix)
-- [Geocoding Service](./geocoding)
-- [Places Service](./places)
+- [Directions Service](./directions-service)
+- [Distance Matrix Service](./distance-matrix-service)
+- [Geocoding Service](./geocoding-service)
+- [Places Service](./places-service)
 - [Places Autocomplete Service](./places-autocomplete)
