@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import {
-  useDistanceMatrix,
+  useDistanceMatrixService,
   useGeocoder,
   useGoogleMap
 } from '@ubilabs/google-maps-react-hooks';
@@ -10,12 +10,12 @@ import {getOriginMarkerIcon} from '../../libs/marker-icon-helpers';
 
 import styles from './distance-matrix.module.css';
 
-const DistanceMatrix = () => {
+const DistanceMatrixService = () => {
   const {map} = useGoogleMap();
   const geocoder = useGeocoder();
 
   // Get the service from the useDistanceMatrix hook
-  const service = useDistanceMatrix();
+  const service = useDistanceMatrixService();
 
   const [elements, setElements] = useState<
     google.maps.DistanceMatrixResponseElement[]
@@ -59,8 +59,8 @@ const DistanceMatrix = () => {
 
     // Get distance matrix response
     service.getDistanceMatrix(request, response => {
-      const origins = response.originAddresses;
-      const destinations = response.destinationAddresses;
+      const origins: Array<string> = response.originAddresses;
+      const destinations: Array<string> = response.destinationAddresses;
       const responseElements = response.rows[0].elements;
 
       setDestinationList(destinations);
@@ -106,4 +106,4 @@ const DistanceMatrix = () => {
   );
 };
 
-export default DistanceMatrix;
+export default DistanceMatrixService;
