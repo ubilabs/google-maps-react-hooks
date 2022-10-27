@@ -1,6 +1,6 @@
-# `useDirections` Hook Setup Example
+# `useDirectionsService` Hook Setup Example
 
-This is an example setup to show the usage of the **useDirections hook with findAndRenderRoute** with the Google Maps React Hooks library.
+This is an example setup to show the usage of the **useDirectionsService hook with findAndRenderRoute** with the Google Maps React Hooks library.
 
 ## Instructions
 
@@ -17,7 +17,7 @@ once to install all dependencies.
 Then start this example locally with
 
 ```shell
-npm run start:directions-example
+npm run start:directions-service-example
 ```
 
 **NOTE**:
