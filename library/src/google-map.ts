@@ -1,6 +1,8 @@
 // eslint-disable-next-line
 /// <reference types="@types/googlemaps" />
 
+const GOOGLE_MAPS_SCRIPT_ID = 'google-maps-script';
+
 interface GoogleMapOptions {
   container: HTMLElement;
   googleMapsAPIKey: string;
@@ -34,11 +36,7 @@ export default class GoogleMap {
    */
   private loadGoogleScript(options: GoogleMapOptions): void {
     // Check if script tag was already added
-    if (
-      document.querySelector(
-        'script[src^="https://maps.googleapis.com/api/js"]'
-      )
-    ) {
+    if (document.getElementById(GOOGLE_MAPS_SCRIPT_ID)) {
       return;
     }
 
@@ -67,11 +65,9 @@ export default class GoogleMap {
     });
     /* eslint-enable camelcase */
 
-    scriptTag.setAttribute('type', 'text/javascript');
-    scriptTag.setAttribute(
-      'src',
-      `https://maps.googleapis.com/maps/api/js?${params.toString()}`
-    );
+    scriptTag.type = 'text/javascript';
+    scriptTag.id = GOOGLE_MAPS_SCRIPT_ID;
+    scriptTag.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
     scriptTag.onload = (): void => {
       onLoadScript();
       this.initMap(options);
