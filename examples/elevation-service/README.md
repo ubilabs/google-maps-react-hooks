@@ -17,7 +17,7 @@ once to install all dependencies.
 Then start this example locally with
 
 ```shell
-npm run start:elevation-example
+npm run start:elevation-service-example
 ```
 
 **NOTE**:
