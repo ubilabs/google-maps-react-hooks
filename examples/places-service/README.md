@@ -18,7 +18,7 @@ Then start this example locally with
 
 
 ```shell
-npm run start:places-example
+npm run start:places-service-example
 ```
 
 **NOTE**:

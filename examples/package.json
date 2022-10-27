@@ -11,7 +11,7 @@
     "start:map": "EXAMPLE_ENTRY=./basic-google-map/index.html npm run start:example",
     "start:map-with-markers": "EXAMPLE_ENTRY=./google-map-with-markers/index.html npm run start:example",
     "start:geocoding": "EXAMPLE_ENTRY=./geocoding/index.html npm run start:example",
-    "start:places": "EXAMPLE_ENTRY=./places/index.html npm run start:example",
+    "start:places-service": "EXAMPLE_ENTRY=./places-service/index.html npm run start:example",
     "start:places-autocomplete": "EXAMPLE_ENTRY=./places-autocomplete/index.html npm run start:example",
     "start:directions-service": "EXAMPLE_ENTRY=./directions-service/index.html npm run start:example",
     "start:distance-matrix": "EXAMPLE_ENTRY=./distance-matrix/index.html npm run start:example",
