@@ -3,20 +3,20 @@ import {useMemo, useState} from 'react';
 
 import {useGoogleMap} from './map-instance';
 
-interface StreetViewPanoramaProps {
+export interface StreetViewPanoramaProps {
   divElement?: HTMLElement | null;
   position?: google.maps.LatLng | google.maps.LatLngLiteral;
-  heading?: number;
-  pitch?: number;
+  pov?: google.maps.StreetViewPov;
   zoom?: number;
 }
+
 /**
  * Hook to get Street View Panorama
  */
 export const useStreetViewPanorama = (
   props: StreetViewPanoramaProps
 ): google.maps.StreetViewPanorama | null => {
-  const {divElement, position, heading, pitch, zoom} = props;
+  const {divElement, position, pov, zoom} = props;
 
   // Get map instance
   const {map} = useGoogleMap();
@@ -35,12 +35,8 @@ export const useStreetViewPanorama = (
       if (!divElement) {
         const newPanorama = map.getStreetView();
 
-        if (heading && pitch) {
-          newPanorama.setPov({heading, pitch});
-        }
-
-        if (position) {
-          newPanorama.setPosition(position);
+        if (pov) {
+          newPanorama.setPov(pov);
         }
 
         if (position) {
@@ -56,10 +52,7 @@ export const useStreetViewPanorama = (
       } else {
         const newPanorama = new google.maps.StreetViewPanorama(divElement, {
           position,
-          pov: {
-            heading,
-            pitch
-          },
+          pov,
           zoom
         });
 
