@@ -1,11 +1,11 @@
-# `GoogleMapProvider` Component
+# `GoogleMapsProvider` Component
 
-The `GoogleMapProvider` is a component to wrap around the code where the map should be available.
+The `GoogleMapsProvider` is a component to wrap around the code where the map should be available.
 
 ```jsx
-<GoogleMapProvider googleMapsAPIKey="YOUR API KEY HERE">
+<GoogleMapsProvider googleMapsAPIKey="YOUR API KEY HERE">
   {children}
-</GoogleMapProvider>
+</GoogleMapsProvider>
 ```
 
 ## Properties
@@ -13,7 +13,7 @@ The `GoogleMapProvider` is a component to wrap around the code where the map sho
 Properties that can be passed to the `GoogleMapsProvider` that are either the container to hold the map instance or [Maps JavaScript API URL Parameters](https://developers.google.com/maps/documentation/javascript/url-params).
 
 ```TypeScript
-interface GoogleMapProviderProps {
+interface GoogleMapsProviderProps {
   googleMapsAPIKey: string;
   mapContainer?: HTMLElement | null;
   mapOptions?: google.maps.MapOptions;
@@ -50,7 +50,7 @@ mapContainer?: HTMLElement | null;
 
 _Example:_
 
-The `mapContainer` will be passed to the `GoogleMapProvider` in the following way:
+The `mapContainer` will be passed to the `GoogleMapsProvider` in the following way:
 
 ```TypeScript
 function App() {
@@ -60,13 +60,13 @@ function App() {
   }, []);
 
   return (
-    <GoogleMapProvider
+    <GoogleMapsProvider
       googleMapsAPIKey="YOUR API KEY HERE"
       mapContainer={mapContainer}>
       <React.StrictMode>
         <div ref={mapRef} style={{height: '100%'}} />
       </React.StrictMode>
-    </GoogleMapProvider>
+    </GoogleMapsProvider>
   );
 }
 ```
@@ -193,9 +193,9 @@ onLoad?: (map: google.maps.Map) => void;
 _Example:_
 
 ```Typescript
-<GoogleMapProvider
+<GoogleMapsProvider
   googleMapsAPIKey="YOUR API KEY HERE"
   onLoad={(map) => map.setZoom(4)}>
   ...
-</GoogleMapProvider>
+</GoogleMapsProvider>
 ```

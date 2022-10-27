@@ -17,7 +17,7 @@ export const usePlacesService = (): google.maps.places.PlacesService | null => {
 
     if (!google.maps.places) {
       throw Error(
-        "Places library missing. Add 'places' to the libraries array of GoogleMapProvider."
+        "Places library missing. Add 'places' to the libraries array of GoogleMapsProvider."
       );
     }
 

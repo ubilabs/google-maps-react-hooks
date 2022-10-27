@@ -31,7 +31,7 @@ export const useAutocomplete = (
 
     if (!google.maps.places) {
       throw Error(
-        "Autocomplete library missing. Add 'places' to the libraries array of GoogleMapProvider."
+        "Autocomplete library missing. Add 'places' to the libraries array of GoogleMapsProvider."
       );
     }
 

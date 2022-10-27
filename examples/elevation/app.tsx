@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useCallback} from 'react';
-import {GoogleMapProvider} from '@ubilabs/google-maps-react-hooks';
+import {GoogleMapsProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
 import Elevation from './components/elevation/elevation';
@@ -27,7 +27,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
 
   return (
     <React.StrictMode>
-      <GoogleMapProvider
+      <GoogleMapsProvider
         googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
         mapContainer={mapContainer}
         mapOptions={mapOptions}>
@@ -35,7 +35,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
           <MapCanvas ref={mapRef} />
           <Elevation />
         </div>
-      </GoogleMapProvider>
+      </GoogleMapsProvider>
     </React.StrictMode>
   );
 };

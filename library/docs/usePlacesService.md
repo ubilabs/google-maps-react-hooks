@@ -4,7 +4,7 @@ React hook to use the [Google Maps Places Service](https://developers.google.com
 
 ## Usage
 
-When initializing the `<GoogleMapProvider>`, include the places library like this: `libraries={['places']}`.
+When initializing the `<GoogleMapsProvider>`, include the places library like this: `libraries={['places']}`.
 
 ```jsx
 import React from 'react';
