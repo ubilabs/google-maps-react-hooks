@@ -2,12 +2,12 @@ import {useMemo, useEffect, useCallback} from 'react';
 
 import {useGoogleMap} from './map-instance';
 
-export interface DirectionsProps {
+export interface DirectionsServiceProps {
   renderOnMap?: boolean;
   renderOptions?: google.maps.DirectionsRendererOptions;
 }
 
-interface DirectionsHookReturns {
+interface DirectionsServiceHookReturns {
   directionsService: google.maps.DirectionsService | null;
   findRoute:
     | ((
@@ -25,9 +25,9 @@ interface DirectionsHookReturns {
 /**
  * Hook to get Google Maps Places Directions Service instance
  */
-export const useDirections = (
-  props: DirectionsProps = {}
-): DirectionsHookReturns => {
+export const useDirectionsService = (
+  props: DirectionsServiceProps = {}
+): DirectionsServiceHookReturns => {
   const {renderOnMap, renderOptions} = props;
   const {map, loading} = useGoogleMap();
 
