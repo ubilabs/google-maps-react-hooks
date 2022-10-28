@@ -8,6 +8,6 @@ Here you can find some implementation examples for the [Google Maps React Hooks 
 - [Distance Matrix Service](./distance-matrix-service)
 - [Geocoding Service](./geocoding-service)
 - [Places Service](./places-service)
-- [Places Autocomplete Service](./places-autocomplete)
 - [Maximum Zoom Imagery Service](./examples/max-zoom)
 - [Elevation Service](./examples/elevation)
+- [Places Autocomplete Widget](./places-autocomplete-widget)

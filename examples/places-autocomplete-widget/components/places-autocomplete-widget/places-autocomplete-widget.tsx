@@ -3,7 +3,7 @@ import {useAutocomplete, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
 import styles from './places-search.module.css';
 
-const PlacesSearch = () => {
+const PlacesAutocompleteWidget = () => {
   const {map} = useGoogleMap();
 
   // Use the input ref to pass an input field to the useAutocomplete hook below
@@ -65,4 +65,4 @@ const PlacesSearch = () => {
   );
 };
 
-export default PlacesSearch;
+export default PlacesAutocompleteWidget;

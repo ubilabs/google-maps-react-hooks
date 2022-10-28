@@ -2,7 +2,7 @@ import React, {FunctionComponent, useState, useCallback} from 'react';
 import {GoogleMapProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
-import PlacesSearch from './components/places-search/places-search';
+import PlacesAutocompleteWidget from './components/places-autocomplete-widget/places-autocomplete-widget';
 
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
@@ -35,7 +35,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
         libraries={['places']}>
         <div id="container">
           <MapCanvas ref={mapRef} />
-          <PlacesSearch />
+          <PlacesAutocompleteWidget />
         </div>
       </GoogleMapProvider>
     </React.StrictMode>
