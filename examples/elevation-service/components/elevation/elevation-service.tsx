@@ -4,7 +4,7 @@ import {
   useGoogleMap
 } from '@ubilabs/google-maps-react-hooks';
 
-const Elevation = () => {
+const ElevationService = () => {
   const map = useGoogleMap();
   // Get the elevator from the useElevationService hook
   const elevator = useElevationService();
@@ -58,4 +58,4 @@ const Elevation = () => {
   return null;
 };
 
-export default Elevation;
+export default ElevationService;
