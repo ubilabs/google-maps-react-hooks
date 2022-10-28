@@ -53,8 +53,9 @@ export const GoogleMapsProvider: React.FunctionComponent<
   const [map, setMap] = useState<google.maps.Map>();
 
   // Load Google Maps API
+  // eslint-disable-next-line complexity
   useEffect(() => {
-    if (google?.maps) {
+    if (typeof google === 'object' && typeof google.maps === 'object') {
       setIsLoadingAPI(false);
       return () => {};
     }
@@ -90,7 +91,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
           script.remove();
         });
 
-      if (google?.maps) {
+      if (typeof google === 'object' && typeof google.maps === 'object') {
         // @ts-ignore: The operand of a 'delete' operator must be optional.
         delete google.maps;
       }
@@ -121,7 +122,11 @@ export const GoogleMapsProvider: React.FunctionComponent<
     }
 
     return () => {
-      if (newMap && google?.maps) {
+      if (
+        newMap &&
+        typeof google === 'object' &&
+        typeof google.maps === 'object'
+      ) {
         google.maps.event.clearInstanceListeners(newMap);
       }
     };
