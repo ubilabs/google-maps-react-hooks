@@ -2,7 +2,7 @@ import React, {FunctionComponent, useState, useCallback} from 'react';
 import {GoogleMapProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
-import Elevation from './components/elevation/elevation';
+import ElevationService from './components/elevation/elevation-service';
 
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
@@ -33,7 +33,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
         options={mapOptions}>
         <div id="container">
           <MapCanvas ref={mapRef} />
-          <Elevation />
+          <ElevationService />
         </div>
       </GoogleMapProvider>
     </React.StrictMode>
