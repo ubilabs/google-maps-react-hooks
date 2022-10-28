@@ -7,5 +7,5 @@ Here you can find some implementation examples for the [Google Maps React Hooks 
 - [Directions Service](./directions-service)
 - [Distance Matrix Service](./distance-matrix-service)
 - [Geocoding Service](./geocoding-service)
-- [Places Service](./places-service)
 - [Places Autocomplete Widget](./places-autocomplete-widget)
+- [Places Service](./places-service)
