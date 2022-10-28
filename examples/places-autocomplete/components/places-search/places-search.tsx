@@ -4,7 +4,7 @@ import {useAutocomplete, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 import styles from './places-search.module.css';
 
 const PlacesSearch = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Use the input ref to pass an input field to the useAutocomplete hook below
   const inputRef = useRef<HTMLInputElement | null>(null);

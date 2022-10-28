@@ -10,7 +10,7 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
 - [Installation](#installation)
 - [Map Usage](#map-usage)
 - Documentation
-  - [GoogleMapProvider](https://github.com/ubilabs/google-maps-react-hooks/tree/main/library/docs/GoogleMapProvider.md)
+  - [GoogleMapsProvider](https://github.com/ubilabs/google-maps-react-hooks/tree/main/library/docs/GoogleMapsProvider.md)
   - Hooks
     - [useGoogleMap](https://github.com/ubilabs/google-maps-react-hooks/tree/main/library/docs/useGoogleMap.md)
     - [useDirections](https://github.com/ubilabs/google-maps-react-hooks/tree/main/library/docs/useDirections.md)
@@ -42,14 +42,14 @@ npm install @ubilabs/google-maps-react-hooks -D
 
 ## Map Usage
 
-Import the `GoogleMapProvider` and wrap it around your components.
-Make sure all components that should have access to the Google Maps map instance are nested inside the `GoogleMapProvider`.
+Import the `GoogleMapsProvider` and wrap it around your components.
+Make sure all components that should have access to the Google Maps map instance are nested inside the `GoogleMapsProvider`.
 
 If you still can't see a map on your page, make sure that your map container has a `height` CSS property (by default it usually has no height) and that a `center` and `zoom` was set for your map.
 
 ```jsx
 import React, {useState, useCallback, forwardRef} from 'react';
-import {GoogleMapProvider} from '@ubilabs/google-maps-react-hooks';
+import {GoogleMapsProvider} from '@ubilabs/google-maps-react-hooks';
 
 function App() {
   const [mapContainer, setMapContainer] = useState(null);
@@ -65,28 +65,28 @@ function App() {
   };
 
   return (
-    <GoogleMapProvider
+    <GoogleMapsProvider
       googleMapsAPIKey="YOUR API KEY HERE"
       mapContainer={mapContainer}
-      options={mapOptions}>
+      mapOptions={mapOptions}>
       <React.StrictMode>
         <div ref={ref} style={{height: '100%'}} />
       </React.StrictMode>
-    </GoogleMapProvider>
+    </GoogleMapsProvider>
   );
 }
 
 export default App;
 ```
 
-The `GoogleMapProvider` makes the Google Maps map instance available to any nested components with the `useGoogleMap` hook.
+The `GoogleMapsProvider` makes the Google Maps map instance available to any nested components with the `useGoogleMap` hook.
 
 ```jsx
 import React from 'react';
 import {useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Do something with the Google Maps map instance
 

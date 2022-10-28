@@ -1,6 +1,6 @@
-import {useMemo, useEffect, useCallback} from 'react';
+import {useContext, useMemo, useEffect, useCallback} from 'react';
 
-import {useGoogleMap} from './map-instance';
+import {GoogleMapsContext} from '../google-maps-provider';
 
 export interface DirectionsProps {
   renderOnMap?: boolean;
@@ -29,18 +29,18 @@ export const useDirections = (
   props: DirectionsProps = {}
 ): DirectionsHookReturns => {
   const {renderOnMap, renderOptions} = props;
-  const {map, loading} = useGoogleMap();
+  const {googleMapsAPIIsLoaded, map} = useContext(GoogleMapsContext);
 
   // Creates a Directions Service instance
   const directionsService =
     useMemo<google.maps.DirectionsService | null>(() => {
-      // Wait for map to be initialized
-      if (!map || loading) {
+      // Wait for Google Maps API to be loaded
+      if (!googleMapsAPIIsLoaded) {
         return null;
       }
 
       return new google.maps.DirectionsService();
-    }, [map, loading]);
+    }, [googleMapsAPIIsLoaded]);
 
   // Creates a Directions Renderer instance
   const directionsRenderer =

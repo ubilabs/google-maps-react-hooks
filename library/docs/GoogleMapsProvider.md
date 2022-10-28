@@ -1,11 +1,11 @@
-# `GoogleMapProvider` Component
+# `GoogleMapsProvider` Component
 
-The `GoogleMapProvider` is a component to wrap around the code where the map should be available.
+The `GoogleMapsProvider` is a component to wrap around the code where the map should be available.
 
 ```jsx
-<GoogleMapProvider googleMapsAPIKey="YOUR API KEY HERE">
+<GoogleMapsProvider googleMapsAPIKey="YOUR API KEY HERE">
   {children}
-</GoogleMapProvider>
+</GoogleMapsProvider>
 ```
 
 ## Properties
@@ -13,16 +13,17 @@ The `GoogleMapProvider` is a component to wrap around the code where the map sho
 Properties that can be passed to the `GoogleMapsProvider` that are either the container to hold the map instance or [Maps JavaScript API URL Parameters](https://developers.google.com/maps/documentation/javascript/url-params).
 
 ```TypeScript
-interface GoogleMapProviderProps {
+interface GoogleMapsProviderProps {
   googleMapsAPIKey: string;
   mapContainer?: HTMLElement | null;
-  options?: google.maps.MapOptions;
+  mapOptions?: google.maps.MapOptions;
   libraries?: string[];
   language?: string;
   region?: string;
   version?: string;
   authReferrerPolicy?: string;
-  onLoad?: (map: google.maps.Map) => void;
+  onLoadScript?: () => void;
+  onLoadMap?: (map: google.maps.Map) => void;
 }
 ```
 
@@ -50,7 +51,7 @@ mapContainer?: HTMLElement | null;
 
 _Example:_
 
-The `mapContainer` will be passed to the `GoogleMapProvider` in the following way:
+The `mapContainer` will be passed to the `GoogleMapsProvider` in the following way:
 
 ```TypeScript
 function App() {
@@ -60,13 +61,13 @@ function App() {
   }, []);
 
   return (
-    <GoogleMapProvider
+    <GoogleMapsProvider
       googleMapsAPIKey="YOUR API KEY HERE"
       mapContainer={mapContainer}>
       <React.StrictMode>
         <div ref={mapRef} style={{height: '100%'}} />
       </React.StrictMode>
-    </GoogleMapProvider>
+    </GoogleMapsProvider>
   );
 }
 ```
@@ -77,12 +78,12 @@ See: [Maps JavaScript API](https://developers.google.com/maps/documentation/java
 
 - - - -
 
-__options__ (_optional property_)
+__mapOptions__ (_optional property_)
 
 The Google Maps MapOptions.
 
 ```Typescript
-options?: google.maps.MapOptions;
+mapOptions?: google.maps.MapOptions;
 ```
 
 _Example:_
@@ -115,7 +116,7 @@ const mapOptions = {
   }
 };
 
-const {map} = useGoogleMap();
+const map = useGoogleMap();
 
 map?.setOptions(mapOptions);
 ```
@@ -182,20 +183,38 @@ See: [auth_referrer_policy](https://developers.google.com/maps/documentation/jav
 
 - - - -
 
-__onLoad__ (_optional property_)
+__onLoadScript__ (_optional property_)
 
-A callback function that is called, when the map is loaded.
+A callback function that is called, when the Google Maps API is loaded.
 
 ```Typescript
-onLoad?: (map: google.maps.Map) => void;
+onLoadScript?: () => void;
 ```
 
 _Example:_
 
 ```Typescript
-<GoogleMapProvider
+<GoogleMapsProvider
   googleMapsAPIKey="YOUR API KEY HERE"
-  onLoad={(map) => map.setZoom(4)}>
+  onLoadScript={() => {console.log(google.maps);}}>
   ...
-</GoogleMapProvider>
+</GoogleMapsProvider>
+```
+
+__onLoadMap__ (_optional property_)
+
+A callback function that is called, when the Google Map map is loaded.
+
+```Typescript
+onLoadMap?: (map: google.maps.Map) => void;
+```
+
+_Example:_
+
+```Typescript
+<GoogleMapsProvider
+  googleMapsAPIKey="YOUR API KEY HERE"
+  onLoadMap={(map) => map.setZoom(4)}>
+  ...
+</GoogleMapsProvider>
 ```

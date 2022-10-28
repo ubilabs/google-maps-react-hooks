@@ -4,7 +4,7 @@ React hook to use the [Google Maps Places Autocomplete Widget](https://developer
 
 ## Usage
 
-When initializing the `<GoogleMapProvider>`, include the places library like this: `libraries={['places']}`.
+When initializing the `<GoogleMapsProvider>`, include the places library like this: `libraries={['places']}`.
 
 ```tsx
 import React, {useRef, useState} from 'react';

@@ -1,12 +1,12 @@
-import {useMemo} from 'react';
+import {useContext, useMemo} from 'react';
 
-import {useGoogleMap} from './map-instance';
+import {GoogleMapsContext} from '../google-maps-provider';
 
 /**
  * Hook to get Google Maps Places Service instance
  */
 export const usePlacesService = (): google.maps.places.PlacesService | null => {
-  const {map} = useGoogleMap();
+  const {map} = useContext(GoogleMapsContext);
 
   // Creates a Places Service instance
   const placesService = useMemo<google.maps.places.PlacesService | null>(() => {
@@ -17,7 +17,7 @@ export const usePlacesService = (): google.maps.places.PlacesService | null => {
 
     if (!google.maps.places) {
       throw Error(
-        "Places library missing. Add 'places' to the libraries array of GoogleMapProvider."
+        "Places library missing. Add 'places' to the libraries array of GoogleMapsProvider."
       );
     }
 

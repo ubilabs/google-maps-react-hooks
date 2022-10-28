@@ -9,7 +9,7 @@ import React from 'react';
 import {useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Do something with the Google Maps map instance
 
@@ -19,13 +19,9 @@ const MyComponent = () => {
 
 ## Return value
 
+Returns a [Google Maps map instance](https://developers.google.com/maps/documentation/javascript/reference/map#Map) to use directly.
 Type: `GoogleMapContextType`:
 
 ```TypeScript
-{
-  loading: boolean,
-  map: google.maps.Map
-}
+google.maps.Map
 ```
-
-The [Google Maps map](https://developers.google.com/maps/documentation/javascript/reference/map#Map) instance is returned.

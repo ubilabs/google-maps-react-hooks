@@ -1,22 +1,22 @@
-import {useMemo} from 'react';
+import {useContext, useMemo} from 'react';
 
-import {useGoogleMap} from './map-instance';
+import {GoogleMapsContext} from '../google-maps-provider';
 
 /**
  * Hook to get Elevation Service instance
  */
 export const useElevationService = (): google.maps.ElevationService | null => {
-  const {map} = useGoogleMap();
+  const {googleMapsAPIIsLoaded} = useContext(GoogleMapsContext);
 
   // Creates an Elevation Service instance
   const elevationService = useMemo<google.maps.ElevationService | null>(() => {
-    // Wait for map to be initialized
-    if (!map) {
+    // Wait for Google Maps API to be loaded
+    if (!googleMapsAPIIsLoaded) {
       return null;
     }
 
     return new google.maps.ElevationService();
-  }, [map]);
+  }, [googleMapsAPIIsLoaded]);
 
   return elevationService;
 };
