@@ -8,5 +8,5 @@ export * from './hooks/elevation';
 export * from './hooks/geocoder';
 export * from './hooks/map-instance';
 export * from './hooks/max-zoom';
-export * from './hooks/places';
+export * from './hooks/places-service';
 // codegen:end

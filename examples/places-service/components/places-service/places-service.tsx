@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 
 import {useGoogleMap, usePlacesService} from '@ubilabs/google-maps-react-hooks';
 
-const PlacesExample = () => {
+const PlacesService = () => {
   const map = useGoogleMap();
 
   // Get the places service from the usePlacesService hook
@@ -31,7 +31,7 @@ const PlacesExample = () => {
           const position = results[index].geometry?.location;
           const openingHours = results[index].opening_hours;
 
-          const isOpenStatus = openingHours ? 'Is open' : 'Closed';
+          const isOpenStatus = openingHours ? 'open' : 'closed';
 
           if (!position) {
             return;
@@ -60,4 +60,4 @@ const PlacesExample = () => {
   return null;
 };
 
-export default PlacesExample;
+export default PlacesService;

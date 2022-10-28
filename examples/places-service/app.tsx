@@ -6,7 +6,7 @@ import MapCanvas from './components/map-canvas/map-canvas';
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
 import './main.module.css';
-import PlacesExample from './components/places-example/places-example';
+import PlacesService from './components/places-service/places-service';
 
 const mapOptions = {
   center: {lat: 53.5582447, lng: 9.647645},
@@ -36,7 +36,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
         libraries={['places']}>
         <div id="container">
           <MapCanvas ref={mapRef} />
-          <PlacesExample />
+          <PlacesService />
         </div>
       </GoogleMapsProvider>
     </React.StrictMode>
