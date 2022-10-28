@@ -1,7 +1,7 @@
 /* eslint-disable complexity */
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 
-import {useGoogleMap} from './map-instance';
+import {GoogleMapsContext} from '../google-maps-provider';
 
 export interface StreetViewPanoramaProps {
   divElement?: HTMLElement | null;
@@ -18,21 +18,20 @@ export const useStreetViewPanorama = (
 ): google.maps.StreetViewPanorama | null => {
   const {divElement, position, pov, zoom} = props;
 
-  // Get map instance
-  const {map} = useGoogleMap();
+  const {googleMapsAPIIsLoaded, map} = useContext(GoogleMapsContext);
 
   const [streetViewPanorama, setStreetViewPanorama] =
     useState<google.maps.StreetViewPanorama | null>(null);
 
   // Creates a Street View instance
   useEffect(() => {
-    // Wait for Google Maps API to be initialized
-    if (!map) {
-      return (): void => {};
-    }
-
     // If not div element is passed, initialize a map with street view
     if (!divElement) {
+      // Wait for Google Maps Instance
+      if (!map) {
+        return (): void => {};
+      }
+
       const newPanorama = map.getStreetView();
 
       if (pov) {
@@ -50,6 +49,11 @@ export const useStreetViewPanorama = (
 
       setStreetViewPanorama(newPanorama);
     } else {
+      // Wait for Google Maps API
+      if (!googleMapsAPIIsLoaded) {
+        return (): void => {};
+      }
+
       // If a div element is passed, initialize street view in the element
       const newPanorama = new google.maps.StreetViewPanorama(divElement, {
         position,
@@ -61,7 +65,9 @@ export const useStreetViewPanorama = (
     }
 
     return (): void => {
-      map.setStreetView(null);
+      if (map) {
+        map.setStreetView(null);
+      }
     };
   }, [map, divElement]);
 
