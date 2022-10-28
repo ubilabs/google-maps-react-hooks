@@ -10,7 +10,7 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
 - [Examples](./examples)
   - [Basic Google Map](./examples/basic-google-map)
   - [Google Map with Markers](./examples/google-map-with-markers)
-  - [Places Autocomplete](./examples/places-autocomplete)
+  - [Places Autocomplete Widget](./examples/places-autocomplete-widget)
   - [Directions Service](./examples/directions-service)
   - [Geocoding Service](./examples/geocoding-service)
   - [Places Service](./examples/places-service)

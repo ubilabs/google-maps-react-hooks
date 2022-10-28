@@ -27,7 +27,7 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
   - [Distance Matrix Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/distance-matrix)
   - [Geocoding Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/geocoding)
   - [Places Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/places)
-  - [Places Autocomplete Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/places-autocomplete)
+  - [Places Autocomplete Widget](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/places-autocomplete-widget)
 
 ## Requirements
 
