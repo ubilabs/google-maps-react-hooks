@@ -41,7 +41,9 @@ const DirectionsExample = () => {
       });
 
     return () => {
-      directionsRenderer?.setMap(null);
+      if (directionsRenderer) {
+        directionsRenderer.setMap(null);
+      }
     };
   }, [findAndRenderRoute]);
 
