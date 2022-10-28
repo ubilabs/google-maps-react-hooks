@@ -1,6 +1,6 @@
 # `useAutocomplete` Hook
 
-React hook to use the [Google Maps Places Widgets](https://developers.google.com/maps/documentation/javascript/reference/places-widget) in any component.
+React hook to use the [Google Maps Places Autocomplete Widgets](https://developers.google.com/maps/documentation/javascript/reference/places-widget) in any component.
 
 ## Usage
 
