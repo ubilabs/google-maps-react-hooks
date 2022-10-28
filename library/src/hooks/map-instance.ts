@@ -1,9 +1,9 @@
 import {useContext} from 'react';
 
-import {GoogleMapContext, GoogleMapContextType} from '../map-provider';
+import {GoogleMapsContext} from '../google-maps-provider';
 
 /**
  * Hook to get global map instance
  */
-export const useGoogleMap = (): GoogleMapContextType =>
-  useContext(GoogleMapContext);
+export const useGoogleMap = (): google.maps.Map | undefined =>
+  useContext(GoogleMapsContext).map;

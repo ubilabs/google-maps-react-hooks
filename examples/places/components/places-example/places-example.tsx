@@ -1,12 +1,9 @@
 import {useEffect} from 'react';
 
-import {
-  useGoogleMap,
-  usePlacesService
-} from '@ubilabs/google-maps-react-hooks';
+import {useGoogleMap, usePlacesService} from '@ubilabs/google-maps-react-hooks';
 
 const PlacesExample = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Get the places service from the usePlacesService hook
   const service = usePlacesService();

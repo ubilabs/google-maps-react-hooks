@@ -8,7 +8,7 @@
     "lib": ["es2015", "dom"],
     "jsx": "react",
     "esModuleInterop": true,
-    "types": ["node"],
+    "types": ["node", "googlemaps"],
     "moduleResolution": "node",
   },
   "exclude": ["node_modules"]

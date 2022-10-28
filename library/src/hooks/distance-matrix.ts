@@ -1,19 +1,19 @@
-import {useMemo} from 'react';
+import {useContext, useMemo} from 'react';
 
-import {useGoogleMap} from './map-instance';
+import {GoogleMapsContext} from '../google-maps-provider';
 
 /**
  * Hook to get Distance Matrix Service instance
  */
 export const useDistanceMatrix =
   (): google.maps.DistanceMatrixService | null => {
-    const {map} = useGoogleMap();
+    const {googleMapsAPIIsLoaded} = useContext(GoogleMapsContext);
 
     // Creates a Distance Matrix Service instance
     const distanceMatrixService =
       useMemo<google.maps.DistanceMatrixService | null>(() => {
-        // Wait for map to be initialized
-        if (!map) {
+        // Wait for Google Maps API to be loaded
+        if (!googleMapsAPIIsLoaded) {
           return null;
         }
 
@@ -22,7 +22,7 @@ export const useDistanceMatrix =
         }
 
         return new google.maps.DistanceMatrixService();
-      }, [map]);
+      }, [googleMapsAPIIsLoaded]);
 
     return distanceMatrixService;
   };
