@@ -1,12 +1,12 @@
 # `useAutocomplete` Hook
 
-React hook to use the [Google Maps Places Autocomplete Service](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service) in any component.
+React hook to use the [Google Maps Places Autocomplete Widget](https://developers.google.com/maps/documentation/javascript/reference/places-widget#Autocomplete) in any component.
 
 ## Usage
 
 When initializing the `<GoogleMapProvider>`, include the places library like this: `libraries={['places']}`.
 
-```jsx
+```tsx
 import React, {useRef, useState} from 'react';
 import {useAutocomplete} from '@ubilabs/google-maps-react-hooks';
 
