@@ -7,7 +7,7 @@ import {
 } from '@ubilabs/google-maps-react-hooks';
 
 const MaxZoomService = () => {
-  const {map} = useGoogleMap();
+  const map = useGoogleMap();
 
   // Get max zoom service from hook
   const maxZoomService = useMaxZoomService();
