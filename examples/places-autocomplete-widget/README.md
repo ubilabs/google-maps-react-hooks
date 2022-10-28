@@ -1,6 +1,6 @@
 # `useAutocomplete` Hook Setup Example
 
-This is an example setup of a **Map with a Places Autocomplete Search** to show the usage of the **useAutocomplete hook** with the Google Maps React Hooks library.
+This is an example setup of a **Places Autocomplete Widget** to show the usage of the **useAutocomplete hook** with the Google Maps React Hooks library.
 
 ## Instructions
 
@@ -17,7 +17,7 @@ once to install all dependencies.
 Then start this example locally with
 
 ```shell
-npm run start:places-autocomplete-example
+npm run start:places-autocomplete-widget-example
 ```
 
 **NOTE**:
