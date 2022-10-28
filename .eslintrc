@@ -321,6 +321,7 @@
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-non-null-assertion": 0,
     "codegen/codegen": "error"
   }
 }
