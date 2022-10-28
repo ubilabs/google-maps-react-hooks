@@ -88,14 +88,16 @@ export const GoogleMapsProvider: React.FunctionComponent<
     };
     document.getElementsByTagName('head')[0].appendChild(scriptTag);
 
-    // Remove all loaded Google Maps scripts
+    // Clean up Google Maps API
     return () => {
+      // Remove all loaded Google Maps API scripts
       document
         .querySelectorAll('script[src^="https://maps.googleapis.com"]')
         .forEach(script => {
           script.remove();
         });
 
+      // Remove google.maps global
       if (typeof google === 'object' && typeof google.maps === 'object') {
         // @ts-ignore: The operand of a 'delete' operator must be optional.
         delete google.maps;
@@ -126,6 +128,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
       setMap(newMap);
     }
 
+    // Remove all map related event listeners
     return () => {
       if (
         newMap &&
