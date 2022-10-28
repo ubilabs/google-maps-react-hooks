@@ -2,7 +2,7 @@ import React, {FunctionComponent, useState, useCallback} from 'react';
 import {GoogleMapProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
-import ElevationService from './components/elevation/elevation-service';
+import ElevationService from './components/elevation-service/elevation-service';
 
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
