@@ -37,7 +37,12 @@ interface DirectionsProps {
 
 ## Return value
 
-Returns a [`directionsService`](https://developers.google.com/maps/documentation/javascript/reference/directions#DirectionsService) instance and a [`directionsRenderer`](https://developers.google.com/maps/documentation/javascript/reference/directions#DirectionsRenderer) instance to use directly, `findRoute` which returns a route and `findAndRenderRoute` which also renders the route on the map. When using `findAndRenderRoute`, the `renderOnMap` prop should be set to `true`. `renderRouteOfIndex` can be used to render a specific route of `google.maps.DirectionsResult` returned by `findRoute` or `findAndRenderRoute`.
+Returns an object with the following elements:
+- [`directionsService`](https://developers.google.com/maps/documentation/javascript/reference/directions#DirectionsService) instance
+- [`directionsRenderer`](https://developers.google.com/maps/documentation/javascript/reference/directions#DirectionsRenderer) instance
+- `findRoute` function, which returns a route
+- `findAndRenderRoute` function, which also renders the route on the map
+- `renderRouteOfIndex` function, which can be used to render a specific route of `google.maps.DirectionsResult` returned by `findRoute` or `findAndRenderRoute`
 
 ```TypeScript
 interface DirectionsHookReturns {
@@ -48,3 +53,6 @@ interface DirectionsHookReturns {
   renderRouteOfIndex: (index: number) => void;
 }
 ```
+
+**NOTE**:
+When using `findAndRenderRoute`, the `renderOnMap` property must be set to `true`.
