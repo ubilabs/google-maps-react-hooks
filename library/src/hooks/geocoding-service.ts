@@ -5,7 +5,7 @@ import {GoogleMapsContext} from '../google-maps-provider';
 /**
  * Hook to get Google Maps Geocoder instance
  */
-export const useGeocoder = (): google.maps.Geocoder | null => {
+export const useGeocodingService = (): google.maps.Geocoder | null => {
   const {googleMapsAPIIsLoaded} = useContext(GoogleMapsContext);
 
   // Creates a Geocoder instance
