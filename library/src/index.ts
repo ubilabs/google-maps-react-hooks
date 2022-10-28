@@ -3,7 +3,7 @@ export * from './hooks/autocomplete';
 export * from './hooks/directions-service';
 export * from './hooks/distance-matrix-service';
 export * from './hooks/elevation-service';
-export * from './hooks/geocoder';
+export * from './hooks/geocoding-service';
 export * from './hooks/map-instance';
 export * from './hooks/max-zoom';
 export * from './hooks/places-service';

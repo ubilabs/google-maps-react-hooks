@@ -2,7 +2,7 @@ import React, {FunctionComponent, useState, useCallback} from 'react';
 import {GoogleMapProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
-import GeocoderExample from './components/geocoder-example/geocoder-example';
+import GeocodingService from './components/geocoding-service/geocoding-service';
 
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
@@ -35,7 +35,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
       >
         <div id="container">
           <MapCanvas ref={mapRef} />
-          <GeocoderExample />
+          <GeocodingService />
         </div>
       </GoogleMapProvider>
     </React.StrictMode>
