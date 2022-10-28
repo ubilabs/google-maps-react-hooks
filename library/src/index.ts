@@ -5,7 +5,7 @@ export * from './hooks/distance-matrix-service';
 export * from './hooks/elevation-service';
 export * from './hooks/geocoding-service';
 export * from './hooks/map-instance';
-export * from './hooks/max-zoom';
+export * from './hooks/max-zoom-service';
 export * from './hooks/places-service';
 export * from './map-provider';
 // codegen:end
