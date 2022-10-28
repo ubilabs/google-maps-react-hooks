@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
-import {useDirections, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
+import {useDirectionsService, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
-const DirectionsExample = () => {
+const DirectionsService = () => {
   const map = useGoogleMap();
 
   const directionsOptions = {
@@ -13,7 +13,7 @@ const DirectionsExample = () => {
   };
 
   // Use findAndRenderRoute to get directions and render a route to the map
-  const {findAndRenderRoute} = useDirections(directionsOptions);
+  const {findAndRenderRoute} = useDirectionsService(directionsOptions);
 
   useEffect(() => {
     if (!map || !findAndRenderRoute) {
@@ -45,4 +45,4 @@ const DirectionsExample = () => {
   return null;
 };
 
-export default DirectionsExample;
+export default DirectionsService;

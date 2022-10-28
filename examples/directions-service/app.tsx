@@ -2,7 +2,7 @@ import React, {FunctionComponent, useState, useCallback} from 'react';
 import {GoogleMapsProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
-import DirectionsExample from './components/directions/directions';
+import DirectionsService from './components/directions-service/directions-service';
 
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
@@ -34,7 +34,7 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
         mapOptions={mapOptions}>
         <div id="container">
           <MapCanvas ref={mapRef} />
-          <DirectionsExample />
+          <DirectionsService />
         </div>
       </GoogleMapsProvider>
     </React.StrictMode>
