@@ -65,7 +65,7 @@ export const useStreetViewPanorama = (
     }
 
     return (): void => {
-      if (map) {
+      if (!divElement && map) {
         map.setStreetView(null);
       }
     };
