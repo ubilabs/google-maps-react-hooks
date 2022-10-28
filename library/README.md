@@ -20,6 +20,7 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
     - [useMaxZoomService](https://github.com/ubilabs/google-maps-react-hooks/tree/main/library/docs/useMaxZoomService.md)
     - [usePlacesService](https://github.com/ubilabs/google-maps-react-hooks/tree/main/library/docs/usePlacesService.md)
     - [useAutocomplete](https://github.com/ubilabs/google-maps-react-hooks/tree/main/library/docs/useAutocomplete.md)
+    - [useAutocompleteService](https://github.com/ubilabs/google-maps-react-hooks/tree/main/library/docs/useAutocompleteService.md)
 - [Examples](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples)
   - [Basic Google Map](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/basic-google-map)
   - [Google Map with Markers](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/google-map-with-markers)
