@@ -1,6 +1,6 @@
-import {useState, useRef, useEffect} from 'react';
+import {useContext, useState, useRef, useEffect} from 'react';
 
-import {useGoogleMap} from './map-instance';
+import {GoogleMapsContext} from '../google-maps-provider';
 
 export interface AutocompleteProps {
   inputField: HTMLInputElement | null;
@@ -17,15 +17,15 @@ export const useAutocomplete = (
 ): google.maps.places.Autocomplete | null => {
   const {inputField, options, onPlaceChanged} = props;
   const placeChangedHandler = useRef(onPlaceChanged);
-  const map = useGoogleMap();
+  const {googleMapsAPIIsLoaded} = useContext(GoogleMapsContext);
 
   const [autocomplete, setAutocomplete] =
     useState<google.maps.places.Autocomplete | null>(null);
 
   // Initializes the Google Maps Places Autocomplete
   useEffect(() => {
-    // Wait for map and input element to be initialized
-    if (!map || !inputField) {
+    // Wait for the Google Maps API and input element to be initialized
+    if (!googleMapsAPIIsLoaded || !inputField) {
       return (): void => {};
     }
 
@@ -53,7 +53,7 @@ export const useAutocomplete = (
       autocompleteInstance &&
         google.maps.event.clearInstanceListeners(autocompleteInstance);
     };
-  }, [map, inputField, options]);
+  }, [googleMapsAPIIsLoaded, inputField, options]);
 
   return autocomplete;
 };

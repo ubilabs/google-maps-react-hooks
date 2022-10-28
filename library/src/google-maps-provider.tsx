@@ -17,12 +17,17 @@ export interface GoogleMapsProviderProps extends GoogleMapsAPIUrlParameters {
   onLoadMap?: (map: google.maps.Map) => void;
 }
 
+export interface GoogleMapsContextType {
+  googleMapsAPIIsLoaded: boolean;
+  map?: google.maps.Map;
+}
+
 /**
- * The Google Maps map context
+ * The Google Maps context
  */
-export const GoogleMapsMapContext = React.createContext<
-  google.maps.Map | undefined
->(undefined);
+export const GoogleMapsContext = React.createContext<GoogleMapsContextType>({
+  googleMapsAPIIsLoaded: false
+});
 
 /**
  * The global Google Maps provider
@@ -44,13 +49,13 @@ export const GoogleMapsProvider: React.FunctionComponent<
     onLoadMap
   } = props;
 
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoadingAPI, setIsLoadingAPI] = useState<boolean>(true);
   const [map, setMap] = useState<google.maps.Map>();
 
   // Load Google Maps API
   useEffect(() => {
     if (google?.maps) {
-      setIsLoading(false);
+      setIsLoadingAPI(false);
       return () => {};
     }
 
@@ -72,7 +77,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
     scriptTag.type = 'text/javascript';
     scriptTag.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
     scriptTag.onload = (): void => {
-      setIsLoading(false);
+      setIsLoadingAPI(false);
       onLoadScript && onLoadScript();
     };
     document.getElementsByTagName('head')[0].appendChild(scriptTag);
@@ -103,7 +108,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
   useEffect(() => {
     let newMap: google.maps.Map | undefined;
 
-    if (!isLoading && mapContainer) {
+    if (!isLoadingAPI && mapContainer) {
       newMap = new google.maps.Map(mapContainer, mapOptions);
 
       google.maps.event.addListenerOnce(newMap, 'idle', () => {
@@ -121,7 +126,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
       }
     };
   }, [
-    isLoading,
+    isLoadingAPI,
     mapContainer,
     googleMapsAPIKey,
     JSON.stringify(libraries),
@@ -132,8 +137,9 @@ export const GoogleMapsProvider: React.FunctionComponent<
   ]);
 
   return (
-    <GoogleMapsMapContext.Provider value={map}>
+    <GoogleMapsContext.Provider
+      value={{map, googleMapsAPIIsLoaded: !isLoadingAPI}}>
       {children}
-    </GoogleMapsMapContext.Provider>
+    </GoogleMapsContext.Provider>
   );
 };
