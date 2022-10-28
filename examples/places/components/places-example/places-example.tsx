@@ -10,8 +10,10 @@ const PlacesExample = () => {
 
   useEffect(() => {
     if (!map || !service) {
-      return;
+      return () => {};
     }
+
+    const markers: Array<google.maps.Marker> = [];
 
     const bounds = new google.maps.LatLngBounds();
 
@@ -42,6 +44,8 @@ const PlacesExample = () => {
             position
           });
 
+          markers.push(marker);
+
           map.fitBounds(bounds.extend(position));
 
           const infowindow = new google.maps.InfoWindow({
@@ -55,6 +59,11 @@ const PlacesExample = () => {
     }
 
     service.nearbySearch(request, callback);
+
+    // Clean up markers
+    return () => {
+      markers.forEach(marker => marker.setMap(null));
+    };
   }, [map, Boolean(service)]);
 
   return null;

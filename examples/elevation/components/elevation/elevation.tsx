@@ -6,6 +6,7 @@ import {
 
 const Elevation = () => {
   const map = useGoogleMap();
+
   // Get the elevator from the useElevationService hook
   const elevator = useElevationService();
 
@@ -27,31 +28,32 @@ const Elevation = () => {
     infoWindow.open(map);
 
     // Click on the map and open an infowindow with the elevation.
-    map.addListener('click', (mapsMouseEvent: google.maps.MapMouseEvent) => {
-      // Update infowindow with new position and elevation info
-      infoWindow.setPosition(mapsMouseEvent.latLng);
+    const clickListener = map.addListener(
+      'click',
+      (mapsMouseEvent: google.maps.MapMouseEvent) => {
+        // Update infowindow with new position and elevation info
+        infoWindow.setPosition(mapsMouseEvent.latLng);
 
-      // Retrieve elevation info from elevator
-      elevator.getElevationForLocations(
-        {locations: [mapsMouseEvent.latLng]},
-        (results: google.maps.ElevationResult[]) => {
-          // eslint-disable-next-line no-console
-          console.log(results);
+        // Retrieve elevation info from elevator
+        elevator.getElevationForLocations(
+          {locations: [mapsMouseEvent.latLng]},
+          (results: google.maps.ElevationResult[]) => {
+            // eslint-disable-next-line no-console
+            console.log(results);
 
-          map.setCenter(results[0].location);
+            map.setCenter(results[0].location);
 
-          infoWindow.setPosition(results[0].location);
-          infoWindow.setContent(`Elevation: ${results[0].elevation}`);
-        }
-      );
-    });
-
-    // Clean up infoWindow
-    return () => {
-      if (map) {
-        google.maps.event.clearListeners(map, 'click');
-        infoWindow.close();
+            infoWindow.setPosition(results[0].location);
+            infoWindow.setContent(`Elevation: ${results[0].elevation}`);
+          }
+        );
       }
+    );
+
+    // Clean up click listener and remove the infowindow from the map
+    return () => {
+      google.maps.event.removeListener(clickListener);
+      infoWindow.close();
     };
   }, [map, elevator]);
 

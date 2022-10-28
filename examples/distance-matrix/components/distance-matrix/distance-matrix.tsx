@@ -27,6 +27,8 @@ const DistanceMatrix = () => {
       return () => {};
     }
 
+    const markers: Array<google.maps.Marker> = [];
+
     const bounds = new google.maps.LatLngBounds();
 
     // Distance Matrix request
@@ -50,12 +52,14 @@ const DistanceMatrix = () => {
     const createMarker = (
       position: google.maps.LatLng | google.maps.LatLngLiteral,
       icon?: google.maps.Icon
-    ) =>
-      new google.maps.Marker({
+    ) => {
+      const marker = new google.maps.Marker({
         map,
         position,
         icon
       });
+      markers.push(marker);
+    };
 
     // Get distance matrix response
     service.getDistanceMatrix(request, response => {
@@ -86,6 +90,11 @@ const DistanceMatrix = () => {
         });
       });
     });
+
+    // Clean up markers
+    return () => {
+      markers.forEach(marker => marker.setMap(null));
+    };
   }, [map, geocoder, service]);
 
   return (

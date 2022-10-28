@@ -13,8 +13,6 @@ const PlacesSearch = () => {
   const [selectedPlace, setSelectedPlace] =
     useState<google.maps.places.PlaceResult | null>(null);
 
-  const [marker, setMarker] = useState<google.maps.Marker | null>(null);
-
   const onPlaceChanged = (place: google.maps.places.PlaceResult) => {
     if (place) {
       setSelectedPlace(place);
@@ -35,24 +33,25 @@ const PlacesSearch = () => {
     setInputValue(event.target.value);
   };
 
+  // Add a marker whenever a place was selected
   useEffect(() => {
-    if (map && selectedPlace) {
-      if (marker) {
-        marker.setMap(null);
-      }
-
-      const markerOptions: google.maps.MarkerOptions = {
-        map,
-        position: selectedPlace?.geometry?.location,
-        title: selectedPlace.name,
-        clickable: false
-      };
-
-      // Add a marker whenever a place was selected
-      const newMarker = new google.maps.Marker(markerOptions);
-
-      setMarker(newMarker);
+    if (!map || !selectedPlace) {
+      return () => {};
     }
+
+    const markerOptions: google.maps.MarkerOptions = {
+      map,
+      position: selectedPlace?.geometry?.location,
+      title: selectedPlace.name,
+      clickable: false
+    };
+
+    const marker = new google.maps.Marker(markerOptions);
+
+    // Clean up marker
+    return () => {
+      marker.setMap(null);
+    };
   }, [map, selectedPlace]);
 
   return (
