@@ -57,8 +57,6 @@ export const useStreetViewPanorama = (
         zoom
       });
 
-      map.setStreetView(newPanorama);
-
       setStreetViewPanorama(newPanorama);
     }
 
