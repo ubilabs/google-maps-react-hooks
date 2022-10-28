@@ -10,14 +10,6 @@ When initializing the `<GoogleMapProvider>`, include the places library like thi
  // Code snippet here
 ```
 
-## Methods
-
-There are two different [methods for Autocomplete Service](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompleteService-Methods) to retrieve autocomplete predictions.
-
-1. [**getPlacePredictions**](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest): Gets place autocomplete predictions based on the supplied autocomplete request.
-
-2. [**getQueryPredictions**](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#QueryAutocompletionRequest): Gets place autocomplete predictions based on the supplied query autocomplete request.
-
 ## Parameters
 
 ### AutocompleteProps
