@@ -33,7 +33,7 @@ const PlacesExample = () => {
 
           const isOpenStatus = openingHours ? 'Is open' : 'Closed';
 
-          if (!position) {
+          if (!map || !position) {
             return;
           }
 
@@ -42,7 +42,7 @@ const PlacesExample = () => {
             position
           });
 
-          map?.fitBounds(bounds.extend(position));
+          map.fitBounds(bounds.extend(position));
 
           const infowindow = new google.maps.InfoWindow({
             position,
@@ -55,7 +55,7 @@ const PlacesExample = () => {
     }
 
     service.nearbySearch(request, callback);
-  }, [map]);
+  }, [map, Boolean(service)]);
 
   return null;
 };

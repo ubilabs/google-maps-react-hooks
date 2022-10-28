@@ -1,9 +1,7 @@
 import {useEffect} from 'react';
-import {useDirections, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
+import {useDirections} from '@ubilabs/google-maps-react-hooks';
 
 const DirectionsExample = () => {
-  const map = useGoogleMap();
-
   const directionsOptions = {
     renderOnMap: true,
     renderOptions: {
@@ -16,7 +14,7 @@ const DirectionsExample = () => {
   const {findAndRenderRoute} = useDirections(directionsOptions);
 
   useEffect(() => {
-    if (!map || !findAndRenderRoute) {
+    if (!findAndRenderRoute) {
       return;
     }
 
@@ -40,7 +38,7 @@ const DirectionsExample = () => {
       .catch((errorStatus: google.maps.DirectionsStatus) => {
         console.error(errorStatus);
       });
-  }, [map]);
+  }, [findAndRenderRoute]);
 
   return null;
 };
