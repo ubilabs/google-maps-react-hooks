@@ -2,6 +2,7 @@ import React, {useState, useEffect, PropsWithChildren} from 'react';
 
 // https://developers.google.com/maps/documentation/javascript/url-params
 export interface GoogleMapsAPIUrlParameters {
+  googleMapsAPIKey: string;
   libraries?: string[];
   language?: string;
   region?: string;
@@ -9,10 +10,14 @@ export interface GoogleMapsAPIUrlParameters {
   authReferrerPolicy?: string;
 }
 
-export interface GoogleMapsProviderProps extends GoogleMapsAPIUrlParameters {
-  googleMapsAPIKey: string;
+export interface GoogleMapsConfiguration {
   mapContainer?: HTMLElement | null;
   mapOptions?: google.maps.MapOptions;
+}
+
+export interface GoogleMapsProviderProps
+  extends GoogleMapsAPIUrlParameters,
+    GoogleMapsConfiguration {
   onLoadScript?: () => void;
   onLoadMap?: (map: google.maps.Map) => void;
 }
