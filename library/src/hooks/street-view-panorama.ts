@@ -25,7 +25,7 @@ export const useStreetViewPanorama = (
 
   // Creates a Street View instance
   useEffect(() => {
-    // If not div element is passed, initialize a map with street view
+    // If no div element is passed, initialize a map with Street View Panorama
     if (!divElement) {
       // Wait for Google Maps map instance
       if (!map) {
