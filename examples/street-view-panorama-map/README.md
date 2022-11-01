@@ -1,6 +1,6 @@
 # `useStreetViewPanorama` Hook Setup Example
 
-This is an example setup of **Street View Panorama** to show the usage of the **useStreetViewPanorama hook** without passing a div element with the Google Maps React Hooks library.
+This is an example setup of **Street View Panorama** to show the usage of the **useStreetViewPanorama hook** to enable Street View in an existing map with the Google Maps React Hooks library.
 
 ## Instructions
 
@@ -30,5 +30,3 @@ An example can be found in `.env.example`.
 ## Output
 
 The project will start at [localhost:1234](http://localhost:1234) and show a map with street view.
-
-- Add image here
