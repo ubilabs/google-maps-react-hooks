@@ -9,4 +9,5 @@ export * from './hooks/geocoding-service';
 export * from './hooks/map-instance';
 export * from './hooks/max-zoom-service';
 export * from './hooks/places-service';
+export * from './hooks/street-view-panorama';
 // codegen:end

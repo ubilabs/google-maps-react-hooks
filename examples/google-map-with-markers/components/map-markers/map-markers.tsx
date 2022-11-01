@@ -1,4 +1,4 @@
-import {VoidFunctionComponent, useState, useEffect} from 'react';
+import {FunctionComponent, useState, useEffect} from 'react';
 import {useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
 interface MuseumData {
@@ -48,7 +48,7 @@ const museums: MuseumData[] = [
 /**
  * Component to render all map markers
  */
-const MapMarkers: VoidFunctionComponent = (): null => {
+const MapMarkers: FunctionComponent<Record<string, unknown>> = () => {
   // Get the global map instance with the useGoogleMap hook
   const map = useGoogleMap();
 
