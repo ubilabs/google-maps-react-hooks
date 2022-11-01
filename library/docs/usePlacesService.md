@@ -6,7 +6,7 @@ React hook to use the [Google Maps Places Service](https://developers.google.com
 
 When initializing the `<GoogleMapsProvider>`, include the places library like this: `libraries={['places']}`.
 
-```jsx
+```tsx
 import React from 'react';
 import {usePlacesService} from '@ubilabs/google-maps-react-hooks';
 

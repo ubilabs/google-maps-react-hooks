@@ -4,7 +4,7 @@ React hook to use the [Google Maps Geocoding Service](https://developers.google.
 
 ## Usage
 
-```jsx
+```tsx
 import React from 'react';
 import {useGeocodingService} from '@ubilabs/google-maps-react-hooks';
 

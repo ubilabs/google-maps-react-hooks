@@ -2,7 +2,7 @@
 
 The `GoogleMapsProvider` is a component to wrap around the code where the map should be available.
 
-```jsx
+```tsx
 <GoogleMapsProvider googleMapsAPIKey="YOUR API KEY HERE">
   {children}
 </GoogleMapsProvider>
@@ -53,7 +53,7 @@ _Example:_
 
 The `mapContainer` will be passed to the `GoogleMapsProvider` in the following way:
 
-```TypeScript
+```tsx
 function App() {
   const [mapContainer, setMapContainer] = useState(null);
   const mapRef = useCallback(node => {
@@ -193,7 +193,7 @@ onLoadScript?: () => void;
 
 _Example:_
 
-```Typescript
+```tsx
 <GoogleMapsProvider
   googleMapsAPIKey="YOUR API KEY HERE"
   onLoadScript={() => {console.log(google.maps);}}>
@@ -211,7 +211,7 @@ onLoadMap?: (map: google.maps.Map) => void;
 
 _Example:_
 
-```Typescript
+```tsx
 <GoogleMapsProvider
   googleMapsAPIKey="YOUR API KEY HERE"
   onLoadMap={(map) => map.setZoom(4)}>

@@ -4,7 +4,7 @@ React hook to use the [Google Maps Directions Service](https://developers.google
 
 ## Usage
 
-```jsx
+```tsx
 import React from 'react';
 import {useDirectionsService} from '@ubilabs/google-maps-react-hooks';
 

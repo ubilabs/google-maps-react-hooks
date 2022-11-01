@@ -47,7 +47,7 @@ Make sure all components that should have access to the Google Maps map instance
 
 If you still can't see a map on your page, make sure that your map container has a `height` CSS property (by default it usually has no height) and that a `center` and `zoom` was set for your map.
 
-```jsx
+```tsx
 import React, {useState, useCallback, forwardRef} from 'react';
 import {GoogleMapsProvider} from '@ubilabs/google-maps-react-hooks';
 
@@ -81,7 +81,7 @@ export default App;
 
 The `GoogleMapsProvider` makes the Google Maps map instance available to any nested components with the `useGoogleMap` hook.
 
-```jsx
+```tsx
 import React from 'react';
 import {useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
