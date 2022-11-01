@@ -23,7 +23,17 @@ const StreetViewPanoramaElement = () => {
     if (map) {
       map.setStreetView(panorama);
     }
-  }, [map]);
+  }, [map, panorama]);
+
+  // Clean up map when component unmounts
+  useEffect(
+    () => () => {
+      if (map) {
+        map.setStreetView(null);
+      }
+    },
+    []
+  );
 
   return <div className={styles.pano} ref={divRef} />;
 };
