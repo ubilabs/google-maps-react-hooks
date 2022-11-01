@@ -11,7 +11,7 @@ import React from 'react';
 import {usePlacesService} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
-  const placesServie = usePlacesService();
+  const placesService = usePlacesService();
 
   // Do something with the places Service
 

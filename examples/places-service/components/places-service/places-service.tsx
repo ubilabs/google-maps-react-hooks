@@ -10,8 +10,10 @@ const PlacesService = () => {
 
   useEffect(() => {
     if (!map || !service) {
-      return;
+      return () => {};
     }
+
+    const markers: Array<google.maps.Marker> = [];
 
     const bounds = new google.maps.LatLngBounds();
 
@@ -33,7 +35,7 @@ const PlacesService = () => {
 
           const isOpenStatus = openingHours ? 'open' : 'closed';
 
-          if (!position) {
+          if (!map || !position) {
             return;
           }
 
@@ -42,7 +44,9 @@ const PlacesService = () => {
             position
           });
 
-          map?.fitBounds(bounds.extend(position));
+          markers.push(marker);
+
+          map.fitBounds(bounds.extend(position));
 
           const infowindow = new google.maps.InfoWindow({
             position,
@@ -55,7 +59,12 @@ const PlacesService = () => {
     }
 
     service.nearbySearch(request, callback);
-  }, [map]);
+
+    // Clean up markers
+    return () => {
+      markers.forEach(marker => marker.setMap(null));
+    };
+  }, [map, Boolean(service)]);
 
   return null;
 };

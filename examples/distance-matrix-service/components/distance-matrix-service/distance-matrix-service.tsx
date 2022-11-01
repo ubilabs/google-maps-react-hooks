@@ -23,9 +23,11 @@ const DistanceMatrixService = () => {
   const [destinationList, setDestinationList] = useState(['']);
 
   useEffect(() => {
-    if (!map || !service) {
-      return;
+    if (!map || !geocoder || !service) {
+      return () => {};
     }
+
+    const markers: Array<google.maps.Marker> = [];
 
     const bounds = new google.maps.LatLngBounds();
 
@@ -50,12 +52,14 @@ const DistanceMatrixService = () => {
     const createMarker = (
       position: google.maps.LatLng | google.maps.LatLngLiteral,
       icon?: google.maps.Icon
-    ) =>
-      new google.maps.Marker({
+    ) => {
+      const marker = new google.maps.Marker({
         map,
         position,
         icon
       });
+      markers.push(marker);
+    };
 
     // Get distance matrix response
     service.getDistanceMatrix(request, response => {
@@ -67,7 +71,7 @@ const DistanceMatrixService = () => {
       setElements(responseElements);
 
       // Geocode the response to set a marker at the positions of the origin and the destinations
-      geocoder?.geocode({address: origins[0]}, results => {
+      geocoder.geocode({address: origins[0]}, results => {
         const position = results[0]?.geometry.location;
 
         // Add another marker icon for the origin
@@ -77,7 +81,7 @@ const DistanceMatrixService = () => {
       });
 
       destinations.forEach(destination => {
-        geocoder?.geocode({address: destination}, results => {
+        geocoder.geocode({address: destination}, results => {
           const position = results[0]?.geometry.location;
 
           createMarker(position);
@@ -86,7 +90,12 @@ const DistanceMatrixService = () => {
         });
       });
     });
-  }, [map]);
+
+    // Clean up markers
+    return () => {
+      markers.forEach(marker => marker.setMap(null));
+    };
+  }, [map, Boolean(geocoder), Boolean(service)]);
 
   return (
     <div className={styles.info}>
