@@ -26,17 +26,17 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
   );
 
   return (
-    <React.StrictMode>
-      <GoogleMapsProvider
-        googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
-        mapContainer={mapContainer}
-        mapOptions={mapOptions}>
+    <GoogleMapsProvider
+      googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
+      mapContainer={mapContainer}
+      mapOptions={mapOptions}>
+      <React.StrictMode>
         <div id="container">
           <MapCanvas ref={mapRef} />
           <ElevationService />
         </div>
-      </GoogleMapsProvider>
-    </React.StrictMode>
+      </React.StrictMode>
+    </GoogleMapsProvider>
   );
 };
 
