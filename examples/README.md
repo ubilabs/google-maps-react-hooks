@@ -6,7 +6,7 @@ Here you can find some implementation examples for the [Google Maps React Hooks 
 - [Google Map with Markers](./google-map-with-markers)
 - [Directions Service](./directions-service)
 - [Distance Matrix Service](./distance-matrix-service)
-- [Elevation Service](./examples/elevation)
+- [Elevation Service](./examples/elevation-service)
 - [Geocoding Service](./geocoding-service)
 - [Maximum Zoom Imagery Service](./examples/max-zoom)
 - [Places Autocomplete Widget](./places-autocomplete-widget)
