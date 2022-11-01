@@ -41,7 +41,7 @@ const PlacesSearch = () => {
 
     const markerOptions: google.maps.MarkerOptions = {
       map,
-      position: selectedPlace?.geometry?.location,
+      position: selectedPlace.geometry?.location,
       title: selectedPlace.name,
       clickable: false
     };
