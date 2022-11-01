@@ -20,28 +20,28 @@ const GeocoderExample = () => {
       return () => {};
     }
 
-    // Add an initial marker
-    const initialMarker = new google.maps.Marker({
+    // Add a marker
+    const newMarker = new google.maps.Marker({
       map,
       position: initialPosition
     });
 
-    setMarker(initialMarker);
+    setMarker(newMarker);
 
-    // Add an initial infowindow
-    const initialInfoWindow = new google.maps.InfoWindow({
+    // Add an infowindow
+    const newInfoWindow = new google.maps.InfoWindow({
       content:
         'Click somewhere on the map to reverse geocode the position to an address.',
       position: initialPosition
     });
 
-    setInfoWindow(initialInfoWindow);
-    initialInfoWindow.open(map, initialMarker);
+    setInfoWindow(newInfoWindow);
+    newInfoWindow.open(map, newMarker);
 
     // Remove infowindow and marker from the map
     return () => {
-      initialInfoWindow?.close();
-      initialMarker?.setMap(null);
+      newInfoWindow?.close();
+      newMarker?.setMap(null);
     };
   }, [map]);
 
