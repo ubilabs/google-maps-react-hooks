@@ -4,7 +4,7 @@ React hook to get the [Google Maps map](https://developers.google.com/maps/docum
 
 ## Usage
 
-```jsx
+```tsx
 import React from 'react';
 import {useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
