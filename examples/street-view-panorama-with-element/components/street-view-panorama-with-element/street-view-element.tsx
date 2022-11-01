@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 
 import {
   useGoogleMap,
@@ -19,7 +19,11 @@ const StreetViewPanoramaElement = () => {
     zoom: 1
   });
 
-  map?.setStreetView(panorama);
+  useEffect(() => {
+    if (map) {
+      map.setStreetView(panorama);
+    }
+  }, [map]);
 
   return <div className={styles.pano} ref={divRef} />;
 };
