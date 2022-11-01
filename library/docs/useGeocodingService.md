@@ -1,4 +1,4 @@
-# `useGeocoder` Hook
+# `useGeocodingService` Hook
 
 React hook to use the [Google Maps Geocoding Service](https://developers.google.com/maps/documentation/javascript/geocoding) in any component.
 
@@ -6,10 +6,10 @@ React hook to use the [Google Maps Geocoding Service](https://developers.google.
 
 ```jsx
 import React from 'react';
-import {useGeocoder} from '@ubilabs/google-maps-react-hooks';
+import {useGeocodingService} from '@ubilabs/google-maps-react-hooks';
 
 const MyComponent = () => {
-  const geocoder = useGeocoder();
+  const geocoder = useGeocodingService();
 
   // Do something with the geocoder
 
