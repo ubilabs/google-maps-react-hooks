@@ -95,7 +95,7 @@ const DistanceMatrix = () => {
     return () => {
       markers.forEach(marker => marker.setMap(null));
     };
-  }, [map, geocoder, service]);
+  }, [map, Boolean(geocoder), Boolean(service)]);
 
   return (
     <div className={styles.info}>

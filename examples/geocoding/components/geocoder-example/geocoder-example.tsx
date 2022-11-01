@@ -47,7 +47,7 @@ const GeocoderExample = () => {
 
   // Run geocoder on click on the map
   useEffect(() => {
-    if (!map || !marker || !infoWindow) {
+    if (!map || !marker || !infoWindow || !geocoder) {
       return () => {};
     }
 
@@ -88,7 +88,7 @@ const GeocoderExample = () => {
     return () => {
       google.maps.event.removeListener(clickListener);
     };
-  }, [map, infoWindow, marker]);
+  }, [map, infoWindow, marker, geocoder]);
 
   return null;
 };
