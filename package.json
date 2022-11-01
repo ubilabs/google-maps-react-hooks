@@ -19,6 +19,8 @@
     "start:distance-matrix-service-example": "EXAMPLE=distance-matrix-service run-p start:library start:example",
     "start:elevation-service-example": "EXAMPLE=elevation-service run-p start:library start:example",
     "start:max-zoom-service-example": "EXAMPLE=max-zoom-service run-p start:library start:example",
+    "start:street-view-panorama-map-example": "EXAMPLE=street-view-panorama-map run-p start:library start:example",
+    "start:street-view-panorama-element-example": "EXAMPLE=street-view-panorama-element run-p start:library start:example",
     "preversion": "echo \"To create a new library version run 'npm version -w library' in the repository root.\""
   },
   "keywords": [
