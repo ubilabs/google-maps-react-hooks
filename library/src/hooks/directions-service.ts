@@ -9,6 +9,7 @@ export interface DirectionsServiceProps {
 
 interface DirectionsServiceHookReturns {
   directionsService: google.maps.DirectionsService | null;
+  directionsRenderer: google.maps.DirectionsRenderer | null;
   findRoute:
     | ((
         request: google.maps.DirectionsRequest
@@ -127,6 +128,7 @@ export const useDirectionsService = (
 
   return {
     directionsService,
+    directionsRenderer,
     findRoute: directionsService && findRoute,
     findAndRenderRoute:
       directionsService && directionsRenderer && findAndRenderRoute,

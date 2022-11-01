@@ -11,11 +11,12 @@ const DirectionsService = () => {
   };
 
   // Use findAndRenderRoute to get directions and render a route to the map
-  const {findAndRenderRoute} = useDirectionsService(directionsOptions);
+  const {findAndRenderRoute, directionsRenderer} =
+    useDirectionsService(directionsOptions);
 
   useEffect(() => {
     if (!findAndRenderRoute) {
-      return;
+      return () => {};
     }
 
     // Form Request to pass to findAndRenderRoute
@@ -38,6 +39,12 @@ const DirectionsService = () => {
       .catch((errorStatus: google.maps.DirectionsStatus) => {
         console.error(errorStatus);
       });
+
+    return () => {
+      if (directionsRenderer) {
+        directionsRenderer.setMap(null);
+      }
+    };
   }, [findAndRenderRoute]);
 
   return null;
