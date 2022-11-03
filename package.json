@@ -12,6 +12,7 @@
     "start:example": "./start-example.sh",
     "start:map-example": "EXAMPLE=map run-p start:library start:example",
     "start:map-with-markers-example": "EXAMPLE=map-with-markers run-p start:library start:example",
+    "start:multiple-maps-example": "EXAMPLE=multiple-maps run-p start:library start:example",
     "start:geocoding-service-example": "EXAMPLE=geocoding-service run-p start:library start:example",
     "start:places-service-example": "EXAMPLE=places-service run-p start:library start:example",
     "start:places-autocomplete-widget-example": "EXAMPLE=places-autocomplete-widget run-p start:library start:example",
