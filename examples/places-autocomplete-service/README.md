@@ -33,6 +33,6 @@ An example can be found in `.env.example`.
 
 The project will start at [localhost:1234](http://localhost:1234) and show a map with an input field and an autocomplete functionality.
 
-![image](https://user-images.githubusercontent.com/39244966/199680012-2d898119-bb87-47e1-862c-cc2766132667.png)
+![image](https://user-images.githubusercontent.com/39244966/199686376-1814625f-ac1d-4955-bdd9-0fd75bf4550d.png)
 
-![image](https://user-images.githubusercontent.com/39244966/199680048-5bf2334f-c30b-42df-a0f3-1e6152d5309a.png)
+![image](https://user-images.githubusercontent.com/39244966/199686400-24e98a25-3ff0-426d-b9dd-274dc36b1765.png)
