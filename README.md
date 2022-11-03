@@ -54,6 +54,13 @@ Start the example locally with the appropriate task, e.g. `npm run start:map-exa
 
 The example runs on [localhost:1234](http://localhost:1234).
 
+### Contribution
+
+We are happy about your contribution. Please checkout the following guide to get started:
+[Contribution Guide](./CONTRIBUTING.md).
+
+Also, make sure to follow our [Coding Conventions](./CONVENTIONS.md) when making commits.
+
 ### Publish library on npm
 
 A new library version is automatically published by Github Actions as soon as a new version tag is available.

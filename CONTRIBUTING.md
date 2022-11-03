@@ -1,7 +1,70 @@
-# Contribution Guidelines
+# Contributing to Ubilabs Google Maps React Hooks
 
-First off, thanks for contributing to this project :tada: :thumbsup:
-Our communications here on GitHub follow certain guidelines. Please observe the points below.
+We are happy you came here and thank you for contributing! 🎉 
+
+To get started there are some things that need to be set up.
+
+----
+
+## Setting Up Dev Environment
+
+We will work on the `develop` branch. 
+
+
+We use [npm](https://www.npmjs.com/) to manage the dependencies.
+
+### Fork the repo and start building
+
+All new features and bug-fixes should be branched off and merged into the `develop` branch.
+
+#### Follow these steps to get started:
+
+1. Fork the repo (click the <kbd>Fork</kbd> button at the top right of [Google Maps React Hooks](https://github.com/ubilabs/google-maps-react-hooks)).
+
+2. Clone your fork locally
+
+```bash
+# In a terminal, cd to parent directory where you want your clone to be, then
+git clone https://github.com/<your_github_username>/google-maps-react-hooks.git
+
+# cd to the google-maps-react-hooks directory
+cd google-maps-react-hooks
+
+# Checkout the develop branch
+git checkout develop
+```
+
+3. At the root directory of the project on the develop branch, install all dependencies and build.
+```bash
+# Install dependencies 
+npm install
+
+# Start the project locally before changing code
+npm run start:library
+```
+
+4. Create a new branch where to make code changes.
+
+```bash
+# Make sure you are on the develop branch
+git checkout develop
+
+# Create a new branch
+git checkout -b feat/my-new-feature-branch
+```
+
+5. To see example cases of the Google Maps react hooks, checkout the [Examples Folder](./examples). To start an example:
+```bash
+# If not done already: Go to 'google-maps-react-hooks' directory and run:
+npm install
+
+# Run an example (look at the different examples for their start scripts):
+npm run start:sample-map
+```
+
+Then open [`localhost:1234`](http://localhost:1234) in a browser.
+
+----
 
 ## Issue Tracker
 
@@ -30,33 +93,9 @@ Our communications here on GitHub follow certain guidelines. Please observe the 
 
 ### Code Style and Code Quality
 
-- JavaScript
+- TypeScript
 
    - [ESLint](https://eslint.org/) configuration files are provided
-
-   - run `npm run lint` to check code style
-
-- CSS
-
-    - CSS code follows [BEM](http://getbem.com/naming/) style
+   - [TypeScript](https://www.typescriptlang.org/) check for types and TypeScript setup
 
 - run `npm run test` before submitting a PR to ensure that your code uses correct style and passes all tests
-
-### Development
-
-To build the examples locally, run:
-
-```
-npm install
-npm start
-```
-
-Then open [`localhost:8000`](http://localhost:8000) in a browser.
-
-### Deployment
-
-To release & deploy, run the following:
-
-```
-npm run release:patch|minor|major
-```
