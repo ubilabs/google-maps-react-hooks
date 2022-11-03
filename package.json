@@ -14,6 +14,7 @@
     "start:map-with-markers-example": "EXAMPLE=map-with-markers run-p start:library start:example",
     "start:geocoding-service-example": "EXAMPLE=geocoding-service run-p start:library start:example",
     "start:places-service-example": "EXAMPLE=places-service run-p start:library start:example",
+    "start:places-service-with-element-example": "EXAMPLE=places-service-with-element run-p start:library start:example",
     "start:places-autocomplete-widget-example": "EXAMPLE=places-autocomplete-widget run-p start:library start:example",
     "start:directions-service-example": "EXAMPLE=directions-service run-p start:library start:example",
     "start:distance-matrix-service-example": "EXAMPLE=distance-matrix-service run-p start:library start:example",
