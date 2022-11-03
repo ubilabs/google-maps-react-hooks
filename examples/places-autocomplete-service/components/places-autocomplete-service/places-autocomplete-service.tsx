@@ -28,7 +28,6 @@ const PlacesAutocompleteService: FunctionComponent<
   const timeout = useRef<NodeJS.Timeout | null>(null);
 
   const [inputValue, setInputValue] = useState<string>('');
-  const [debouncedInputValue, setDebouncedValue] = useState<string>('');
   const [suggestions, setSuggestions] = useState<
     Array<PlacesAutocompleteServiceSuggestion>
   >([]);
@@ -47,11 +46,8 @@ const PlacesAutocompleteService: FunctionComponent<
       clearTimeout(timeout.current);
     }
 
-    // Update debounced value (for search request) after delay
+    // Show dropdown with a little delay
     timeout.current = setTimeout(() => {
-      setDebouncedValue(event.target.value);
-
-      // Show dropdown
       setSuggestionsAreVisible(true);
     }, 300);
   };
@@ -93,10 +89,10 @@ const PlacesAutocompleteService: FunctionComponent<
 
   // Update suggestions and get autocomplete place suggestions
   useEffect(() => {
-    if (debouncedInputValue.length >= 2) {
+    if (inputValue.length >= 2) {
       autocompleteService?.getPlacePredictions(
         {
-          input: debouncedInputValue
+          input: inputValue
         },
         (
           predictions: google.maps.places.AutocompletePrediction[] | null,
