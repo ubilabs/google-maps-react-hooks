@@ -2,17 +2,18 @@ import React, {FunctionComponent, useState, useCallback} from 'react';
 import {GoogleMapsProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
-import DistanceMatrixService from './components/distance-matrix-service/distance-matrix-service';
+import StreetViewPanoramaMap from './components/street-view-panorama-map/street-view-panorama-map';
 
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
 import './main.module.css';
 
 const mapOptions = {
-  center: {lat: 48.8589466, lng: 2.2769956},
-  zoom: 6,
+  center: {lat: 53.5582447, lng: 9.647645},
+  zoom: 12,
   disableDefaultUI: true,
-  zoomControl: true
+  zoomControl: true,
+  streetViewControl: true
 };
 
 const App: FunctionComponent<Record<string, unknown>> = () => {
@@ -29,12 +30,11 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
     <GoogleMapsProvider
       googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
       mapContainer={mapContainer}
-      mapOptions={mapOptions}
-      libraries={['places']}>
+      mapOptions={mapOptions}>
       <React.StrictMode>
         <div id="container">
           <MapCanvas ref={mapRef} />
-          <DistanceMatrixService />
+          <StreetViewPanoramaMap />
         </div>
       </React.StrictMode>
     </GoogleMapsProvider>
