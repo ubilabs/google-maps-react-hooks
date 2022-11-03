@@ -10,7 +10,6 @@ import {
   useGoogleMap,
   usePlacesService
 } from '@ubilabs/google-maps-react-hooks';
-import cx from 'classnames';
 
 import styles from './places-autocomplete-service.module.css';
 
@@ -18,6 +17,8 @@ export interface PlacesAutocompleteServiceSuggestion {
   id: string;
   label: string;
 }
+
+const maxNumberOfSuggestions = 5;
 
 const PlacesAutocompleteService: FunctionComponent<
   Record<string, unknown>
@@ -38,8 +39,6 @@ const PlacesAutocompleteService: FunctionComponent<
   const autocompleteService = useAutocompleteService();
   const placesService = usePlacesService();
 
-  const maxNumberOfSuggestions = 5;
-
   // Update the user input value
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -53,9 +52,7 @@ const PlacesAutocompleteService: FunctionComponent<
       setDebouncedValue(event.target.value);
 
       // Show dropdown
-      if (!suggestionsAreVisible) {
-        setSuggestionsAreVisible(true);
-      }
+      setSuggestionsAreVisible(true);
     }, 300);
   };
 
@@ -96,10 +93,10 @@ const PlacesAutocompleteService: FunctionComponent<
 
   // Update suggestions and get autocomplete place suggestions
   useEffect(() => {
-    if (inputValue.length >= 2) {
+    if (debouncedInputValue.length >= 2) {
       autocompleteService?.getPlacePredictions(
         {
-          input: inputValue
+          input: debouncedInputValue
         },
         (
           predictions: google.maps.places.AutocompletePrediction[] | null,
@@ -132,25 +129,19 @@ const PlacesAutocompleteService: FunctionComponent<
     <>
       <input
         ref={inputRef}
-        className={cx(
-          styles.searchInput,
-          debouncedInputValue.length && styles.expanded
-        )}
+        className={styles.searchInput}
         value={inputValue}
         onChange={handleInputChange}
         autoComplete="off"
         aria-owns="search-suggestions"
-        aria-expanded={debouncedInputValue.length >= 3}
+        aria-expanded={suggestionsAreVisible}
         aria-autocomplete="list"
         role="combobox"
       />
 
       {suggestionsAreVisible && (
         <ul
-          className={cx(
-            styles.suggestions,
-            debouncedInputValue.length && styles.expanded
-          )}
+          className={styles.suggestions}
           id="search-suggestions"
           role="listbox">
           {suggestions.map((suggestion, index) => (
