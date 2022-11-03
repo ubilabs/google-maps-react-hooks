@@ -140,11 +140,11 @@ const PlacesAutocompleteService: FunctionComponent<
           className={styles.suggestions}
           id="search-suggestions"
           role="listbox">
-          {suggestions.map((suggestion, index) => (
+          {suggestions.map(suggestion => (
             <li
               key={suggestion.id}
               onClick={() => selectSuggestion(suggestion)}
-              id={`search-suggestion-${index}`}
+              id={suggestion.id}
               role="option"
               tabIndex={-1}>
               <span>{suggestion.label}</span>
