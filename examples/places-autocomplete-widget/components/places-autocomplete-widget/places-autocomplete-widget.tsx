@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {useAutocomplete, useGoogleMap} from '@ubilabs/google-maps-react-hooks';
 
-import styles from './places-search.module.css';
+import styles from './places-autocomplete-widget.module.css';
 
 const PlacesAutocompleteWidget = () => {
   const map = useGoogleMap();
