@@ -31,6 +31,6 @@ An example can be found in `.env.example`.
 
 ## Output
 
-The project will start at [localhost:1234](http://localhost:1234) and show a basic Google Map.
+The project will start at [localhost:1234](http://localhost:1234) and show multiple Google Map instances.
 
 ![image](https://user-images.githubusercontent.com/12370310/199680106-a523d143-f3e4-43e3-b32f-9e7049c1ac0e.png)
