@@ -57,18 +57,16 @@ export const GoogleMapsProvider: React.FunctionComponent<
   const [isLoadingAPI, setIsLoadingAPI] = useState<boolean>(true);
   const [map, setMap] = useState<google.maps.Map>();
 
-  // Load Google Maps API
+  // Handle Google Maps API loading
   // eslint-disable-next-line complexity
   useEffect(() => {
-    if (typeof google === 'object' && typeof google.maps === 'object') {
+    const apiLoadingFinished = () => {
       setIsLoadingAPI(false);
-      return () => {};
-    }
+      onLoadScript && onLoadScript();
+    };
 
-    const scriptTag = document.createElement('script');
     const defaultLanguage = navigator.language.slice(0, 2);
     const defaultRegion = navigator.language.slice(3, 5);
-
     /* eslint-disable camelcase */
     const params = new URLSearchParams({
       key: googleMapsAPIKey,
@@ -80,13 +78,49 @@ export const GoogleMapsProvider: React.FunctionComponent<
     });
     /* eslint-enable camelcase */
 
-    scriptTag.type = 'text/javascript';
-    scriptTag.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
-    scriptTag.onload = (): void => {
-      setIsLoadingAPI(false);
-      onLoadScript && onLoadScript();
-    };
-    document.getElementsByTagName('head')[0].appendChild(scriptTag);
+    const existingScriptTag: HTMLScriptElement | null = document.querySelector(
+      'script[src^="https://maps.googleapis.com/maps/api/js"]'
+    );
+
+    // Check if Google Maps API was loaded with the passed parameters
+    if (existingScriptTag) {
+      const loadedURL = new URL(existingScriptTag.src);
+      const loadedParams = loadedURL.searchParams.toString();
+      const passedParams = params.toString();
+
+      if (loadedParams !== passedParams) {
+        console.error(
+          'The Google Maps API Parameters passed to the `GoogleMapsProvider` components do not match. The Google Maps API can only be loaded once. Please make sure to pass the same API parameters to all of your `GoogleMapsProvider` components.',
+          '\n\nExpected parameters:',
+          Object.fromEntries(loadedURL.searchParams),
+          '\n\nReceived parameters:',
+          Object.fromEntries(params)
+        );
+      }
+    }
+
+    if (typeof google === 'object' && typeof google.maps === 'object') {
+      // Google Maps API is already loaded
+      apiLoadingFinished();
+    } else if (existingScriptTag) {
+      // Google Maps API is already loading
+      setIsLoadingAPI(true);
+
+      const originalOnload = existingScriptTag.onload;
+      existingScriptTag.onload = event => {
+        originalOnload?.call(existingScriptTag, event);
+        apiLoadingFinished();
+      };
+    } else {
+      // Load Google Maps API
+      setIsLoadingAPI(true);
+
+      const scriptTag = document.createElement('script');
+      scriptTag.type = 'text/javascript';
+      scriptTag.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
+      scriptTag.onload = apiLoadingFinished;
+      document.getElementsByTagName('head')[0].appendChild(scriptTag);
+    }
 
     // Clean up Google Maps API
     return () => {
@@ -138,16 +172,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
         google.maps.event.clearInstanceListeners(newMap);
       }
     };
-  }, [
-    isLoadingAPI,
-    mapContainer,
-    googleMapsAPIKey,
-    JSON.stringify(libraries),
-    language,
-    region,
-    version,
-    authReferrerPolicy
-  ]);
+  }, [isLoadingAPI, mapContainer]);
 
   return (
     <GoogleMapsContext.Provider
