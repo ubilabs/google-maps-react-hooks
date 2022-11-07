@@ -29,6 +29,7 @@ export const usePlacesService = (
       );
     }
 
+    // Check if div element is undefined, in case the div is still null, e.g. not rendered, yet
     if (props?.divElement === undefined) {
       // Wait for map to be initialized
       if (!map) {
