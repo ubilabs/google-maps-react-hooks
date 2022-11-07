@@ -17,6 +17,7 @@
     "start:distance-matrix-service": "EXAMPLE_ENTRY=./distance-matrix-service/index.html npm run start:example",
     "start:elevation-service": "EXAMPLE_ENTRY=./elevation-service/index.html npm run start:example",
     "start:max-zoom-service": "EXAMPLE_ENTRY=./max-zoom-service/index.html npm run start:example",
+    "start:places-autocomplete-service": "EXAMPLE_ENTRY=./places-autocomplete-service/index.html npm run start:example",
     "start:street-view-panorama-map": "EXAMPLE_ENTRY=./street-view-panorama-map/index.html npm run start:example",
     "start:street-view-panorama-element": "EXAMPLE_ENTRY=./street-view-panorama-with-element/index.html npm run start:example",
     "preversion": "echo \"To create a new library version run 'npm version -w library' in the repository root.\""

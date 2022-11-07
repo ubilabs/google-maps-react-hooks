@@ -10,6 +10,14 @@
   "globals": {
     "google": true
   },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.mts", "*.cts", "*.tsx"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
