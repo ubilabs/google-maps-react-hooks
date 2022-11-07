@@ -1,5 +1,7 @@
 import React, {useState, useEffect, PropsWithChildren} from 'react';
 
+const GOOGLE_MAPS_API_URL = 'https://maps.googleapis.com/maps/api/js';
+
 // https://developers.google.com/maps/documentation/javascript/url-params
 export interface GoogleMapsAPIUrlParameters {
   googleMapsAPIKey: string;
@@ -79,7 +81,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
     /* eslint-enable camelcase */
 
     const existingScriptTag: HTMLScriptElement | null = document.querySelector(
-      'script[src^="https://maps.googleapis.com/maps/api/js"]'
+      `script[src^="${GOOGLE_MAPS_API_URL}"]`
     );
 
     // Check if Google Maps API was loaded with the passed parameters
@@ -117,7 +119,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
 
       const scriptTag = document.createElement('script');
       scriptTag.type = 'text/javascript';
-      scriptTag.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
+      scriptTag.src = `${GOOGLE_MAPS_API_URL}?${params.toString()}`;
       scriptTag.onload = apiLoadingFinished;
       document.getElementsByTagName('head')[0].appendChild(scriptTag);
     }
