@@ -19,7 +19,11 @@ export const usePlacesService = (
 
   // Creates a Places Service instance
   useEffect(() => {
-    if (googleMapsAPIIsLoaded && !google.maps.places) {
+    if (!googleMapsAPIIsLoaded) {
+      return;
+    }
+
+    if (!google.maps.places) {
       throw Error(
         "Places library missing. Add 'places' to the libraries array of GoogleMapsProvider."
       );

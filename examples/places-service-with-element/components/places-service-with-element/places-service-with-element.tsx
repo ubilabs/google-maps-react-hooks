@@ -1,18 +1,25 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import {usePlacesService} from '@ubilabs/google-maps-react-hooks';
 
 import styles from './places-service-with-element.module.css';
 
 const PlacesServiceElement = () => {
-  const divRef = useRef<HTMLDivElement>(null);
+  const [divContainer, setDivContainer] = useState<HTMLDivElement | null>(null);
+
+  const divRef = useCallback(
+    (node: React.SetStateAction<HTMLDivElement | null>) => {
+      node && setDivContainer(node);
+    },
+    []
+  );
 
   const [placeResults, setPlaceResults] = useState<
     google.maps.places.PlaceResult[]
   >([]);
 
   // Get the places service from the usePlacesService hook
-  const service = usePlacesService({divElement: divRef.current});
+  const service = usePlacesService({divElement: divContainer});
 
   useEffect(() => {
     if (!service) {
