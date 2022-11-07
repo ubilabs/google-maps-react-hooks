@@ -93,9 +93,10 @@ Then open [`localhost:1234`](http://localhost:1234) in a browser.
 
 ### Code Style and Code Quality
 
-- TypeScript
+- Testing
 
    - [ESLint](https://eslint.org/) configuration files are provided
    - [TypeScript](https://www.typescriptlang.org/) check for types and TypeScript setup
+   - [Prettier](https://prettier.io/) code formatter
 
 - run `npm run test` before submitting a PR to ensure that your code uses correct style and passes all tests
