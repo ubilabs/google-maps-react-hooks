@@ -24,11 +24,18 @@ This is a JavaScript library to easily implement a Google Maps map into your Rea
 - [Examples](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples)
   - [Basic Google Map](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/basic-google-map)
   - [Google Map with Markers](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/google-map-with-markers)
-  - [Directions Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/directions)
-  - [Distance Matrix Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/distance-matrix)
-  - [Geocoding Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/geocoding)
-  - [Places Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/places)
+  - [Multiple Google Maps](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/multiple-google-maps)
+  - [Directions Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/directions-service)
+  - [Distance Matrix Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/distance-matrix-service)
+  - [Elevation Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/elevation-service)
+  - [Geocoding Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/geocoding-service)
+  - [Maximum Zoom Imagery Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/max-zoom-service)
+  - [Places Autocomplete Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/places-autocomplete-service)
   - [Places Autocomplete Widget](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/places-autocomplete-widget)
+  - [Places Service](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/places-service)
+  - [Places Service With Element](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/places-service-with-element)
+  - [Street View Panorama Map](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/street-view-panorama-map)
+  - [Street View Panorama With Element](https://github.com/ubilabs/google-maps-react-hooks/tree/main/examples/street-view-panorama-with-element)
 
 ## Requirements
 
