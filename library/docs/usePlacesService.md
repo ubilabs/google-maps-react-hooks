@@ -50,7 +50,7 @@ const MyComponent = () => {
 
 ## Return value
 
-Returns a [`PlacesService`](google.maps.places.PlacesService) instance to use directly.
+Returns a [`Places Service`](https://developers.google.com/maps/documentation/javascript/reference/places-service) instance to use directly.
 
 ```TypeScript
 google.maps.places.PlacesService
