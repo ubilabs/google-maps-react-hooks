@@ -27,6 +27,9 @@ interface GoogleMapsProviderProps {
 }
 ```
 
+**NOTE**:
+If you want to implement multiple maps in your application you can use multiple `GoogleMapsProvider` components to do so, but you have to pass the same Google Maps API parameters (`googleMapsAPIKey`, `libraries`, `language`, `region`, `version` and `authReferrerPolicy`) to all `GoogleMapsProvider` components.
+
 - - - -
 __googleMapsAPIKey__ (_compulsory property_)
 
