@@ -1,12 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 
-import {useGoogleMap, usePlacesService} from '@ubilabs/google-maps-react-hooks';
+import {usePlaceService} from '@ubilabs/google-maps-react-hooks';
 
 import styles from './places-service-with-element.module.css';
 
 const PlacesServiceElement = () => {
-  const map = useGoogleMap();
-
   const divRef = useRef<HTMLDivElement>(null);
 
   const [placeResults, setPlaceResults] = useState<
@@ -17,7 +15,7 @@ const PlacesServiceElement = () => {
   const service = usePlacesService({divElement: divRef.current});
 
   useEffect(() => {
-    if (!divRef || !service) {
+    if (!service) {
       return;
     }
 
@@ -37,7 +35,7 @@ const PlacesServiceElement = () => {
     }
 
     service.nearbySearch(request, callback);
-  }, [map, Boolean(service)]);
+  }, [Boolean(service)]);
 
   return (
     <>
