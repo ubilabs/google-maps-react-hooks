@@ -11,6 +11,11 @@
   border: 1px solid #F0F0F0;
 }
 
+/* Hide label visually. To use for A11y only. */
+label {
+  z-index: -1000;
+}
+
 .suggestions {
   position: absolute;
   top: 4.25rem;

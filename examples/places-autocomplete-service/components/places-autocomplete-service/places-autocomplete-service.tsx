@@ -123,30 +123,32 @@ const PlacesAutocompleteService: FunctionComponent<
 
   return (
     <>
+      <label htmlFor="places-search-autocomplete">Search for a location:</label>
       <input
         ref={inputRef}
         className={styles.searchInput}
         value={inputValue}
         onChange={handleInputChange}
         autoComplete="off"
-        aria-owns="search-suggestions"
-        aria-expanded={suggestionsAreVisible}
-        aria-autocomplete="list"
         role="combobox"
+        aria-autocomplete="list"
+        aria-controls="search-suggestions"
+        aria-expanded={suggestionsAreVisible}
+        id="places-search-autocomplete"
       />
 
       {suggestionsAreVisible && (
         <ul
           className={styles.suggestions}
           id="search-suggestions"
-          role="listbox">
+          role="listbox"
+          aria-label="Suggested locations:">
           {suggestions.map(suggestion => (
             <li
               key={suggestion.id}
               onClick={() => selectSuggestion(suggestion)}
               id={suggestion.id}
-              role="option"
-              tabIndex={-1}>
+              role="option">
               <span>{suggestion.label}</span>
             </li>
           ))}
