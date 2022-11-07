@@ -125,4 +125,4 @@ Please compare to the other example start tasks.
 
 5. Add a README to each example with an explanation of what the example does, a code snippet and an image of the example app in a ratio of 2:1.
 
-6. Link the example in the root [README](./README.md) in the **Table of contents** in the **Examples** overview.
+6. Link the example in the [root README](./README.md) and the [README of the library workspace](./library/README.md) in the **Examples** overview of the **Table of contents** section.
