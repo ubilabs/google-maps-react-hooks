@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 
-import {usePlaceService} from '@ubilabs/google-maps-react-hooks';
+import {usePlacesService} from '@ubilabs/google-maps-react-hooks';
 
 import styles from './places-service-with-element.module.css';
 
