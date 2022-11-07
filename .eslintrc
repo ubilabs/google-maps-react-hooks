@@ -12,9 +12,9 @@
   },
   "overrides": [
     {
-      "files": "['*.ts', '*.mts', '*.cts', '*.tsx']",
+      "files": ["*.ts", "*.mts", "*.cts", "*.tsx"],
       "rules": {
-        "'no-undef'": "'off'"
+        "no-undef": "off"
       }
     }
   ],
