@@ -18,6 +18,7 @@ const basicMapOptions = {
 
 // The Google Maps API parameters must be the same for all `GoogleMapsProvider` components!
 const googleMapsAPIParameters = {
+  googleMapsAPIKey: GOOGLE_MAPS_API_KEY,
   language: 'it',
   region: 'IT'
 };
@@ -65,7 +66,6 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
   return (
     <div id="grid">
       <GoogleMapsProvider
-        googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
         mapContainer={hamburgMapContainer}
         mapOptions={hamburgMapOptions}
         {...googleMapsAPIParameters}>
@@ -76,7 +76,6 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
       </GoogleMapsProvider>
 
       <GoogleMapsProvider
-        googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
         mapContainer={munichMapContainer}
         mapOptions={munichMapOptions}
         {...googleMapsAPIParameters}>
@@ -87,7 +86,6 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
       </GoogleMapsProvider>
 
       <GoogleMapsProvider
-        googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
         mapContainer={sanFranciscoMapContainer}
         mapOptions={sanFranciscoMapOptions}
         {...googleMapsAPIParameters}>
