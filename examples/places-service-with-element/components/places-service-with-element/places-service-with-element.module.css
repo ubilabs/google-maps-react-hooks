@@ -3,11 +3,11 @@
   flex-direction: column;
   font-family: sans-serif;
   overflow: scroll;
-  max-height: 100vh;
+  height: 100%;
 }
 
 h1 {
-  margin-left: 30px;
+  margin-left: 1.875rem;
 }
 
 .restaurantList {
