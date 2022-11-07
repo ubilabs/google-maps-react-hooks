@@ -80,6 +80,7 @@ Then open [`localhost:1234`](http://localhost:1234) in a browser.
 
 - please contact us privately to discuss security vulnerabilities
 
+----
 
 ## Pull Requests / Merge Requests
 
@@ -100,3 +101,26 @@ Then open [`localhost:1234`](http://localhost:1234) in a browser.
    - [Prettier](https://prettier.io/) code formatter
 
 - run `npm run test` before submitting a PR to ensure that your code uses correct style and passes all tests
+
+----
+
+## Adding An Example
+Each hook should have an example in the examples folder. If you want to provide an example for a hook, please follow these steps:
+
+1. Create a new folder in the [examples folder](./examples) with the name of the hook file.
+
+2. In the folder, create a runnable React App showing the usage of the new hook in a common use case. Checkout the current examples in the [examples folder](./examples) to see how the setup should looks like. The [basic google map example](./examples/basic-google-map/) is always a good starting point.
+
+3. Add a npm task in the [examples workspace package.json](./examples/package.json) with a naming convention like this:
+```json
+"start:example-folder-name": "EXAMPLE_ENTRY=./example-folder-name/index.html npm run start:example"
+```
+Please compare to the other example start tasks.
+
+4. Add another npm task in the root [package.json](./package.json) to start the example, with a naming convention like this:
+```json
+"start:example-folder-name-example": "EXAMPLE=example-folder-name run-p start:library start:example"
+````
+Please compare to the other example start tasks. 
+
+5. Add a README to each example with an explanation of what the example does, a code snippet and an image of the example app in a ratio of 2:1.
