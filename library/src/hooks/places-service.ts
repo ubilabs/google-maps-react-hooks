@@ -25,7 +25,7 @@ export const usePlacesService = (
       );
     }
 
-    if (!props?.divElement) {
+    if (props?.divElement === undefined) {
       // Wait for map to be initialized
       if (!map) {
         return;
@@ -35,6 +35,10 @@ export const usePlacesService = (
       const serviceMap = new google.maps.places.PlacesService(map);
       setPlacesService(serviceMap);
 
+      return;
+    }
+
+    if (!props?.divElement) {
       return;
     }
 
