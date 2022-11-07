@@ -2,11 +2,11 @@ import React, {FunctionComponent, useState, useCallback} from 'react';
 import {GoogleMapsProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
+import PlacesService from './components/places-service/places-service';
 
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 
 import './main.module.css';
-import PlacesService from './components/places-service/places-service';
 
 const mapOptions = {
   center: {lat: 53.5582447, lng: 9.647645},
