@@ -32,4 +32,3 @@ Returns a [`ElevationService`](google.maps.places.ElevationService) instance to 
 ```TypeScript
 google.maps.places.ElevationService
 ```
-

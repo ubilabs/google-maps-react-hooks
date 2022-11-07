@@ -38,6 +38,7 @@ interface DirectionsServiceProps {
 ## Return value
 
 Returns an object with the following elements:
+
 - [`directionsService`](https://developers.google.com/maps/documentation/javascript/reference/directions#DirectionsService) instance
 - [`directionsRenderer`](https://developers.google.com/maps/documentation/javascript/reference/directions#DirectionsRenderer) instance
 - `findRoute` function, which returns a route

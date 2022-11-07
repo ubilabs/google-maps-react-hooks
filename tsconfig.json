@@ -9,7 +9,7 @@
     "jsx": "react",
     "esModuleInterop": true,
     "types": ["node", "googlemaps"],
-    "moduleResolution": "node",
+    "moduleResolution": "node"
   },
   "exclude": ["node_modules"]
 }

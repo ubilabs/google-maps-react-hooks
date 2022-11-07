@@ -10,7 +10,7 @@ First go to the root of the repository and run:
 
 ```shell
 npm install
-````
+```
 
 once to install all dependencies.
 

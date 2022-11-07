@@ -27,19 +27,21 @@ interface GoogleMapsProviderProps {
 }
 ```
 
-- - - -
-__googleMapsAPIKey__ (_compulsory property_)
+---
+
+**googleMapsAPIKey** (_compulsory property_)
 
 The Google Maps JavaScript API Key.
+
 ```Typescript
 googleMapsAPIKey: string;
 ```
 
 See: [Use API Key](https://developers.google.com/maps/documentation/embed/get-api-key)
 
-- - - -
+---
 
-__mapContainer__ (_optional property_)
+**mapContainer** (_optional property_)
 
 A reference to the HTML element that displays the map.
 Usually we do this by adding a `div` element.
@@ -76,9 +78,9 @@ See: [Maps JavaScript API](https://developers.google.com/maps/documentation/java
 
 **NOTE**: Make sure to give your element a height (by default divs usually have no height), otherwise you won't see the map displayed.
 
-- - - -
+---
 
-__mapOptions__ (_optional property_)
+**mapOptions** (_optional property_)
 
 The Google Maps MapOptions.
 
@@ -99,7 +101,7 @@ See: [MapOptions](https://developers.google.com/maps/documentation/javascript/re
 
 **NOTE**: If the `center` and `zoom` options are not provided here, the map will not be displayed until they are set with `map.setCenter(latLng)` and `map.setZoom(zoom)`.
 
-_Example:_ 
+_Example:_
 
 MapOptions can also be set or changed later in another component in the following way:
 
@@ -121,9 +123,9 @@ const map = useGoogleMap();
 map?.setOptions(mapOptions);
 ```
 
-- - - -
+---
 
-__libraries__ (_optional property_)
+**libraries** (_optional property_)
 
 Additional Google Maps libraries to load ('drawing', 'geometry', 'places' or 'visualization').
 
@@ -133,9 +135,9 @@ libraries?: string[];
 
 See: [Libraries](https://developers.google.com/maps/documentation/javascript/libraries)
 
-- - - -
+---
 
-__language__ (_optional property_)
+**language** (_optional property_)
 
 By default Google Maps will use the preferred language from the browser setting. This is the property to set it manually.
 
@@ -145,9 +147,9 @@ language?: string;
 
 See: [Localization](https://developers.google.com/maps/documentation/javascript/localization)
 
-- - - -
+---
 
-__region__ (_optional property_)
+**region** (_optional property_)
 
 By default Google Maps will use the preferred region from the browser setting. This is the property to set it manually.
 
@@ -157,9 +159,9 @@ region?: string;
 
 See: [Localization](https://developers.google.com/maps/documentation/javascript/localization)
 
-- - - -
+---
 
-__version__ (_optional property_)
+**version** (_optional property_)
 
 Use this parameter to specify a Google Maps JavaScript API version.
 
@@ -169,9 +171,9 @@ version?: string;
 
 See: [Versions](https://developers.google.com/maps/documentation/javascript/versions)
 
-- - - -
+---
 
-__authReferrerPolicy__ (_optional property_)
+**authReferrerPolicy** (_optional property_)
 
 Use this parameter to set auth_referrer_policy=origin when an URL on the same origin uses the API Key, to limit the amount of data sent when authorizing requests.
 
@@ -181,9 +183,9 @@ authReferrerPolicy?: string;
 
 See: [auth_referrer_policy](https://developers.google.com/maps/documentation/javascript/url-params)
 
-- - - -
+---
 
-__onLoadScript__ (_optional property_)
+**onLoadScript** (_optional property_)
 
 A callback function that is called, when the Google Maps API is loaded.
 
@@ -196,12 +198,14 @@ _Example:_
 ```tsx
 <GoogleMapsProvider
   googleMapsAPIKey="YOUR API KEY HERE"
-  onLoadScript={() => {console.log(google.maps);}}>
+  onLoadScript={() => {
+    console.log(google.maps);
+  }}>
   ...
 </GoogleMapsProvider>
 ```
 
-__onLoadMap__ (_optional property_)
+**onLoadMap** (_optional property_)
 
 A callback function that is called, when the Google Map map is loaded.
 
@@ -214,7 +218,7 @@ _Example:_
 ```tsx
 <GoogleMapsProvider
   googleMapsAPIKey="YOUR API KEY HERE"
-  onLoadMap={(map) => map.setZoom(4)}>
+  onLoadMap={map => map.setZoom(4)}>
   ...
 </GoogleMapsProvider>
 ```

@@ -1,4 +1,5 @@
 # Google Maps React Hooks
+
 [![npm version](https://img.shields.io/npm/v/@ubilabs/google-maps-react-hooks)](https://www.npmjs.com/package/@ubilabs/google-maps-react-hooks) [![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
 ## Description
@@ -6,6 +7,7 @@
 This is a JavaScript library to easily implement a Google Maps map into your React application. It comes with a collection of React hooks to access the Google Maps map instance all over your components and to use some of the Google Maps [Services](https://developers.google.com/maps/documentation/javascript#services) or [Libraries](https://developers.google.com/maps/documentation/javascript#libraries).
 
 #### Table of contents
+
 - [Google Maps React Hooks Library](./library)
 - [Examples](./examples)
   - [Basic Google Map](./examples/basic-google-map)
