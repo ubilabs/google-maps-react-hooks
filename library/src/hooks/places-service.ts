@@ -36,7 +36,6 @@ export const usePlacesService = (
         return;
       }
 
-      // Create places service and pass map as attrContainer
       const serviceMap = new google.maps.places.PlacesService(map);
       setPlacesService(serviceMap);
 
