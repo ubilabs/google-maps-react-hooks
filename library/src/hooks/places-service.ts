@@ -29,7 +29,7 @@ export const usePlacesService = (
       );
     }
 
-    // Check if div element is undefined, in case the div is still null, e.g. not rendered, yet
+    // Create places service which renders attributions in the map container
     if (props?.divElement === undefined) {
       // Wait for map to be initialized
       if (!map) {
@@ -43,11 +43,12 @@ export const usePlacesService = (
       return;
     }
 
+    // Create places service which renders attributions in the passed div element
+    // Wait for div element to be available
     if (!props?.divElement) {
       return;
     }
 
-    // Create places service and pass HTMLDivElement as attrContainer
     const serviceElement = new google.maps.places.PlacesService(
       props?.divElement
     );
