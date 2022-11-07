@@ -1,6 +1,6 @@
 ## Git Commit Guidelines
 
-These rules are adopted from [the AngularJS commit conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/).
+These rules are adopted from [the AngularJS commit conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/) and the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ### Commit Message Format
 
@@ -62,6 +62,9 @@ Is recommended to be one of the below items. Only **feat** and **fix** show up i
 * **test**: Adding missing tests
 * **chore**: Changes to the build process or auxiliary tools and libraries such as documentation
   generation
+* **build**: Changes that affect the build system or external dependencies
+* **ci**: Changes to our CI configuration files and scripts
+* **perf**: A code change that improves performance
 
 ### Scope
 The scope could be anything specifying place of the commit change. For example `$location`,
