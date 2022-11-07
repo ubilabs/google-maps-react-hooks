@@ -108,9 +108,9 @@ export const GoogleMapsProvider: React.FunctionComponent<
       // Google Maps API is already loading
       setIsLoadingAPI(true);
 
-      const originalOnload = existingScriptTag.onload;
+      const onload = existingScriptTag.onload;
       existingScriptTag.onload = event => {
-        originalOnload?.call(existingScriptTag, event);
+        onload?.call(existingScriptTag, event);
         apiLoadingFinished();
       };
     } else {
