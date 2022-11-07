@@ -24,7 +24,6 @@ const PlacesAutocompleteService: FunctionComponent<
   Record<string, unknown>
 > = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
-  // eslint-disable-next-line no-undef
   const timeout = useRef<NodeJS.Timeout | null>(null);
 
   const [inputValue, setInputValue] = useState<string>('');
