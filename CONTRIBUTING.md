@@ -107,7 +107,7 @@ Then open [`localhost:1234`](http://localhost:1234) in a browser.
 ## Adding An Example
 Each hook should have an example in the examples folder. If you want to provide an example for a hook, please follow these steps:
 
-1. Create a new folder in the [examples folder](./examples) with the name of the hook file.
+1. Create a new folder in the [examples folder](./examples) with the new example's name.
 
 2. In the folder, create a runnable React App showing the usage of the new hook in a common use case. Checkout the current examples in the [examples folder](./examples) to see how the setup should looks like. The [basic google map example](./examples/basic-google-map/) is always a good starting point.
 
