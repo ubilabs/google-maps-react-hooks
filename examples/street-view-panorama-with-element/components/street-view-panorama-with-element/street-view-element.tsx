@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import {
   useGoogleMap,
@@ -8,12 +8,19 @@ import {
 import styles from './street-view-element.module.css';
 
 const StreetViewPanoramaElement = () => {
-  const divRef = useRef<HTMLDivElement>(null);
+  const [divContainer, setDivContainer] = useState<HTMLDivElement | null>(null);
+
+  const divRef = useCallback(
+    (node: React.SetStateAction<HTMLDivElement | null>) => {
+      node && setDivContainer(node);
+    },
+    []
+  );
 
   const map = useGoogleMap();
 
   const panorama = useStreetViewPanorama({
-    divElement: divRef.current,
+    divElement: divContainer,
     position: {lat: 53.55150164023877, lng: 9.986843327204179},
     pov: {heading: 165, pitch: 0},
     zoom: 1
