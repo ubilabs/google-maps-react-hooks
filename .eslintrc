@@ -1,5 +1,11 @@
 {
-  "plugins": ["react", "import", "react-hooks", "@typescript-eslint", "codegen"],
+  "plugins": [
+    "react",
+    "import",
+    "react-hooks",
+    "@typescript-eslint",
+    "codegen"
+  ],
   "extends": ["prettier", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "env": {

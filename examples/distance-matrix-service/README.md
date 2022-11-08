@@ -1,4 +1,4 @@
-#  `useDistanceMatrixService` Hook Setup Example
+# `useDistanceMatrixService` Hook Setup Example
 
 This is an example setup to show the usage of the **useDistanceMatrixService hook** with the Google Maps React Hooks library.
 

@@ -8,7 +8,7 @@
   padding: 0;
   padding-left: 0.5rem;
   font-family: sans-serif;
-  border: 1px solid #F0F0F0;
+  border: 1px solid #f0f0f0;
 }
 
 /* Hide label visually. To use for A11y only. */
@@ -41,7 +41,7 @@ label {
 
 .suggestions > li:hover,
 .suggestions > li:focus-visible {
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
 }
 
 .suggestions > li > span {

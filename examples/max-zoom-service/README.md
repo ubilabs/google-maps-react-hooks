@@ -34,4 +34,3 @@ The project will start at [localhost:1234](http://localhost:1234) and show an in
 ![image](https://user-images.githubusercontent.com/39244966/197749024-734cf2e4-10c9-4433-92b7-f2e1ff88f028.png)
 
 ![image](https://user-images.githubusercontent.com/39244966/197749048-81987dd9-9cbd-49dd-a728-1fe5db2e1516.png)
-

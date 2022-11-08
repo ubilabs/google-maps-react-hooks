@@ -7,25 +7,22 @@ React hook to use the [Google Maps Places Autocomplete Service](https://develope
 When initializing the `<GoogleMapsProvider>`, include the places library like this: `libraries={['places']}`.
 
 ```tsx
-  const autocompleteService = useAutocompleteService();
+const autocompleteService = useAutocompleteService();
 
-  const request = {input: inputValue}; // google.maps.places.AutocompletionRequest
+const request = {input: inputValue}; // google.maps.places.AutocompletionRequest
 
-  autocompleteService?.getPlacePredictions(
-    request,
-    (
-      predictions: google.maps.places.AutocompletePrediction[] | null,
-      status: google.maps.places.PlacesServiceStatus
-    ) => {
-      if (
-        status !== google.maps.places.PlacesServiceStatus.OK ||
-        !predictions
-      ) {
-        return;
-      }
-      // Do something with predictions
+autocompleteService?.getPlacePredictions(
+  request,
+  (
+    predictions: google.maps.places.AutocompletePrediction[] | null,
+    status: google.maps.places.PlacesServiceStatus
+  ) => {
+    if (status !== google.maps.places.PlacesServiceStatus.OK || !predictions) {
+      return;
     }
-  );
+    // Do something with predictions
+  }
+);
 ```
 
 ## Parameters
