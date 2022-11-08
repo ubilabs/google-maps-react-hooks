@@ -47,7 +47,6 @@ const MyComponent = () => {
 };
 ```
 
-
 ## Return value
 
 Returns a [`PlacesService`](google.maps.places.PlacesService) instance to use directly.
