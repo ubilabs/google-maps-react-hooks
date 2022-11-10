@@ -21,7 +21,7 @@ const MyComponent = () => {
 
 ## Return value
 
-Returns a [`DistanceMatrixService`](google.maps.DistanceMatrixService) instance to use directly.
+Returns a [`Distance Matrix Service`](https://developers.google.com/maps/documentation/javascript/distancematrix) instance to use directly.
 
 ```TypeScript
 google.maps.DistanceMatrixService

@@ -51,3 +51,11 @@ interface AutocompleteProps {
   onPlaceChanged: (place: google.maps.places.PlaceResult) => void;
 }
 ```
+
+## Return value
+
+Returns an [`Autocomplete Places Widget`](https://developers.google.com/maps/documentation/javascript/reference/places-widget) instance to use directly.
+
+```TypeScript
+google.maps.places.Autocomplete
+```

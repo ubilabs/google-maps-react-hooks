@@ -27,8 +27,8 @@ const MyComponent = () => {
 
 ## Return value
 
-Returns a [`MaxZoomService`](google.maps.places.MaxZoomService) instance to use directly.
+Returns a [`Max Zoom Service`](https://developers.google.com/maps/documentation/javascript/maxzoom) instance to use directly.
 
 ```TypeScript
-google.maps.places.MaxZoomService
+google.maps.MaxZoomService
 ```

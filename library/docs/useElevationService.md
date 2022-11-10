@@ -27,8 +27,8 @@ const MyComponent = () => {
 
 ## Return value
 
-Returns a [`ElevationService`](google.maps.places.ElevationService) instance to use directly.
+Returns a [`Elevation Service`](https://developers.google.com/maps/documentation/javascript/elevation) instance to use directly.
 
 ```TypeScript
-google.maps.places.ElevationService
+google.maps.ElevationService
 ```
