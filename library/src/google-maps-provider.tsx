@@ -69,6 +69,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
 
     const defaultLanguage = navigator.language.slice(0, 2);
     const defaultRegion = navigator.language.slice(3, 5);
+
     /* eslint-disable camelcase */
     const params = new URLSearchParams({
       key: googleMapsAPIKey,
@@ -152,7 +153,12 @@ export const GoogleMapsProvider: React.FunctionComponent<
   useEffect(() => {
     let newMap: google.maps.Map | undefined;
 
-    if (!isLoadingAPI && mapContainer) {
+    if (
+      !isLoadingAPI &&
+      mapContainer &&
+      typeof google === 'object' &&
+      typeof google.maps === 'object'
+    ) {
       newMap = new google.maps.Map(mapContainer, mapOptions);
 
       google.maps.event.addListenerOnce(newMap, 'idle', () => {
