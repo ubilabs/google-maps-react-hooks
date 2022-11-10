@@ -150,7 +150,6 @@ Please compare to the other example start tasks.
 5. Add a README to each example with an explanation of what the example does, a code snippet and an image of the example app in a ratio of 2:1.
 
 6. Link the example in the [root README](./README.md) and the [README of the library workspace](./library/README.md) in the **Examples** overview of the **Table of contents** section.
-   <<<<<<< HEAD
 
 ---
 
@@ -163,6 +162,4 @@ To trigger a new release, run:
 npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git] -w library
 ```
 
-# **NOTE**: Make sure to not forget setting the context to the library workspace with `-w library` when running the command from project root.
-
-> > > > > > > develop
+**NOTE**: Make sure to not forget setting the context to the library workspace with `-w library` when running the command from project root.
