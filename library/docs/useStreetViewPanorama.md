@@ -3,6 +3,7 @@
 React hook to use the [Street View Panorama](https://developers.google.com/maps/documentation/javascript/streetview) in any component.
 
 ## Usage
+
 The `StreetViewPanorama` can either be used within a DOM element, like a `<div>` element:
 
 ```tsx
@@ -39,7 +40,6 @@ const [divContainer, setDivContainer] = useState<HTMLDivElement | null>(null);
 
 or be created on its own to be used by the map:
 
-
 ```tsx
 import React, {useEffect} from 'react';
 import {
@@ -59,9 +59,9 @@ const MyComponent = () => {
   return null;
 };
 ```
-**NOTE**:
-The map instance is only created and can be used with the `useStreetViewPanorama` hook when the `mapContainer` is passed to the `GoogleMapsProvider`. 
 
+**NOTE**:
+The map instance is only created and can be used with the `useStreetViewPanorama` hook when the `mapContainer` is passed to the `GoogleMapsProvider`.
 
 ## Return value
 
