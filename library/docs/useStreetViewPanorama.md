@@ -39,6 +39,7 @@ const [divContainer, setDivContainer] = useState<HTMLDivElement | null>(null);
 
 or be created on its own to be used by the map:
 
+
 ```tsx
 import React, {useEffect} from 'react';
 import {
@@ -58,6 +59,9 @@ const MyComponent = () => {
   return null;
 };
 ```
+**NOTE**:
+The map instance is only created and can be used with the `useStreetViewPanorama` hook when the `mapContainer` is passed to the `GoogleMapsProvider`. 
+
 
 ## Return value
 
@@ -71,7 +75,7 @@ google.maps.StreetViewPanorama
 
 ### StreetViewPanoramaProps
 
-Optional options that can be passed to display a street view location: [Street View Locations and Point-of-View(POV)](https://developers.google.com/maps/documentation/javascript/streetview#StreetViewLocation).
+Optional options that can be passed to display a street view location: [Street View Locations and Point-of-View (POV)](https://developers.google.com/maps/documentation/javascript/streetview#StreetViewLocation).
 
 ```TypeScript
 interface StreetViewPanoramaProps {
