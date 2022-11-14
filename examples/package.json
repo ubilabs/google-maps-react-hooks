@@ -8,7 +8,7 @@
     "formatter": "prettier --check .",
     "test": "npm run linter && npm run typecheck && npm run formatter",
     "clean-examples": "rm -rf ./public ../.parcel-cache",
-    "start:example": "npm run clean-examples && cross-env $(cat .env) cross-env PARCEL_AUTOINSTALL=false parcel serve $EXAMPLE_ENTRY --dist-dir public --port 1234 --no-cache",
+    "start:example": "npm run clean-examples && cross-env $(cat .env) PARCEL_AUTOINSTALL=false parcel serve $EXAMPLE_ENTRY --dist-dir public --port 1234 --no-cache",
     "start:map": "cross-env EXAMPLE_ENTRY=./basic-google-map/index.html npm run start:example",
     "start:map-with-markers": "cross-env EXAMPLE_ENTRY=./google-map-with-markers/index.html npm run start:example",
     "start:multiple-maps": "cross-env EXAMPLE_ENTRY=./multiple-google-maps/index.html npm run start:example",
