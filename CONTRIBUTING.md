@@ -6,6 +6,20 @@ To get started there are some things that need to be set up.
 
 ---
 
+#### Table of contents
+
+- [Setting Up Dev Environment](#setting-up-dev-environment)
+  - [Fork the repo and start building](#fork-the-repo-and-start-building)
+- [Issue Tracker](#issue-tracker)
+- [Pull Requests / Merge Requests](#pull-requests--merge-requests)
+  - [Code Style and Code Quality](#code-style-and-code-quality)
+- [Adding An Example](#adding-an-example)
+  - [Run examples](#run-examples)
+  - [Develop examples](#develop-examples)
+- [Publish library on npm](#publish-library-on-npm)
+
+---
+
 ## Setting Up Dev Environment
 
 We will work on the `develop` branch.
