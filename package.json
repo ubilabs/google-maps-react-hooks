@@ -8,7 +8,6 @@
   },
   "scripts": {
     "test": "npm run test -ws --if-present",
-    "format-all": "prettier --write .",
     "start:library": "npm start -w library",
     "start:example": "./start-example.sh",
     "start:map-example": "EXAMPLE=map run-p start:library start:example",
