@@ -6,6 +6,20 @@ To get started there are some things that need to be set up.
 
 ---
 
+#### Table of contents
+
+- [Setting Up Dev Environment](#setting-up-dev-environment)
+  - [Fork the repo and start building](#fork-the-repo-and-start-building)
+- [Issue Tracker](#issue-tracker)
+- [Pull Requests / Merge Requests](#pull-requests--merge-requests)
+  - [Code Style and Code Quality](#code-style-and-code-quality)
+- [Adding An Example](#adding-an-example)
+  - [Run examples](#run-examples)
+  - [Develop examples](#develop-examples)
+- [Publish library on npm](#publish-library-on-npm)
+
+---
+
 ## Setting Up Dev Environment
 
 We will work on the `develop` branch.
@@ -87,27 +101,45 @@ Then open [`localhost:1234`](http://localhost:1234) in a browser.
 
 - **IMPORTANT**: by submitting a patch, you agree to allow the project owners to license your work under this [LICENSE.md](LICENSE.md)
 
-- please provide test cases for all features and bug fixes
+  - please provide test cases for all features and bug fixes
 
-- provide documentation for all public API methods
+  - provide documentation for all public API methods
 
-- commit messages should follow the format outlined in [CONVENTIONS.md](CONVENTIONS.md)
+  - commit messages should follow the format outlined in [CONVENTIONS.md](CONVENTIONS.md)
 
 ### Code Style and Code Quality
 
-- Testing
+- **Testing**
 
   - [ESLint](https://eslint.org/) configuration files are provided
   - [TypeScript](https://www.typescriptlang.org/) check for types and TypeScript setup
   - [Prettier](https://prettier.io/) code formatter
 
-- run `npm run test` before submitting a PR to ensure that your code uses correct style and passes all tests
+Run `npm run test` before submitting a PR to ensure that your code uses correct style and passes all tests
 
 ---
 
 ## Adding An Example
 
-Each hook should have an example in the examples folder. If you want to provide an example for a hook, please follow these steps:
+Each hook should have an example in the examples folder.
+
+### Run examples
+
+To develop one of the examples, you have to create a `.env` file in the `/examples` directory first and add your [Google Maps API key](https://developers.google.com/maps/documentation/embed/get-api-key#:~:text=Go%20to%20the%20Google%20Maps%20Platform%20%3E%20Credentials%20page.&text=On%20the%20Credentials%20page%2C%20click,Click%20Close.) to it in the following format:
+
+```
+GOOGLE_MAPS_API_KEY="<YOUR API KEY HERE>"
+```
+
+An example can be found in `/examples/.env.example`.
+
+Start the example locally with the appropriate task, e.g. `npm run start:map-example`. You can find the right task in the README of the example you want to start.
+
+The example runs on [localhost:1234](http://localhost:1234).
+
+### Develop examples
+
+If you want to provide an example for a hook, please follow these steps:
 
 1. Create a new folder in the [examples folder](./examples) with the new example's name.
 
@@ -132,3 +164,16 @@ Please compare to the other example start tasks.
 5. Add a README to each example with an explanation of what the example does, a code snippet and an image of the example app in a ratio of 2:1.
 
 6. Link the example in the [root README](./README.md) and the [README of the library workspace](./library/README.md) in the **Examples** overview of the **Table of contents** section.
+
+---
+
+## Publish library on npm
+
+A new library version is automatically published by Github Actions as soon as a new version tag is available.
+To trigger a new release, run:
+
+```sh
+npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git] -w library
+```
+
+**NOTE**: Make sure to not forget setting the context to the library workspace with `-w library` when running the command from project root.
