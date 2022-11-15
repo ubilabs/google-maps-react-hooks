@@ -69,6 +69,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
 
     const defaultLanguage = navigator.language.slice(0, 2);
     const defaultRegion = navigator.language.slice(3, 5);
+
     /* eslint-disable camelcase */
     const params = new URLSearchParams({
       key: googleMapsAPIKey,
@@ -150,19 +151,24 @@ export const GoogleMapsProvider: React.FunctionComponent<
 
   // Handle Google Maps map instance
   useEffect(() => {
-    let newMap: google.maps.Map | undefined;
-
-    if (!isLoadingAPI && mapContainer) {
-      newMap = new google.maps.Map(mapContainer, mapOptions);
-
-      google.maps.event.addListenerOnce(newMap, 'idle', () => {
-        if (onLoadMap && newMap) {
-          onLoadMap(newMap);
-        }
-      });
-
-      setMap(newMap);
+    // Check for google.maps is needed because of Hot Module Replacement
+    if (
+      isLoadingAPI ||
+      !mapContainer ||
+      !(typeof google === 'object' && typeof google.maps === 'object')
+    ) {
+      return () => {};
     }
+
+    const newMap = new google.maps.Map(mapContainer, mapOptions);
+
+    google.maps.event.addListenerOnce(newMap, 'idle', () => {
+      if (onLoadMap && newMap) {
+        onLoadMap(newMap);
+      }
+    });
+
+    setMap(newMap);
 
     // Remove all map related event listeners
     return () => {
