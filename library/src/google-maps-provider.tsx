@@ -151,7 +151,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
 
   // Handle Google Maps map instance
   useEffect(() => {
-    // Check for google.maps is needed because of Hot Module loading
+    // Check for google.maps is needed because of Hot Module Replacement
     if (
       isLoadingAPI ||
       !mapContainer ||
