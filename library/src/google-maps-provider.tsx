@@ -151,24 +151,24 @@ export const GoogleMapsProvider: React.FunctionComponent<
 
   // Handle Google Maps map instance
   useEffect(() => {
-    let newMap: google.maps.Map | undefined;
-
+    // Check for google.maps is needed because of Hot Module loading
     if (
-      !isLoadingAPI &&
-      mapContainer &&
-      typeof google === 'object' &&
-      typeof google.maps === 'object'
+      isLoadingAPI ||
+      !mapContainer ||
+      !(typeof google === 'object' && typeof google.maps === 'object')
     ) {
-      newMap = new google.maps.Map(mapContainer, mapOptions);
-
-      google.maps.event.addListenerOnce(newMap, 'idle', () => {
-        if (onLoadMap && newMap) {
-          onLoadMap(newMap);
-        }
-      });
-
-      setMap(newMap);
+      return () => {};
     }
+
+    const newMap = new google.maps.Map(mapContainer, mapOptions);
+
+    google.maps.event.addListenerOnce(newMap, 'idle', () => {
+      if (onLoadMap && newMap) {
+        onLoadMap(newMap);
+      }
+    });
+
+    setMap(newMap);
 
     // Remove all map related event listeners
     return () => {
