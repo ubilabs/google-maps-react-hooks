@@ -1,0 +1,17 @@
+html,
+body,
+:global(#app),
+:global(#container) {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+:global(#grid) {
+  display: grid;
+  grid-template-columns: repeat(3, calc(100% / 3));
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,9 @@
+.pano {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(229, 227, 223);
+  overflow: hidden;
+}

@@ -1,4 +1,4 @@
-# Google Maps With Markers Setup Example
+# Google Map With Markers Setup Example
 
 This is an example setup to show a **Google Map with markers** with the Google Maps React Hooks library.
 
@@ -17,15 +17,20 @@ once to install all dependencies.
 Then start this example locally with
 
 ```shell
-npm run start:map-with-markers
+npm run start:map-with-markers-example
 ```
 
 **NOTE**:
 To see the examples it is needed to add an `.env` file with a [Google Maps API key](https://developers.google.com/maps/documentation/embed/get-api-key#:~:text=Go%20to%20the%20Google%20Maps%20Platform%20%3E%20Credentials%20page.&text=On%20the%20Credentials%20page%2C%20click,Click%20Close.) in the following format:
 
-`GOOGLE_MAPS_API_KEY="<YOUR API KEY HERE>"`
+```
+GOOGLE_MAPS_API_KEY="<YOUR API KEY HERE>"
+```
 
 An example can be found in `.env.example`.
+
+**NOTE FOR WINDOWS USERS**:
+We are using [cross-env](https://github.com/kentcdodds/cross-env) for environment variables to work on all platforms. There is an issue that `npm` uses `cmd` by default. The workaround is to add `script-shell` to `powershell` in your `.npmrc`. Please follow [this setup](https://github.com/kentcdodds/cross-env/issues/192#issuecomment-513341729) to make it work.
 
 ## Output
 

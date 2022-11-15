@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  overflow: scroll;
+  height: 100%;
+}
+
+h1 {
+  margin-left: 1.875rem;
+}
+
+.restaurantList {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.restaurantList li {
+  border: 2px solid turquoise;
+  width: 12.5rem;
+  height: 9.375rem;
+  padding: 0.625rem;
+  margin: 1.25rem;
+}

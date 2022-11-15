@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useCallback} from 'react';
-import {GoogleMapProvider} from '@ubilabs/google-maps-react-hooks';
+import {GoogleMapsProvider} from '@ubilabs/google-maps-react-hooks';
 
 import MapCanvas from './components/map-canvas/map-canvas';
 import MapMarkers from './components/map-markers/map-markers';
@@ -29,18 +29,17 @@ const App: FunctionComponent<Record<string, unknown>> = () => {
   );
 
   return (
-    <React.StrictMode>
-      <GoogleMapProvider
-        googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
-        mapContainer={mapContainer}
-        options={mapOptions}
-      >
+    <GoogleMapsProvider
+      googleMapsAPIKey={GOOGLE_MAPS_API_KEY}
+      mapContainer={mapContainer}
+      mapOptions={mapOptions}>
+      <React.StrictMode>
         <div id="container">
           <MapCanvas ref={mapRef} />
           <MapMarkers />
         </div>
-      </GoogleMapProvider>
-    </React.StrictMode>
+      </React.StrictMode>
+    </GoogleMapsProvider>
   );
 };
 
