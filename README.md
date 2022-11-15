@@ -31,6 +31,9 @@ You need to have React [16.8.0](https://reactjs.org/blog/2019/02/06/react-v16.8.
 npm install @ubilabs/google-maps-react-hooks -D
 ```
 
+**NOTE FOR WINDOWS USERS**:
+We are using [cross-env](https://github.com/kentcdodds/cross-env) for environment variables to work on all platforms. There is an issue that `npm` uses `cmd` by default. The workaround is to add `script-shell` to `powershell` in your `.npmrc`. Please follow [this setup](https://github.com/kentcdodds/cross-env/issues/192#issuecomment-513341729) to make it work.
+
 ## Library
 
 The full Google Maps React Hooks library can be found in the [library directory](./library).
