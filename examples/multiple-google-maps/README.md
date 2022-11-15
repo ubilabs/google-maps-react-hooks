@@ -29,6 +29,9 @@ GOOGLE_MAPS_API_KEY="<YOUR API KEY HERE>"
 
 An example can be found in `.env.example`.
 
+**NOTE FOR WINDOWS USERS**:
+We are using [cross-env](https://github.com/kentcdodds/cross-env) for environment variables to work on all platforms. There is an issue that `npm` uses `cmd` by default. The workaround is to add `script-shell` to `powershell` in your `.npmrc`. Please follow [this setup](https://github.com/kentcdodds/cross-env/issues/192#issuecomment-513341729) to make it work.
+
 ## Output
 
 The project will start at [localhost:1234](http://localhost:1234) and show multiple Google Map instances.
