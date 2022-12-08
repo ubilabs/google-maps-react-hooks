@@ -1,4 +1,4 @@
-declare module 'googlemaps';
+declare module 'google.maps';
 
 /* eslint-disable init-declarations */
 declare module '*.module.css' {
