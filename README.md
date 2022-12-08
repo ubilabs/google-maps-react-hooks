@@ -94,7 +94,7 @@ const MyComponent = () => {
 
 ## Hooks
 
-All hooks can be find [here](./library/src/hooks/). Please checkout the [documentation](./library/docs) for each hook and have a look at the [examples directory](./examples) to see how each hook can be implemented.
+All hooks can be found [here](./library/src/hooks/). Please checkout the [documentation](./library/docs) for each hook and have a look at the [examples directory](./examples) to see how each hook can be implemented.
 
 ### Hooks Overview
 
