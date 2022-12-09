@@ -29,6 +29,13 @@ export interface GoogleMapsContextType {
   map?: google.maps.Map;
 }
 
+// Declare global maps callback function
+declare global {
+  interface Window {
+    mapsCallback: () => void;
+  }
+}
+
 /**
  * The Google Maps context
  */
@@ -76,7 +83,7 @@ export const GoogleMapsProvider: React.FunctionComponent<
       language: language || defaultLanguage,
       region: region || defaultRegion,
       ...(libraries?.length && {libraries: libraries.join(',')}),
-      ...(version && {version}),
+      ...(version && {v: version}),
       ...(authReferrerPolicy && {auth_referrer_policy: authReferrerPolicy})
     });
     /* eslint-enable camelcase */
@@ -118,10 +125,16 @@ export const GoogleMapsProvider: React.FunctionComponent<
       // Load Google Maps API
       setIsLoadingAPI(true);
 
+      // Add google maps callback
+      window.mapsCallback = () => {
+        apiLoadingFinished();
+      };
+
+      params.set('callback', 'mapsCallback');
+
       const scriptTag = document.createElement('script');
       scriptTag.type = 'text/javascript';
       scriptTag.src = `${GOOGLE_MAPS_API_URL}?${params.toString()}`;
-      scriptTag.onload = apiLoadingFinished;
       document.getElementsByTagName('head')[0].appendChild(scriptTag);
     }
 
