@@ -33,12 +33,16 @@ const PlacesServiceElement = () => {
     };
 
     function callback(
-      results: google.maps.places.PlaceResult[],
+      results: google.maps.places.PlaceResult[] | null,
       status: google.maps.places.PlacesServiceStatus
     ) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        setPlaceResults(results);
+      if (status !== google.maps.places.PlacesServiceStatus.OK || !results) {
+        console.error(status);
+
+        return;
       }
+
+      setPlaceResults(results);
     }
 
     service.nearbySearch(request, callback);
@@ -50,7 +54,7 @@ const PlacesServiceElement = () => {
         <h1>Amazing restaurants in Istanbul</h1>
         <ul className={styles.restaurantList}>
           {placeResults.map((place, index) => {
-            const name = place.name;
+            const name = place.name || 'N/A';
             const rating = place.rating || 'N/A';
 
             return (

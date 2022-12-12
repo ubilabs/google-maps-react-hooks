@@ -63,25 +63,30 @@ const GeocodingService = () => {
         geocoder?.geocode(
           {location: mapsMouseEvent.latLng},
           (
-            results: google.maps.GeocoderResult[],
+            results: google.maps.GeocoderResult[] | null,
             status: google.maps.GeocoderStatus
           ) => {
-            if (status === 'OK') {
-              const position = results[0].geometry.location;
-              const formattedAddress = results[0].formatted_address;
-
-              marker.setPosition(position);
-
-              infoWindow.setPosition(position);
-              infoWindow.setContent(formattedAddress);
-
-              map.setCenter(results[0].geometry.location);
-            } else {
-              // eslint-disable-next-line no-console
-              console.log(
-                `Geocode was not successful for the following reason: ${status}`
+            if (status !== 'OK' || !results) {
+              console.error(
+                `Geocoding was not successful for the following reason: ${status}`
               );
+
+              return;
             }
+
+            const position = results[0].geometry.location;
+            const formattedAddress = results[0].formatted_address;
+
+            if (!position || !formattedAddress) {
+              return;
+            }
+
+            marker.setPosition(position);
+
+            infoWindow.setPosition(position);
+            infoWindow.setContent(formattedAddress);
+
+            map.setCenter(results[0].geometry.location);
           }
         );
       }

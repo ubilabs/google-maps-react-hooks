@@ -24,37 +24,41 @@ const PlacesService = () => {
     };
 
     function callback(
-      results: google.maps.places.PlaceResult[],
+      results: google.maps.places.PlaceResult[] | null,
       status: google.maps.places.PlacesServiceStatus
     ) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let index = 0; index < results.length; index++) {
-          const name = results[index].name;
-          const position = results[index].geometry?.location;
-          const openingHours = results[index].opening_hours;
+      if (status !== google.maps.places.PlacesServiceStatus.OK || !results) {
+        console.error(status);
 
-          const isOpenStatus = openingHours ? 'open' : 'closed';
+        return;
+      }
 
-          if (!map || !position) {
-            return;
-          }
+      for (let index = 0; index < results.length; index++) {
+        const name = results[index].name;
+        const position = results[index].geometry?.location;
+        const openingHours = results[index].opening_hours;
 
-          const marker = new google.maps.Marker({
-            map,
-            position
-          });
+        const isOpenStatus = openingHours ? 'open' : 'closed';
 
-          markers.push(marker);
-
-          map.fitBounds(bounds.extend(position));
-
-          const infowindow = new google.maps.InfoWindow({
-            position,
-            content: `<b>${name}</b> is ${isOpenStatus}`
-          });
-
-          infowindow.open(map, marker);
+        if (!map || !position) {
+          return;
         }
+
+        const marker = new google.maps.Marker({
+          map,
+          position
+        });
+
+        markers.push(marker);
+
+        map.fitBounds(bounds.extend(position));
+
+        const infowindow = new google.maps.InfoWindow({
+          position,
+          content: `<b>${name}</b> is ${isOpenStatus}`
+        });
+
+        infowindow.open(map, marker);
       }
     }
 
