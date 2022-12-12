@@ -63,6 +63,10 @@ const DistanceMatrixService = () => {
 
     // Get distance matrix response
     service.getDistanceMatrix(request, response => {
+      if (!response) {
+        return;
+      }
+
       const origins: Array<string> = response.originAddresses;
       const destinations: Array<string> = response.destinationAddresses;
       const responseElements = response.rows[0].elements;
@@ -72,6 +76,10 @@ const DistanceMatrixService = () => {
 
       // Geocode the response to set a marker at the positions of the origin and the destinations
       geocoder.geocode({address: origins[0]}, results => {
+        if (!results) {
+          return;
+        }
+
         const position = results[0]?.geometry.location;
 
         // Add another marker icon for the origin
@@ -82,6 +90,10 @@ const DistanceMatrixService = () => {
 
       destinations.forEach(destination => {
         geocoder.geocode({address: destination}, results => {
+          if (!results) {
+            return;
+          }
+
           const position = results[0]?.geometry.location;
 
           createMarker(position);

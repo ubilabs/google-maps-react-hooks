@@ -31,8 +31,14 @@ const MaxZoomService = () => {
 
     // Function to show the maximum zoom level of a location
     const showMaxZoomLevel = (event: google.maps.MapMouseEvent) => {
+      const {latLng} = event;
+
+      if (!latLng) {
+        return;
+      }
+
       maxZoomService.getMaxZoomAtLatLng(
-        event.latLng,
+        latLng,
         (result: google.maps.MaxZoomResult) => {
           if (result.status !== 'OK') {
             // eslint-disable-next-line no-console
