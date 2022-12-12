@@ -31,20 +31,41 @@ const ElevationService = () => {
     const clickListener = map.addListener(
       'click',
       (mapsMouseEvent: google.maps.MapMouseEvent) => {
+        const {latLng} = mapsMouseEvent;
+
+        if (!latLng) {
+          return;
+        }
+
         // Update infowindow with new position and elevation info
-        infoWindow.setPosition(mapsMouseEvent.latLng);
+        infoWindow.setPosition(latLng);
 
         // Retrieve elevation info from elevator
         elevator.getElevationForLocations(
-          {locations: [mapsMouseEvent.latLng]},
-          (results: google.maps.ElevationResult[]) => {
+          {locations: [latLng]},
+          (
+            results: google.maps.ElevationResult[] | null,
+            status: google.maps.ElevationStatus
+          ) => {
+            if (status !== google.maps.ElevationStatus.OK || !results) {
+              console.error(status);
+
+              return;
+            }
+
+            const {location, elevation} = results[0];
+
+            if (!location || !elevation) {
+              return;
+            }
+
             // eslint-disable-next-line no-console
             console.log(results);
 
-            map.setCenter(results[0].location);
+            map.setCenter(location);
 
-            infoWindow.setPosition(results[0].location);
-            infoWindow.setContent(`Elevation: ${results[0].elevation}`);
+            infoWindow.setPosition(location);
+            infoWindow.setContent(`Elevation: ${elevation}`);
           }
         );
       }

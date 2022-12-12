@@ -1,3 +1,12 @@
+## [2.0.2](https://github.com/ubilabs/google-maps-react-hooks/compare/v2.0.1...v2.0.2) (2022-12-12)
+
+
+### Bug Fixes
+
+* **examples:** update types ([e79a89e](https://github.com/ubilabs/google-maps-react-hooks/commit/e79a89e4ef27701e91e865afd0bc65dc724cbb1b))
+
+
+
 ## [2.0.1](https://github.com/ubilabs/google-maps-react-hooks/compare/v2.0.0...v2.0.1) (2022-12-09)
 
 

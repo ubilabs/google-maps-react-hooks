@@ -76,13 +76,13 @@ export const useDirectionsService = (
           directionsService.route(
             request,
             (
-              result: google.maps.DirectionsResult,
+              result: google.maps.DirectionsResult | null,
               status: google.maps.DirectionsStatus
             ): void => {
-              if (status === google.maps.DirectionsStatus.OK) {
-                resolve(result);
-              } else {
+              if (status !== google.maps.DirectionsStatus.OK || !result) {
                 reject(status);
+              } else {
+                resolve(result);
               }
             }
           );
@@ -101,16 +101,17 @@ export const useDirectionsService = (
           directionsService.route(
             request,
             (
-              result: google.maps.DirectionsResult,
+              result: google.maps.DirectionsResult | null,
               status: google.maps.DirectionsStatus
             ): void => {
-              if (status === google.maps.DirectionsStatus.OK) {
+              if (status !== google.maps.DirectionsStatus.OK || !result) {
+                reject(status);
+              } else {
                 if (directionsRenderer) {
                   directionsRenderer.setDirections(result);
                 }
+
                 resolve(result);
-              } else {
-                reject(status);
               }
             }
           );

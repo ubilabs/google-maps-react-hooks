@@ -16,7 +16,15 @@ const PlacesAutocompleteWidget = () => {
   const onPlaceChanged = (place: google.maps.places.PlaceResult) => {
     if (place) {
       setSelectedPlace(place);
-      setInputValue(place.formatted_address || place.name);
+
+      const formattedAddress = place.formatted_address;
+      const {name} = place;
+
+      if (!formattedAddress || !name) {
+        return;
+      }
+
+      setInputValue(formattedAddress || name);
 
       // Keep focus on input element
       inputRef.current?.focus();
