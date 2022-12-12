@@ -1,4 +1,4 @@
-# [2.0.0](https://github.com/ubilabs/google-maps-react-hooks/compare/v1.6.2...v2.0.0) (2022-11-15)
+## [2.0.1](https://github.com/ubilabs/google-maps-react-hooks/compare/v2.0.0...v2.0.1) (2022-12-09)
 
 
 ### Bug Fixes
@@ -9,6 +9,7 @@
 * **distance-matrix:** types were missing ([68ecb32](https://github.com/ubilabs/google-maps-react-hooks/commit/68ecb325ca6ab5ff9d655cb52cd24abdeba05d56))
 * **elevation:** check for elevator ([64e278e](https://github.com/ubilabs/google-maps-react-hooks/commit/64e278e8ccdd464beb188d2e845e80552cfc406e))
 * **examples:** stop rendering GoogleMapsProvider twice because of strict mode ([3cecd10](https://github.com/ubilabs/google-maps-react-hooks/commit/3cecd10c12644af888e139819eca463eece31c8a))
+* **google-maps-provider:** fixes advanced markers break map loading ([6bb30e7](https://github.com/ubilabs/google-maps-react-hooks/commit/6bb30e7a8e7e7c54cb0b5cc7720ef36daf2e7d7d))
 * **google-maps-provider:** quick fix google maps check ([ce6ee04](https://github.com/ubilabs/google-maps-react-hooks/commit/ce6ee0404cd505253f201cab75a65ba4af776ef1))
 * **map-clean-up:** clean up map instance and scripts correctly ([eb93d71](https://github.com/ubilabs/google-maps-react-hooks/commit/eb93d712090696a51de874f36bb32ddc58dfee72))
 * **map-clean-up:** make sure Google Maps script is added only once ([40d56da](https://github.com/ubilabs/google-maps-react-hooks/commit/40d56da6e5113bed43a94e84137df036402f4437))
