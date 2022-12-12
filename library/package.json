@@ -1,6 +1,6 @@
 {
   "name": "@ubilabs/google-maps-react-hooks",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "React hooks and map context provider for Google Maps",
   "source": "src/index.ts",
   "main": "dist/index.umd.js",
