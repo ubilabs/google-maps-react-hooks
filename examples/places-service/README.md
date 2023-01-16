@@ -36,4 +36,4 @@ We are using [cross-env](https://github.com/kentcdodds/cross-env) for environmen
 
 The project will start at [localhost:1234](http://localhost:1234) and show a Google Map that highlights all nearby Cafes to the central station in Hamburg, and their opening hours. Information is retrieved from Places Service.
 
-![image](https://user-images.githubusercontent.com/39244966/196244324-8d761a8f-25d1-4e87-adb3-9d0d66f97b66.png)
+![image](https://user-images.githubusercontent.com/39244966/212645480-54cb939d-5caa-4c57-9f26-bcfbe6f652c0.png)
