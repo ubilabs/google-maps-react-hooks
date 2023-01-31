@@ -67,19 +67,17 @@ export class GoogleMapsApiLoader {
     // if parameters did change, and we already loaded the API, we need
     // to unload it first.
     if (this.loadPromise) {
-      // FIXME: in this case, we might want to report an error if we're not
-      //  already unloading, since that would only be the case if the loader
-      //  is taked with loading multiple instances of the API with different
-      //  parameters.
+      if (this.loadingState >= LoadingState.LOADING) {
+        // unloading hasn't started yet; this can only be the case if the loader
+        // was called with different parameters for multiple provider instances
+        console.error(
+          'The Google Maps API Parameters passed to the `GoogleMapsProvider` ' +
+            'components do not match. The Google Maps API can only be loaded ' +
+            'once. Please make sure to pass the same API parameters to all ' +
+            'of your `GoogleMapsProvider` components.'
+        );
+      }
 
-      // if (this.loadingState >= LoadingState.LOADING) {
-      //   console.error(
-      //     'The Google Maps API Parameters passed to the `GoogleMapsProvider` ' +
-      //       'components do not match. The Google Maps API can only be loaded ' +
-      //       'once. Please make sure to pass the same API parameters to all ' +
-      //       'of your `GoogleMapsProvider` components.'
-      //   );
-      // }
       console.debug(
         'api-loader: was already loaded with other params, unload first'
       );
