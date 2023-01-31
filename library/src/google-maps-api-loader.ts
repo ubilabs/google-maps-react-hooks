@@ -20,7 +20,7 @@ const enum LoadingState {
 /**
  * Temporary document used to abort in-flight scripts.
  * The only way we found so far to stop a script that is already in
- * preparation from executing is
+ * preparation from executing is to adopt it into a different document.
  */
 const tmpDoc = new DOMParser().parseFromString('<html></html>', 'text/html');
 
