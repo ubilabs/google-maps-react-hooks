@@ -68,7 +68,7 @@ function App() {
       mapContainer={mapContainer}
       mapOptions={mapOptions}>
       <React.StrictMode>
-        <div ref={ref} style={{height: '100%'}} />
+        <div ref={ref} style={{height: '100vh'}} />
       </React.StrictMode>
     </GoogleMapsProvider>
   );
